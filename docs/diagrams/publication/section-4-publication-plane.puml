@@ -1,0 +1,17 @@
+@startuml section-4-publication-plane
+' Source: FND-ES-000 section 4
+' Title: GitHub as semantic publication plane
+' Captures: Discover ;;; Understand ;;; Reference ;;; Consume.
+
+skinparam defaultFontName "Helvetica"
+skinparam ActivityBackgroundColor #F5F5F5
+skinparam ActivityBorderColor #333333
+skinparam ArrowColor #555555
+
+(*) --> "DISCOVER\n(public org profile, repo index)"
+--> "UNDERSTAND\n(human-readable docs + diagrams)"
+--> "REFERENCE\n(stable semantic IDs, mappings)"
+--> "CONSUME\n(machine API, releases)"
+--> (*)
+
+@enduml

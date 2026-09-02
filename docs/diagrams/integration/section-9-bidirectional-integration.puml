@@ -1,0 +1,27 @@
+@startuml section-9-bidirectional-integration
+' Source: FND-ES-000 section 9
+' Title: Bi-directional integration
+' Captures: WSF <;;> Enterprise Semantics <;;> OpenDEA, with mapping
+' assertions carrying semantics in each direction.
+
+skinparam defaultFontName "Helvetica"
+skinparam componentStyle rectangle
+skinparam ArrowColor #555555
+
+cloud "WSF" as wsf
+cloud "Enterprise Semantics" as es
+cloud "OpenDEA" as opendea
+
+wsf      <;;> es        : "grounded-by\naligned-with\nspecializes\nreferences"
+es       <;;> opendea   : "maps-to\nrepresented-by\nspecializes\nprofile-of"
+
+note right of es
+  Bi-directional integration
+  does NOT require runtime
+  coupling initially ;;; start
+  with stable IDs, mapping
+  files, versioned releases,
+  GitHub API, CI.
+end note
+
+@enduml

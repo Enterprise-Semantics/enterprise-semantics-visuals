@@ -1,0 +1,29 @@
+@startuml section-6-structured-source
+' Source: FND-ES-000 section 6
+' Title: Structured semantic source ;;; generation ;;; CI gate
+
+skinparam componentStyle rectangle
+skinparam defaultFontName "Helvetica"
+
+component "Structured Semantic Source\n(YAML / JSON)" as src
+component "Validation\n(schema, conformance)" as val
+component "Generation" as gen
+component "Markdown\nDocs" as md
+component "PlantUML\nDiagrams" as puml
+component "JSON / YAML\nAPI Artifacts" as api
+component "Relational /\nGraph" as rel
+component "CI Gate" as ci
+
+src  --> val
+src  --> gen
+gen  --> md
+gen  --> puml
+gen  --> api
+gen  --> rel
+val  --> ci
+md   --> ci
+puml --> ci
+api  --> ci
+rel  --> ci
+
+@enduml

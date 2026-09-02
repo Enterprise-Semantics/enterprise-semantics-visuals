@@ -1,0 +1,22 @@
+@startuml section-25-architectural-outcome
+' Source: FND-ES-000 section 25
+' Title: Principal architectural outcome
+' Captures: WSF ;; ENTERPRISE SEMANTICS (Research / Concepts / Mappings) ;; OpenDEA ;; DEA Catalogs
+
+skinparam componentStyle rectangle
+skinparam defaultFontName "Helvetica"
+
+component "WSF" as wsf
+component "ENTERPRISE SEMANTICS" as es {
+  component "Research" as research
+  component "Concepts" as concepts
+  component "Mappings" as mappings
+}
+component "OpenDEA" as opendea
+component "DEA Catalogs" as catalogs
+
+wsf        -[#1F77B4]-> es            : "grounding"
+es         -[#FF7F0E]-> opendea       : "formalization"
+opendea    -[#2CA02C]-> catalogs      : "instances"
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml section-3-architecture
+' Source: FND-ES-000 section 3
+' Title: Semantic architecture stack
+' Captures: WSF (foundation), Enterprise Semantics (governed layer),
+' OpenDEA (metamodel), DEA Catalogs (instances). Arrows are reference,
+' specialization, alignment, mapping ;;; not ownership transfer.
+
+skinparam componentStyle rectangle
+skinparam defaultFontName "Helvetica"
+skinparam component {
+  BackgroundColor<<wsf>>      #E8F4FF
+  BackgroundColor<<es>>       #FFF4E8
+  BackgroundColor<<opendea>>  #E8FFE8
+  BackgroundColor<<catalog>>  #FFE8E8
+  BorderColor #333333
+}
+
+component "WSF\nFoundational Semantics" as wsf <<wsf>>
+component "ENTERPRISE SEMANTICS\nConcepts / Definitions /\nRelationships / Profiles /\nMappings / Provenance" as es <<es>>
+component "OpenDEA\nMetamodel" as opendea <<opendea>>
+component "DEA Catalogs\nCatalog instances" as catalog <<catalog>>
+
+wsf       -[#1F77B4]-> es       : "grounding"
+es        -[#FF7F0E]-> opendea  : "reference / mapping / specialization"
+opendea   -[#2CA02C]-> catalog  : "instances"
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml section-11-open-by-default
+' Source: FND-ES-000 section 11
+' Title: Open by default
+
+skinparam defaultFontName "Helvetica"
+skinparam componentStyle rectangle
+
+component "Public Repository" as r1
+component "Public Documentation" as r2
+component "Public Semantic Files" as r3
+component "Public Releases" as r4
+component "Public Change History" as r5
+component "Public Mappings" as r6
+component "Public Examples" as r7
+
+@enduml
