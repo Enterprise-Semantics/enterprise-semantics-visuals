@@ -1,0 +1,81 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Value Stream vs Autonomous Value Stream comparison
+'
+' Per CR-ES-009 §23 + ADR-ES-009 §3 + §13.
+' Depicts the classical value-realization journey alongside the
+' autonomous value-realization journey to make clear that autonomous
+' value realization adds decision ;; coordination ;; action ;; adaptation
+' autonomy within authority at the value-realization boundary.
+
+@startuml value-stream-vs-autonomous-value-stream
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Value Stream vs Autonomous Value Stream
+
+' Classic Value Stream column
+
+package "Classic Value Stream" #F0FFF0 {
+    rectangle "Need" as cv_need #E0FFE0
+    rectangle "Value Stage" as cv_stage1 #F0FFF0
+    rectangle "Value Stage" as cv_stage2 #F0FFF0
+    rectangle "Value Stage" as cv_stage3 #F0FFF0
+    rectangle "Stakeholder Outcome" as cv_outcome #E0FFE0
+
+    cv_need --> cv_stage1
+    cv_stage1 --> cv_stage2
+    cv_stage2 --> cv_stage3
+    cv_stage3 --> cv_outcome
+}
+
+note bottom of "Classic Value Stream"
+  Per ADR-ES-003 + CR-ES-003 ;;
+  Value Stream = end-to-end
+  value-realization journey ;;
+  established v0.2.0.
+end note
+
+' Autonomous Value Stream column
+
+package "Autonomous Value Stream" #FFE4B5 {
+    rectangle "Need" as av_need #E0FFE0
+    rectangle "Value Stage" as av_stage1 #FFE4B5
+    rectangle "Autonomous\nDecision /\nCoordination" as av_adc #FFE4B5
+    rectangle "Value Stage" as av_stage2 #FFE4B5
+    rectangle "Autonomous\nAdaptation" as av_aa #FFE4B5
+    rectangle "Value Stage" as av_stage3 #FFE4B5
+    rectangle "Stakeholder Outcome" as av_outcome #E0FFE0
+
+    av_need --> av_stage1
+    av_stage1 --> av_adc
+    av_adc --> av_stage2
+    av_stage2 --> av_aa
+    av_aa --> av_stage3
+    av_stage3 --> av_outcome
+}
+
+note bottom of "Autonomous Value Stream"
+  Per ADR-ES-009 + CR-ES-009 ;;
+  Autonomous Value Stream adds
+  autonomous decision ;; coordination ;;
+  adaptation within authority ;;
+  policy ;; constraint ;; with
+  escalation boundary.
+end note
+
+note right of "Autonomous Value Stream"
+  Per ADR-ES-009 §7 + §13 ;;
+  not every stage must be autonomous ;;
+  distributed autonomy allowed.
+  Stakeholder anchor preserved.
+end note
+
+@enduml
