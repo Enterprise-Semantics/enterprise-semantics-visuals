@@ -1,0 +1,93 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Autonomous Operations relational diagram
+'
+' Per CR-ES-008 §22 + ADR-ES-008 §25 + §26 + §28.
+' Illustrates the 10 canonical relationships (specializes ;; operates-within ;;;
+' governed-by ;; pursues ;; responds-to ;; produces ;; adapts-to ;; escalates-to ;;
+' uses [workflow + agentic-workflow]) plus the Operations parent.
+
+@startuml autonomous-operations
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Autonomous Operations ;;; Relational Model
+
+' Core Autonomous Operations class
+
+rectangle "Autonomous Operations\n(ES:CONCEPT:autonomous-operations)" as aoo #FFE4B5
+
+' Specialization parent
+
+rectangle "Operations\n(ES:CONCEPT:operations)" as ops #F0FFF0
+
+' Authority + policy + objective
+
+rectangle "Authority\n(ES:CONCEPT:authority)" as auth #E0FFFF
+rectangle "Policy\n(external:concept:policy)" as policy #FFE4E1
+rectangle "Operational\nObjective\n(external:concept:operational-objective)" as obj #FFE4E1
+
+' Operational context + outcome
+
+rectangle "Operational Context\n(external:concept:operational-context)" as oc #FFFACD
+rectangle "Operational Outcome\n(external:concept:operational-outcome)" as outcome #E0FFE0
+
+' Escalation target
+
+rectangle "Human / Authority\n(external:concept:human-authority)" as ha #FFE4E1
+
+' Workflow targets
+
+rectangle "Workflow\n(ES:CONCEPT:workflow)" as wf #F0FFF0
+rectangle "Agentic Workflow\n(ES:CONCEPT:agentic-workflow)" as awf #FFE4B5
+
+' Relationships
+
+aoo --|> ops : specializes
+
+aoo --> auth : operates-within
+aoo --> policy : governed-by
+aoo --> obj : pursues
+
+aoo --> oc : responds-to
+aoo --> oc : adapts-to
+
+aoo --> outcome : produces
+
+aoo --> ha : escalates-to
+
+aoo --> wf : uses
+aoo --> awf : uses
+
+note bottom of aoo
+  Per CR-ES-008 §6 + ADR-ES-008 §1 + §2 + §25 + §26.
+  Autonomous Operations specialises Operations ;;
+  preserves Operations semantics ;;
+  adds 8 characteristics ;; 12 properties ;;
+  10 canonical relationships ;;
+  10 invariants.
+end note
+
+note right of aoo
+  Per ADR-ES-008 §4 + §26 ;;
+  Autonomous Operations is orthogonal
+  to Agentic Operations ;; distinct
+  semantic dimension ;; NOT a
+  specialisation.
+end note
+
+note bottom of ops
+  Per CR-ES-008 §5 + ADR-ES-008 §5 ;;
+  Operations is established by
+  FND-ES-AG-004 ;;; ES-canonical
+  established at v1.0.0.
+end note
+
+@enduml

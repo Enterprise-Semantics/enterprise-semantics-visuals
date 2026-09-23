@@ -1,0 +1,94 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Autonomous Operations Workflow boundary visualisation
+'
+' Per CR-ES-008 §22 + ADR-ES-008 §12.
+' Illustrates that Autonomous Operations uses Workflow + Agentic
+' Workflow but is not itself a Workflow.
+
+@startuml autonomous-operations-workflow-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Autonomous Operations <> Workflow Boundary
+
+' Autonomous Operations layer
+
+package "Operating Mode" #FFE4B5 {
+    rectangle "Operational\nObjective" as aoo_obj #FFE4E1
+    rectangle "Autonomous\nOperations" as aoo_aoo #FFE4B5
+    rectangle "Operational\nOutcome" as aoo_oo #E0FFE0
+
+    aoo_obj --> aoo_aoo
+    aoo_aoo --> aoo_oo
+}
+
+note bottom of "Operating Mode"
+  Per ADR-ES-008 + CR-ES-008 ;;
+  Autonomous Operations = degree
+  of independent operational
+  execution ;; bounded by
+  authority ;; policy ;;
+  constraint ;; with
+  escalation boundary.
+end note
+
+' Workflow layer
+
+package "Workflow Execution" #F0FFF0 {
+    rectangle "Workflow" as wf #F0FFF0
+    rectangle "Agentic\nWorkflow" as awf #FFE4B5
+    rectangle "Activity /\nTask" as at #F0FFF0
+
+    wf --> at
+    awf --> at
+}
+
+note bottom of "Workflow Execution"
+  Per CR-ES-006 + ADR-ES-006 ;;
+  Workflow = work coordination
+  and execution ;;; Agentic
+  Workflow = agentic work
+  coordination and execution ;;
+  may coordinate Activity + Task.
+end note
+
+' Boundary tests
+
+rectangle "AO-WF-001 ;; AO uses Workflow ;; VALID" as inv1 #98FB98
+rectangle "AO-WF-002 ;; AO uses Agentic Workflow ;; VALID" as inv2 #98FB98
+rectangle "AO-WF-003 ;; AO -|-> Workflow  INVALID" as inv3 #FFB6C1
+rectangle "AO-WF-004 ;; AO -|-> Agentic Workflow  INVALID" as inv4 #FFB6C1
+rectangle "AO-WF-005 ;; AO -|-> Agentic Value Stream  INVALID" as inv5 #FFB6C1
+
+aoo_aoo --> inv1
+inv1 --> wf
+aoo_aoo --> inv2
+inv2 --> awf
+aoo_aoo -[dashed]-> inv3
+inv3 -[dashed]-> wf
+aoo_aoo -[dashed]-> inv4
+inv4 -[dashed]-> awf
+aoo_aoo -[dashed]-> inv5
+inv5 -[dashed]-> awf
+
+note right of "Operating Mode"
+  Per ADR-ES-008 §12 + CR-ES-008 §11 ;;
+  Autonomous Operations uses
+  Workflow + Agentic Workflow
+  but is not a Workflow ;; no
+  Autonomous Workflow concept
+  is established by ADR-ES-008 ;;;
+  future Autonomous Workflow
+  ADR shall establish
+  independently.
+end note
+
+@enduml
