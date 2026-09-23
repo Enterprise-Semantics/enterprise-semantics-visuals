@@ -1,0 +1,58 @@
+' Capability semantic concept visualization
+'
+' Per CR-ES-002 §4 + ADR-ES-002 §1.1 + §1.4.
+' Illustrates the Capability-anchored relationships:
+' Capability - enables -> Outcome
+' Capability - realized-through -> Process
+' Capability - exercised-by -> Role
+' Capability - supported-by -> Resource
+' Capability - delivered-through -> Service
+' Capability - implemented-by -> System
+' Capability - contributes-to -> Value
+' Role - supports -> Capability
+' Entity - possesses -> Capability
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+@startuml capability
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+skinparam arrow {
+    Color #2F4F4F
+}
+
+title Capability ;;; Enduring Ability of an Entity
+
+rectangle "Entity" as entity #E6E6FA
+
+rectangle "Capability" as capability #FFE4B5
+
+rectangle "Outcome" as outcome #E0FFE0
+rectangle "Process" as process #FFFACD
+rectangle "Role" as role #F0FFF0
+rectangle "Resource" as resource #E0FFFF
+rectangle "Service" as service #FFE4E1
+rectangle "System" as system #E0E8F0
+rectangle "Value" as value #F5F5DC
+
+entity --> capability : possesses
+
+capability --> outcome : enables
+capability --> process : realized-through
+capability --> role : exercised-by
+capability --> resource : supported-by
+capability --> service : delivered-through
+capability --> system : implemented-by
+capability --> value : contributes-to
+
+role --> capability : supports
+
+@enduml

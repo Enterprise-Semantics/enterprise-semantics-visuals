@@ -13,6 +13,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - PNG renders of all PlantUML sources ;;; pending PlantUML install in CI.
 - Additional concept-specific diagrams ;;; Agentic Value Stream (held for ADR-ES-005), Autonomous Operations (held for ADR-ES-007).
 
+## [0.3.0] ; 2026-09-23 ; CR-ES-002 Capability PlantUML visuals (parallel slice from v3.1.12 held items)
+
+### Added
+
+- docs/diagrams/capability/capability.puml ;;; Capability semantic concept visualization per CR-ES-002 §4 + ADR-ES-002 §1.1 + §1.4 ;;; 9 Capability relationships ;;; Entity possesses Capability
+- docs/diagrams/capability/capability-boundary.puml ;;; Capability semantic boundary analysis per CR-ES-002 §10 + ADR-ES-002 §7 + §10 + §11 ;;; 8 distinctions (vs Process/Workflow/Function/Activity/Task/Role/Service/System) ;;; 5 architectural invariants CAP-INV-001..005
+- docs/diagrams/capability/capability-process-boundary.puml ;;; Capability-Process-Workflow boundary visualization per CR-ES-002 §11 + ADR-ES-002 §7 + §8 + §16 ;;; the critical boundary between Capability (enduring ability), Process (execution), and Workflow (coordination)
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere on all 3 .puml files
+- D-004 clean ;;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+
 ## [0.2.0] ; 2026-09-23 ; VS-D2b Agentic PlantUML visuals
 
 ### Added
