@@ -13,6 +13,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - PNG renders of all PlantUML sources ;;; pending PlantUML install in CI.
 - Additional concept-specific diagrams ;;; Agentic Value Stream (held for ADR-ES-005), Autonomous Operations (held for ADR-ES-007).
 
+## [0.2.0] ; 2026-09-23 ; VS-D2b Agentic PlantUML visuals
+
+### Added
+
+- `docs/diagrams/agentic/agentic.puml` ;;; Agentic semantic concept visualization per CR-ES-004 §28 + ADR-ES-004 §4.1 + §6 + §14 + §17 ;;; core agentic execution pattern ;;; 9 nodes (Intent + Agent + Context + Authority + Goal + Action Selection + Action + Outcome + Contextual Adaptation loop)
+- `docs/diagrams/agentic/agentic-boundary.puml` ;;; Agentic vs Automation boundary visualization per CR-ES-004 §12 + ADR-ES-004 §8 + AG-INV-002 ;;; 2 packages (Conventional Automation vs Agentic Operation) ;;; 6 characteristics annotated
+- `docs/diagrams/agentic/agentic-autonomous-boundary.puml` ;;; Agentic vs Autonomous boundary visualization per CR-ES-004 §14 + ADR-ES-004 §9 + AG-INV-003 + AG-INV-010 ;;; 2 packages (Agentic foundational vs Autonomous advanced separately governed) ;;; boundary marker AG-INV-003 ;;; may-evolve-toward relationship
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere on all 3 .puml files (PlantUML `'` comment convention)
+- D-004 clean ;;; 0 forbidden glyphs on all 3 files
+- No vendor-specific material from embargoed sources
+
 ## [0.1.0] ; 2026-09-23 ; VS-D2b Value Stream PlantUML visuals
 
 ### Added
