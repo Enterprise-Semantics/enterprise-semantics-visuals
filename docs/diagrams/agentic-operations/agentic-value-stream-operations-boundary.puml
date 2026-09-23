@@ -1,0 +1,85 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Agentic Value Stream and Agentic Operations boundary visualisation
+'
+' Per CR-ES-007 §20 + ADR-ES-007 §8 + §26.
+' Illustrates that Agentic Value Stream and Agentic Operations
+' operate at different semantic layers ;; the Value Stream depends on
+' Operations ;; but Operations is not reducible to Value Stream.
+
+@startuml agentic-value-stream-operations-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Agentic Value Stream vs Agentic Operations Boundary
+
+' Agentic Value Stream layer
+
+package "Value Realisation" #F0FFF0 {
+    rectangle "Stakeholder\nNeed" as avs_n #F0FFF0
+    rectangle "Agentic\nValue Stream" as avs_avs #F0FFF0
+    rectangle "Value\nStage" as avs_vs #F0FFF0
+    rectangle "Stakeholder\nValue" as avs_sv #E0FFE0
+
+    avs_n --> avs_avs
+    avs_avs --> avs_vs
+    avs_vs --> avs_sv
+}
+
+note bottom of "Value Realisation"
+  Per ADR-ES-005 + CR-ES-005 ;;
+  Agentic Value Stream = value realisation ;;
+  stakeholder value realisation construct ;;
+  specialises Value Stream.
+end note
+
+' Agentic Operations layer
+
+package "Operating Mode" #FFE4B5 {
+    rectangle "Operational\nContext" as ao_oc #FFFACD
+    rectangle "Agentic\nOperations" as ao_aop #FFE4B5
+    rectangle "Agentic\nWorkflow" as ao_awf #FFE4B5
+    rectangle "Operational\nOutcome" as ao_oo #E0FFE0
+
+    ao_oc --> ao_aop
+    ao_aop --> ao_awf
+    ao_awf --> ao_oo
+}
+
+note bottom of "Operating Mode"
+  Per ADR-ES-007 + CR-ES-007 ;;
+  Agentic Operations = operating mode ;;
+  Operations specialisation ;;
+  operational_intent ;; authority_context ;; etc.
+end note
+
+' Boundary tests
+
+rectangle "AVS-INV-AOP-001 ;; AVS != Agentic Operations" as inv1 #FFB6C1
+rectangle "AVS-INV-AOP-002 ;; AO is not is-a AVS" as inv2 #FFB6C1
+rectangle "AVS-INV-AOP-003 ;; AO may support multiple AVS" as inv3 #FFB6C1
+
+avs_avs -[dashed]-> inv1 : value realisation depends on
+inv1 -[dashed]-> ao_aop : operating mode
+ao_aop -[dashed]-> inv2
+inv2 -[dashed]-> avs_avs
+ao_aop -[dashed]-> inv3 : supports
+inv3 -[dashed]-> avs_avs
+
+note bottom of "Boundary"
+  Per ADR-ES-007 §8 + §26 + CR-ES-007 §11 ;;
+  Agentic Value Stream depends on Agentic
+  Operations ;; but Agentic Operations is not
+  reducible to Agentic Value Stream ;; an Agentic
+  Operations capability may support multiple
+  Value Streams.
+end note
+
+@enduml

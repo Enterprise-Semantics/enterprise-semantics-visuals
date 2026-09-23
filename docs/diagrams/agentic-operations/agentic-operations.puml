@@ -1,0 +1,89 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Agentic Operations relational diagram
+'
+' Per CR-ES-007 §20 + ADR-ES-007 §26 + §30.
+' Illustrates the 9 canonical relationships (specializes ;; engages ;;;
+' responds-to ;; operates-within ;; governed-by ;; coordinates ;;
+' uses ;; produces ;; adapts-to) plus the specialisation parent.
+
+@startuml agentic-operations
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Agentic Operations ;;; Relational Model
+
+' Core Agentic Operations class
+
+rectangle "Agentic Operations\n(ES:CONCEPT:agentic-operations)" as aop #FFE4B5
+
+' Specialization parent
+
+rectangle "Operations\n(ES:CONCEPT:operations)" as ops #F0FFF0
+
+' Agent engagement
+
+rectangle "Agent\n(ES:CONCEPT:agent)" as agent #F0E8FF
+
+' Operational context
+
+rectangle "Operational Context\n(external:concept:operational-context)" as oc #FFFACD
+
+' Inherited semantics
+
+rectangle "Authority\n(ES:CONCEPT:authority)" as auth #E0FFFF
+rectangle "Policy\n(external:concept:policy)" as policy #FFE4E1
+
+' Coordinated entities
+
+rectangle "Process\n(external:concept:process)" as process #FFFACD
+rectangle "Agentic Workflow\n(ES:CONCEPT:agentic-workflow)" as awf #FFE4B5
+rectangle "Operational Outcome\n(external:concept:operational-outcome)" as outcome #E0FFE0
+
+' Relationships
+
+aop --|> ops : specializes
+
+aop --> agent : engages
+
+aop --> oc : responds-to
+aop --> oc : adapts-to
+
+aop --> auth : operates-within
+aop --> policy : governed-by
+
+aop --> process : coordinates
+aop --> awf : uses
+
+aop --> outcome : produces
+
+note bottom of aop
+  Per CR-ES-007 §6 + ADR-ES-007 §2 + §21 + §30.
+  Agentic Operations specialises Operations ;;
+  preserves Operations semantics ;;
+  adds 8 characteristics ;; 10 properties ;;
+  9 canonical relationships.
+end note
+
+note right of aop
+  Per ADR-ES-007 §6.7 + §6.8 + §17 ;;
+  Agentic Operations operates within
+  Authority and Policy ;; bounded adaptive
+  operating mode.
+end note
+
+note bottom of ops
+  Per CR-ES-007 §5 + ADR-ES-007 §5 ;;
+  Operations is established by
+  FND-ES-AG-004 ;;; ES-canonical
+  established at v1.0.0.
+end note
+
+@enduml

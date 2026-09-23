@@ -1,0 +1,84 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Agentic Operations operational control loop visualisation
+'
+' Per CR-ES-007 §20 + ADR-ES-007 §17.
+' Illustrates the 8-step operational control loop ;; bounded by intent ;;
+' authority ;; policy ;;; and the decision boundary.
+
+@startuml agentic-operational-loop
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Agentic Operations ;;; Operational Control Loop
+
+rectangle "Operational\nContext" as oc1 #FFFACD
+rectangle "Sense" as s1 #F5F5DC
+rectangle "Interpret" as i1 #F5F5DC
+rectangle "Decide" as d1 #FFE4E1
+rectangle "Coordinate" as c1 #FFE4E1
+rectangle "Act" as a1 #F0FFF0
+rectangle "Observe\nOutcome" as oo1 #E0FFE0
+rectangle "Evaluate" as e1 #F5F5DC
+rectangle "Adapt" as ad1 #FFE4B5
+
+oc1 --> s1
+s1 --> i1
+i1 --> d1
+d1 --> c1
+c1 --> a1
+a1 --> oo1
+oo1 --> e1
+e1 --> ad1
+ad1 -[dashed]-> oc1 : context loop
+
+note right of d1
+  Per ADR-ES-007 §6.3 ;;
+  Dynamic Decision
+end note
+
+note right of c1
+  Per ADR-ES-007 §6.4 ;;
+  Agentic Coordination
+end note
+
+note bottom of ad1
+  Per ADR-ES-007 §17 ;;
+  Runtime adaptation
+  (bounded by intent ;;
+  authority ;; policy)
+end note
+
+' Boundary block
+
+package "Boundary" #FFE4B5 {
+    rectangle "Intent" as it1 #FFE4B5
+    rectangle "Authority" as au1 #FFE4B5
+    rectangle "Policy" as po1 #FFE4B5
+    rectangle "Decision\nBoundary" as db1 #FFE4B5
+    rectangle "Operational\nAction" as oa1 #FFE4B5
+    rectangle "Outcome" as ou1 #FFE4B5
+
+    it1 --> au1
+    au1 --> po1
+    po1 --> db1
+    db1 --> oa1
+    oa1 --> ou1
+}
+
+note bottom of "Boundary"
+  Per ADR-ES-007 §17 + CR-ES-007 §9 ;;
+  The operational loop is bounded by
+  Intent ;; Authority ;; Policies ;;
+  Constraints ;; Decision Boundary ;;
+  Operational Action ;; Outcome.
+end note
+
+@enduml
