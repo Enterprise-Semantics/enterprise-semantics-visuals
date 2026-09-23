@@ -1,0 +1,62 @@
+' Agentic semantic concept visualization
+'
+' Per CR-ES-004 §28 + ADR-ES-004 §4.1 + §6 + §14 + §17.
+' Illustrates the core agentic execution pattern:
+' Delegated Intent -> Agent -> Context + Authority + Goal
+'                              -> Action Selection
+'                                   -> Action
+'                                        -> Outcome
+'                                             <- Adapt to Context
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+@startuml agentic
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Agentic ;;; Mode of Operation
+
+rectangle "Delegated Intent" as intent #E0E8F0
+rectangle "Agent" as agent #FFE4B5
+
+rectangle "Context" as context #E6E6FA
+rectangle "Authority" as authority #E0FFFF
+rectangle "Goal" as goal #F0FFF0
+
+rectangle "Action Selection" as action_selection #FFFACD
+rectangle "Action" as action #FFE4E1
+rectangle "Outcome" as outcome #E0FFE0
+
+rectangle "Context" as context_loop #F0FFF0
+
+intent --> agent : agent receives
+
+agent --> context : interprets
+agent --> authority : acts-within
+agent --> goal : pursues
+
+context --> action_selection : informs
+authority --> action_selection : constrains
+
+action_selection --> action : selects
+agent --> action : coordinates
+
+action --> outcome : action-produces
+
+outcome --> context_loop : outcome observed
+context_loop --> action_selection : adapts-to
+
+@enduml
