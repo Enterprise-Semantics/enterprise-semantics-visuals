@@ -1,0 +1,103 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Agentic vs Autonomous Operations comparison
+'
+' Per CR-ES-008 §22 + ADR-ES-008 §4 + §10 + §26.
+' Depicts two parallel representations to make clear that Agentic
+' Operations (mode of operation) and Autonomous Operations (degree
+' of independent operational execution) are orthogonal semantic
+' dimensions.
+
+@startuml agentic-vs-autonomous-operations
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Agentic Operations vs Autonomous Operations
+
+' Agentic Operations column
+
+package "Agentic Operations" #F0FFF0 {
+    rectangle "Operational\nContext" as aop_oc #FFFACD
+    rectangle "Operational\nIntent" as aop_intent #FFE4E1
+    rectangle "Agent" as aop_agent #F0E8FF
+    rectangle "Sense /\nInterpret /\nDecide" as aop_si #F5F5DC
+    rectangle "Agentic\nCoordination" as aop_ac #FFE4E1
+    rectangle "Adapt" as aop_ad #FFE4B5
+
+    aop_oc --> aop_intent
+    aop_intent --> aop_agent
+    aop_agent --> aop_si
+    aop_si --> aop_ac
+    aop_ac --> aop_ad
+    aop_ad -[dashed]-> aop_oc
+}
+
+note bottom of "Agentic Operations"
+  Per ADR-ES-007 + CR-ES-007 ;;
+  Agentic Operations = mode of
+  operational behavior ;;
+  operational sensing ;;
+  interpretation ;; decision ;;
+  coordination ;; execution ;;
+  adaptation ;; within intent ;;
+  authority ;; policy.
+end note
+
+' Autonomous Operations column
+
+package "Autonomous Operations" #FFE4B5 {
+    rectangle "Operational\nObjective" as aoo_obj #FFE4E1
+    rectangle "Authority /\nPolicy /\nConstraint" as aoo_b #E0FFFF
+    rectangle "Operational\nContext" as aoo_oc #FFFACD
+    rectangle "Sense /\nInterpret /\nDecide /\nExecute" as aoo_si #FFE4B5
+    rectangle "Observe /\nAdapt" as aoo_ad #FFE4B5
+
+    aoo_obj --> aoo_b
+    aoo_b --> aoo_oc
+    aoo_oc --> aoo_si
+    aoo_si --> aoo_ad
+    aoo_ad -[dashed]-> aoo_oc
+}
+
+note bottom of "Autonomous Operations"
+  Per ADR-ES-008 + CR-ES-008 ;;
+  Autonomous Operations = degree
+  of independent operational
+  execution ;; operational
+  objective ;; bounded authority ;;
+  policy ;; constraint ;;
+  decision + action autonomy ;;
+  escalation boundary.
+end note
+
+' Boundary tests
+
+rectangle "BOUNDARY-001 ;; Agentic != Autonomous" as inv1 #FFB6C1
+rectangle "BOUNDARY-002 ;; Agentic -|-> Autonomous  INVALID" as inv2 #FFB6C1
+rectangle "BOUNDARY-003 ;; Autonomous -|-> Agentic  INVALID" as inv3 #FFB6C1
+
+aop_si -[dashed]-> inv1 : orthogonal
+inv1 -[dashed]-> aoo_si : orthogonal
+aoo_si -[dashed]-> inv2
+inv2 -[dashed]-> aop_si
+aoo_si -[dashed]-> inv3
+inv3 -[dashed]-> aop_si
+
+note right of "Autonomous Operations"
+  Per ADR-ES-008 §3 + §4 + §26 + CR-ES-008 §10 ;;
+  Agentic Operations and
+  Autonomous Operations are
+  orthogonal ;; distinct
+  semantic dimensions ;;
+  neither is a specialisation
+  of the other.
+end note
+
+@enduml

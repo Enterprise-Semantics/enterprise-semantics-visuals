@@ -1,0 +1,107 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Autonomous Operations operational control loop visualisation
+'
+' Per CR-ES-008 §22 + ADR-ES-008 §5 + §15.
+' Illustrates the 11-step autonomous operational control loop with
+' explicit boundary block.
+
+@startuml autonomous-operational-loop
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Autonomous Operations ;;; Operational Control Loop
+
+rectangle "Objective /\nIntent" as obj1 #FFE4E1
+rectangle "Authority" as au1 #E0FFFF
+rectangle "Policies /\nConstraints" as pc1 #FFE4E1
+rectangle "Operational\nContext" as oc1 #FFFACD
+rectangle "Sense" as s1 #F5F5DC
+rectangle "Interpret" as i1 #F5F5DC
+rectangle "Decide" as d1 #FFE4B5
+rectangle "Coordinate" as c1 #FFE4E1
+rectangle "Execute" as e1 #F0FFF0
+rectangle "Observe\nOutcome" as oo1 #E0FFE0
+rectangle "Adapt" as ad1 #FFE4B5
+
+obj1 --> au1
+au1 --> pc1
+pc1 --> oc1
+oc1 --> s1
+s1 --> i1
+i1 --> d1
+d1 --> c1
+c1 --> e1
+e1 --> oo1
+oo1 --> ad1
+ad1 -[dashed]-> oc1 : context loop
+
+note right of d1
+  Per ADR-ES-008 §7.1 ;;
+  Independent Decision Execution
+end note
+
+note right of c1
+  Per ADR-ES-008 §7.2 ;;
+  Independent Action Execution
+end note
+
+note right of e1
+  Per ADR-ES-008 §7.2 + §14 ;;
+  Authorised Action
+end note
+
+note bottom of ad1
+  Per ADR-ES-008 §7.7 ;;
+  Runtime adaptation
+  (bounded by intent ;;
+  authority ;; policy ;;
+  constraints)
+end note
+
+note bottom of "Objective / Intent"
+  Per ADR-ES-008 §5 + §7.6 ;;
+  Autonomous Operations is
+  outcome-oriented ;;; the
+  Operational Objective
+  anchors the loop.
+end note
+
+' Boundary block
+
+package "Semantic Control Boundary (per ADR-ES-008 §14)" #FFE4B5 {
+    rectangle "Objective" as b_obj #FFE4B5
+    rectangle "Authority" as b_au #FFE4B5
+    rectangle "Policy" as b_po #FFE4B5
+    rectangle "Constraint" as b_co #FFE4B5
+    rectangle "Autonomous\nDecision" as b_ad #FFE4B5
+    rectangle "Authorised\nAction" as b_aa #FFE4B5
+    rectangle "Outcome" as b_ou #FFE4B5
+
+    b_obj --> b_au
+    b_au --> b_po
+    b_po --> b_co
+    b_co --> b_ad
+    b_ad --> b_aa
+    b_aa --> b_ou
+}
+
+note bottom of "Semantic Control Boundary (per ADR-ES-008 §14)"
+  Per ADR-ES-008 §14 ;;
+  autonomy remains bounded.
+  An autonomous operational
+  mechanism SHALL NOT be
+  interpreted as having
+  unlimited authority merely
+  because it can act without
+  immediate human intervention.
+end note
+
+@enduml
