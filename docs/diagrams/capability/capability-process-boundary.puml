@@ -1,0 +1,83 @@
+' Capability-Process-Workflow boundary visualization
+'
+' Per CR-ES-002 §11 + ADR-ES-002 §7 + §8 + §16.
+' Illustrates the critical boundary between Capability (enduring ability),
+' Process (execution), and Workflow (coordination).
+' The Capability is realized-through Process ;;; the Process may be
+' coordinated by Workflow ;;; but Capability != Process != Workflow.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+@startuml capability-process-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Capability-Process-Workflow Boundary
+
+' Capability ;;; the enduring ability
+
+package "Capability ;;; Enduring Ability" #FFE4B5 {
+    rectangle "An enduring ability\nof an Entity to achieve\nor enable an Outcome" as def #FFE4B5
+}
+
+' Process ;;; the execution
+
+package "Process ;;; Execution" #F0FFF0 {
+    rectangle "Execution or\ntransformation pattern\nthat exercises Capability" as proc #F0FFF0
+}
+
+' Workflow ;;; the coordination
+
+package "Workflow ;;; Coordination" #E0FFFF {
+    rectangle "Coordinated execution\nof one or more Processes" as wf #E0FFFF
+}
+
+' Relationships
+
+def -r[hidden]-> proc
+def -[#FFB6C1]-> proc : capability-realized-through ;;; subject=capability, object=process
+proc -[#FFB6C1]-> wf : Workflow may coordinate Processes ;;; but Process != Workflow
+
+' Boundary markers
+
+rectangle "CAP-INV-001 ;;; Capability != Process" as b1 #FFB6C1
+rectangle "CAP-INV-002 ;;; Capability != Workflow" as b2 #FFB6C1
+rectangle "Workflow != Process ;;; Workflow coordinates Process" as b3 #FFB6C1
+
+def -[dashed]-> b1
+b1 -[dashed]-> proc
+def -[dashed]-> b2
+b2 -[dashed]-> wf
+proc -[dashed]-> b3
+b3 -[dashed]-> wf
+
+note bottom of def
+  Per ADR-ES-002 §7 + §8 + §16:
+  ;; Capability describes what
+  ;; an Entity is able to achieve,
+  ;; not the execution of work
+end note
+
+note bottom of proc
+  Per CR-ES-002 §5.3 + ADR-ES-002 §16:
+  ;; A Capability is realized-
+  ;; through a Process when
+  ;; execution of the Process
+  ;; exercises the Capability
+end note
+
+note bottom of wf
+  Per ADR-ES-002 §11:
+  ;; Workflow describes
+  ;; coordinated execution
+  ;; of one or more Processes
+end note
+
+@enduml

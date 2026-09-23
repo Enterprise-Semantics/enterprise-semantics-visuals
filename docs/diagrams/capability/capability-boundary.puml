@@ -1,0 +1,67 @@
+' Capability semantic boundary analysis
+'
+' Per CR-ES-002 §10 + ADR-ES-002 §7 + §10 + §11.
+' The 8-row boundary table distinguishes Capability from Process, Workflow,
+' Function, Activity, Task, Role, Service, and System.
+' The 5 architectural invariants CAP-INV-001..005.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+@startuml capability-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Capability Boundary ;;; 8 distinctions + 5 invariants
+
+' Center ;;; Capability
+
+rectangle "Capability\n(Enduring Ability)" as capability #FFE4B5
+
+' What Capability is NOT
+
+rectangle "Process\n(Execution)" as process #F0FFF0
+rectangle "Workflow\n(Coordination)" as workflow #F0FFF0
+rectangle "Function\n(Role Mapping)" as function #F0FFF0
+rectangle "Activity\n(Execution Unit)" as activity #F0FFF0
+rectangle "Task\n(Specific Unit)" as task #F0FFF0
+rectangle "Role\n(Responsibility)" as role #F0FFF0
+rectangle "Service\n(Delivery Unit)" as service #F0FFF0
+rectangle "System\n(Mechanism)" as system #F0FFF0
+
+' Boundary markers
+
+rectangle "CAP-INV-001 ;;; Capability != Process" as i1 #FFB6C1
+rectangle "CAP-INV-002 ;;; Capability != Workflow" as i2 #FFB6C1
+rectangle "CAP-INV-003 ;;; Capability != Function" as i3 #FFB6C1
+rectangle "CAP-INV-004 ;;; Capability != Activity/Task" as i4 #FFB6C1
+rectangle "CAP-INV-005 ;;; Capability != Role/Service/System" as i5 #FFB6C1
+
+capability -[dashed]-> i1
+i1 -[dashed]-> process
+capability -[dashed]-> i2
+i2 -[dashed]-> workflow
+capability -[dashed]-> i3
+i3 -[dashed]-> function
+capability -[dashed]-> i4
+i4 -[dashed]-> activity
+i4 -[dashed]-> task
+capability -[dashed]-> i5
+i5 -[dashed]-> role
+i5 -[dashed]-> service
+i5 -[dashed]-> system
+
+note bottom of capability
+  Per ADR-ES-002 §1.1:
+  ;; Capability is an enduring
+  ;; ability of an Entity ;;; not
+  ;; the execution of that ability
+end note
+
+@enduml

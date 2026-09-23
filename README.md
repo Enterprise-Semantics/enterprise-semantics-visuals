@@ -6,7 +6,7 @@ This repository holds the **source** of every diagram used across the program. R
 
 ## Status
 
-**First + second content tranches (v0.1.0 Value Stream + v0.2.0 Agentic).** 7 architectural diagrams from FND-ES-000 in v0.0.2 ;;; Value Stream visuals (3 PlantUML sources) added via VS-D2b on 2026-09-23 in docs/diagrams/value-stream/.
+**First + second + third content tranches (v0.1.0 Value Stream + v0.2.0 Agentic + v0.3.0 Capability).** 7 architectural diagrams from FND-ES-000 in v0.0.2 ;;; Value Stream visuals (3 PlantUML sources) added via VS-D2b on 2026-09-23 in docs/diagrams/value-stream/.
 
 ## Planned diagrams (from FND-ES-000)
 
