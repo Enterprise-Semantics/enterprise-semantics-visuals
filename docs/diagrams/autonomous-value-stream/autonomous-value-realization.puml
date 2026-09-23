@@ -1,0 +1,97 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Autonomous Value Realization diagram
+'
+' Per CR-ES-009 §23 + ADR-ES-009 §13 + §14 + §22.
+' Illustrates the value-realization boundary with distributed autonomy
+' across stages.
+
+@startuml autonomous-value-realization
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Autonomous Value Realization ;;; Value-Realization Boundary
+
+rectangle "Stakeholder Need" as need #E0FFE0
+rectangle "Initiating Condition" as ic #F0FFF0
+rectangle "Value Proposition" as vp #F0FFF0
+
+rectangle "Autonomous Value Stream\n(ES:CONCEPT:autonomous-value-stream)" as avs #FFE4B5
+
+rectangle "Stage 1\n(conventional)" as s1 #FFE4E1
+rectangle "Stage 2\n(autonomous)" as s2 #FFE4B5
+rectangle "Stage 3\n(autonomous)" as s3 #FFE4B5
+rectangle "Stage 4\n(autonomous)" as s4 #FFE4B5
+rectangle "Stage 5\n(conventional)" as s5 #FFE4E1
+rectangle "Stage 6\n(autonomous)" as s6 #FFE4B5
+rectangle "Stage 7\n(human_approval)" as s7 #FFE4E1
+
+rectangle "Stakeholder Outcome" as so #E0FFE0
+
+need --> ic
+ic --> vp
+vp --> avs
+
+avs --> s1
+s1 --> s2
+s2 --> s3
+s3 --> s4
+s4 --> s5
+s5 --> s6
+s6 --> s7
+s7 --> so
+
+note right of avs
+  Per ADR-ES-009 §7 + §13 ;;
+  not every stage must be autonomous.
+  Distributed autonomy allows mixed
+  autonomy modes within one value stream.
+end note
+
+note bottom of avs
+  Per ADR-ES-009 §13 + AVS-AUTO-INV-002 ;;
+  Stakeholder anchor preserved.
+  Autonomy remains bounded by authority ;;
+  policy ;; constraints.
+end note
+
+note bottom of so
+  Per ADR-ES-009 §13 ;;
+  Stakeholder value is realised ;;
+  stakeholder outcome produced.
+end note
+
+' Authority block
+
+package "Semantic Control Boundary (per ADR-ES-009 §12)" #FFE4B5 {
+    rectangle "Value Objective" as b_obj #FFE4B5
+    rectangle "Authority" as b_au #FFE4B5
+    rectangle "Policy" as b_po #FFE4B5
+    rectangle "Constraint" as b_co #FFE4B5
+    rectangle "Autonomous Value Decision" as b_ad #FFE4B5
+    rectangle "Value-Realization Action" as b_aa #FFE4B5
+    rectangle "Stakeholder Outcome" as b_ou #FFE4B5
+
+    b_obj --> b_au
+    b_au --> b_po
+    b_po --> b_co
+    b_co --> b_ad
+    b_ad --> b_aa
+    b_aa --> b_ou
+}
+
+note bottom of "Semantic Control Boundary (per ADR-ES-009 §12)"
+  Per ADR-ES-009 §12 ;;
+  autonomy remains bounded.
+  Autonomy does not imply unrestricted
+  authority over the value stream.
+end note
+
+@enduml

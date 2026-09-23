@@ -28,6 +28,22 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - D-004 clean ;;; 0 forbidden glyphs
 - No vendor-specific material from embargoed sources
 
+## [0.8.0] ; 2026-09-23 ; VS-D2b ;;; 5 Autonomous Value Stream PlantUML sources per CR-ES-009 §23 + ADR-ES-009 §18 + §22 + §23
+
+### Added
+
+- docs/diagrams/autonomous-value-stream/autonomous-value-stream.puml ;;; 12 canonical relationships + Value Stream parent
+- docs/diagrams/autonomous-value-stream/autonomous-value-realization.puml ;;; 7-stage distributed autonomy + boundary block
+- docs/diagrams/autonomous-value-stream/value-stream-vs-autonomous-value-stream.puml ;;; classic vs autonomous comparison
+- docs/diagrams/autonomous-value-stream/agentic-vs-autonomous-value-stream.puml ;;; orthogonal semantic dimensions
+- docs/diagrams/autonomous-value-stream/autonomous-value-stream-operations-boundary.puml ;;; AVS <> AO boundary
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere on all 5 .puml files
+- D-004 clean ;;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+
 ## [0.6.0] ; 2026-09-23 ; VS-D2b ;;; 4 Agentic Operations PlantUML sources per CR-ES-007 §20 + ADR-ES-007 §22
 
 ### Added

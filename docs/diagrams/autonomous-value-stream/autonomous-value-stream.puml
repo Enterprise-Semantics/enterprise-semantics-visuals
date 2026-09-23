@@ -1,0 +1,100 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Autonomous Value Stream relational diagram
+'
+' Per CR-ES-009 §23 + ADR-ES-009 §18 + §22.
+' Illustrates the 12 canonical relationships (specializes ;; realizes ;;;
+' contains ;; operates-within ;; governed-by ;; pursues ;; produces ;;
+' adapts-to ;; uses [autonomous-operations + agentic-operations + workflow
+' + agentic-workflow]) plus the Value Stream parent.
+
+@startuml autonomous-value-stream
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Autonomous Value Stream ;;; Relational Model
+
+' Core Autonomous Value Stream class
+
+rectangle "Autonomous Value Stream\n(ES:CONCEPT:autonomous-value-stream)" as avs #FFE4B5
+
+' Specialization parent
+
+rectangle "Value Stream\n(ES:CONCEPT:value-stream)" as vs #F0FFF0
+
+' Value Stage
+
+rectangle "Value Stage\n(ES:CONCEPT:value-stage)" as stage #F0FFF0
+
+' Authority + policy + objective
+
+rectangle "Authority\n(ES:CONCEPT:authority)" as auth #E0FFFF
+rectangle "Policy\n(external:concept:policy)" as policy #FFE4E1
+rectangle "Value Objective\n(external:concept:value-objective)" as obj #FFE4E1
+
+' Stakeholder anchor + outcome
+
+rectangle "Stakeholder Value\n(external:concept:stakeholder-value)" as sv #E0FFE0
+rectangle "Stakeholder Outcome\n(external:concept:stakeholder-outcome)" as outcome #E0FFE0
+
+' Value Context
+
+rectangle "Value Context\n(external:concept:value-context)" as vc #FFFACD
+
+' Operational targets
+
+rectangle "Autonomous Operations\n(ES:CONCEPT:autonomous-operations)" as aoo #FFE4B5
+rectangle "Agentic Operations\n(ES:CONCEPT:agentic-operations)" as aop #FFE4B5
+rectangle "Workflow\n(ES:CONCEPT:workflow)" as wf #F0FFF0
+rectangle "Agentic Workflow\n(ES:CONCEPT:agentic-workflow)" as awf #FFE4B5
+
+' Relationships
+
+avs --|> vs : specializes
+
+avs --> sv : realizes
+avs --> stage : contains
+
+avs --> auth : operates-within
+avs --> policy : governed-by
+avs --> obj : pursues
+
+avs --> outcome : produces
+avs --> vc : adapts-to
+
+avs --> aoo : uses
+avs --> aop : uses
+avs --> wf : uses
+avs --> awf : uses
+
+note bottom of avs
+  Per CR-ES-009 §6 + ADR-ES-009 §1 + §2 + §22.
+  Autonomous Value Stream specialises Value Stream ;;
+  preserves stakeholder-value orientation ;;
+  adds 11 characteristics ;; 15 properties ;;
+  12 canonical relationships ;;
+  11 invariants.
+end note
+
+note right of avs
+  Per ADR-ES-009 §3 + §23 ;;
+  Autonomous Value Stream is orthogonal
+  to Agentic Value Stream ;; distinct
+  semantic dimension ;; NOT a
+  specialisation.
+end note
+
+note bottom of vs
+  Per CR-ES-003 ;; Value Stream is
+  the canonical value-realization
+  construct ;; established v0.2.0.
+end note
+
+@enduml

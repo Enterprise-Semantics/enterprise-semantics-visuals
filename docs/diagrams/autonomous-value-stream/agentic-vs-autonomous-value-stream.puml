@@ -1,0 +1,95 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Agentic vs Autonomous Value Stream comparison
+'
+' Per CR-ES-009 §23 + ADR-ES-009 §3 + §10 + §23.
+' Depicts two parallel representations to make clear that Agentic
+' Value Stream (mode of value realization) and Autonomous Value
+' Stream (independent mode of value realization) are orthogonal
+' semantic dimensions.
+
+@startuml agentic-vs-autonomous-value-stream
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Agentic Value Stream vs Autonomous Value Stream
+
+' Agentic Value Stream column
+
+package "Agentic Value Stream" #F0FFF0 {
+    rectangle "Stakeholder Need" as avs_need #E0FFE0
+    rectangle "Agentic Value Stream" as avs_avs #F0FFF0
+    rectangle "Value Stage\n(agentic)" as avs_stage #F0E8FF
+    rectangle "Agent" as avs_agent #F0E8FF
+    rectangle "Agentic\nValue Decision" as avs_adv #F5F5DC
+    rectangle "Agentic\nAdaptation" as avs_adp #FFE4B5
+
+    avs_need --> avs_avs
+    avs_avs --> avs_stage
+    avs_stage --> avs_agent
+    avs_agent --> avs_adv
+    avs_adv --> avs_adp
+}
+
+note bottom of "Agentic Value Stream"
+  Per ADR-ES-005 + CR-ES-005 ;;
+  Agentic Value Stream = agentic
+  mode of value realization ;;
+  agentic value realization.
+end note
+
+' Autonomous Value Stream column
+
+package "Autonomous Value Stream" #FFE4B5 {
+    rectangle "Stakeholder Need" as avo_need #E0FFE0
+    rectangle "Autonomous Value Stream" as avo_avs #FFE4B5
+    rectangle "Value Stage\n(mixed)" as avo_stage #FFE4B5
+    rectangle "Autonomous\nValue Decision" as avo_avd #FFE4B5
+    rectangle "Autonomous\nAdaptation" as avo_aad #FFE4B5
+
+    avo_need --> avo_avs
+    avo_avs --> avo_stage
+    avo_stage --> avo_avd
+    avo_avd --> avo_aad
+}
+
+note bottom of "Autonomous Value Stream"
+  Per ADR-ES-009 + CR-ES-009 ;;
+  Autonomous Value Stream = degree
+  of independent value realization ;;
+  bounded by authority ;; policy ;;
+  constraint ;; with
+  escalation boundary.
+end note
+
+' Boundary tests
+
+rectangle "BOUNDARY-001 ;; Agentic != Autonomous" as inv1 #FFB6C1
+rectangle "BOUNDARY-002 ;; Agentic -|-> Autonomous  INVALID" as inv2 #FFB6C1
+rectangle "BOUNDARY-003 ;; Autonomous -|-> Agentic  INVALID" as inv3 #FFB6C1
+
+avs_adv -[dashed]-> inv1 : orthogonal
+inv1 -[dashed]-> avo_avd : orthogonal
+avo_avd -[dashed]-> inv2
+inv2 -[dashed]-> avs_adv
+avo_avd -[dashed]-> inv3
+inv3 -[dashed]-> avs_adv
+
+note right of "Autonomous Value Stream"
+  Per ADR-ES-009 §3 + §10 + §23 + CR-ES-009 §10 ;;
+  Agentic Value Stream and
+  Autonomous Value Stream are
+  orthogonal ;; distinct
+  semantic dimensions ;;
+  neither is a specialisation
+  of the other.
+end note
+
+@enduml

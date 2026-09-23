@@ -1,0 +1,91 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Autonomous Value Stream <> Autonomous Operations boundary visualisation
+'
+' Per CR-ES-009 §23 + ADR-ES-009 §9 + §14.
+' Illustrates that Autonomous Value Stream uses Autonomous Operations
+' but is not itself a subset of Autonomous Operations.
+
+@startuml autonomous-value-stream-operations-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Autonomous Value Stream <> Autonomous Operations Boundary
+
+' Autonomous Value Stream layer
+
+package "Value Realization" #FFE4B5 {
+    rectangle "Stakeholder Need" as avs_need #E0FFE0
+    rectangle "Autonomous Value Stream" as avs_avs #FFE4B5
+    rectangle "Value Stage" as avs_stage #FFE4B5
+    rectangle "Stakeholder Outcome" as avs_so #E0FFE0
+
+    avs_need --> avs_avs
+    avs_avs --> avs_stage
+    avs_stage --> avs_so
+}
+
+note bottom of "Value Realization"
+  Per ADR-ES-009 + CR-ES-009 ;;
+  Autonomous Value Stream = degree
+  of independent value realization ;;
+  bounded by authority ;; policy ;;
+  constraint ;; with
+  escalation boundary ;; stakeholder
+  anchor preserved.
+end note
+
+' Autonomous Operations layer
+
+package "Operational Realization" #F0FFF0 {
+    rectangle "Operational Objective" as aoo_obj #FFE4E1
+    rectangle "Autonomous Operations" as aoo_aoo #F0FFF0
+    rectangle "Operational Outcome" as aoo_oo #E0FFE0
+
+    aoo_obj --> aoo_aoo
+    aoo_aoo --> aoo_oo
+}
+
+note bottom of "Operational Realization"
+  Per ADR-ES-008 + CR-ES-008 ;;
+  Autonomous Operations = degree
+  of independent operational
+  execution ;; bounded by authority ;;
+  policy ;; constraint ;;
+  escalation boundary.
+end note
+
+' Boundary tests
+
+rectangle "AVS-AO-001 ;; AVS uses AO ;; VALID" as inv1 #98FB98
+rectangle "AVS-AO-002 ;; AO supports AVS ;; VALID" as inv2 #98FB98
+rectangle "AVS-AO-003 ;; AVS -|-> AO  INVALID" as inv3 #FFB6C1
+rectangle "AVS-AO-004 ;; AO -|-> AVS  INVALID" as inv4 #FFB6C1
+
+avs_avs --> inv1
+inv1 --> aoo_aoo
+aoo_aoo --> inv2
+inv2 --> avs_avs
+avs_avs -[dashed]-> inv3
+inv3 -[dashed]-> aoo_aoo
+aoo_aoo -[dashed]-> inv4
+inv4 -[dashed]-> avs_avs
+
+note right of "Value Realization"
+  Per ADR-ES-009 §9 + §14 + CR-ES-009 §14 ;;
+  Autonomous Value Stream uses
+  Autonomous Operations but is not
+  a subset ;; the relationship is
+  not mandatory ;; an Autonomous
+  Value Stream may use other
+  autonomous mechanisms.
+end note
+
+@enduml
