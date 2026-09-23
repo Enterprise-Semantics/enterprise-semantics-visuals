@@ -1,0 +1,95 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Classic Value Stream vs Agentic Value Stream comparison
+'
+' Per CR-ES-005 §18 + ADR-ES-005 §15.
+' Depicts two parallel representations to make clear that the value
+' journey remains the same semantic construct ;; while the realisation
+' mechanism becomes capable of agency.
+
+@startuml value-stream-vs-agentic-value-stream
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Classic Value Stream vs Agentic Value Stream
+
+' Classic Value Stream
+
+package "Classic Value Stream" #F0FFF0 {
+    rectangle "Trigger" as t1 #F0FFF0
+    rectangle "Value Stage" as t2 #F0FFF0
+    rectangle "Process" as t3 #F0FFF0
+    rectangle "Decision / Execution" as t4 #F0FFF0
+    rectangle "Next Value Stage" as t5 #F0FFF0
+    rectangle "Stakeholder Value" as t6 #E0FFE0
+
+    t1 --> t2
+    t2 --> t3
+    t3 --> t4
+    t4 --> t5
+    t5 --> t6
+}
+
+note bottom of "Classic Value Stream"
+  Per CR-ES-003 ;;; the Value Stream defines
+  ;; the progression of value realisation ;;
+  ;; trigger ;; stages ;; decisions ;; next ;;
+  ;; stakeholder value.
+end note
+
+' Agentic Value Stream
+
+package "Agentic Value Stream" #FFE4B5 {
+    rectangle "Trigger" as a1 #FFE4B5
+    rectangle "Value Stage" as a2 #FFE4B5
+    rectangle "Context" as a3 #FFFACD
+    rectangle "Intent" as a4 #F5F5DC
+    rectangle "Agent" as a5 #F0E8FF
+    rectangle "Authority / Constraints" as a6 #E0FFFF
+    rectangle "Action Selection" as a7 #FFE4E1
+    rectangle "Execution" as a8 #F0FFF0
+    rectangle "Outcome" as a9 #E0FFE0
+    rectangle "Contextual Adaptation" as a10 #F5F5DC
+    rectangle "Next Value Stage" as a11 #FFE4B5
+    rectangle "Stakeholder Value" as a12 #E0FFE0
+
+    a1 --> a2
+    a2 --> a3
+    a3 --> a4
+    a4 --> a5
+    a5 --> a6
+    a5 --> a7
+    a7 --> a8
+    a8 --> a9
+    a9 --> a10
+    a10 --> a7
+    a11 --> a12
+}
+
+note bottom of "Agentic Value Stream"
+  Per ADR-ES-005 §15 ;;
+  ;; the difference is NOT that the
+  ;; representation contains more AI ;;
+  ;; the difference is that agentic
+  ;; interpretation ;; decision selection ;;
+  ;; coordination ;; and adaptation have
+  ;; become material mechanisms of value
+  ;; realisation.
+end note
+
+note right of "Agentic Value Stream"
+  Mixed realisation ;;
+  ;; per CR-ES-005 §11 ;;
+  ;; conventional ;; automated ;;
+  ;; human ;; agentic stages ;;
+  ;; coexist within one Value Stream.
+end note
+
+@enduml

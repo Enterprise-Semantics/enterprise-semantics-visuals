@@ -1,0 +1,64 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Agentic Value Stream boundary visualization
+'
+' Per CR-ES-005 §3 + ADR-ES-005 §11 + §12 + §13 + §14 + §10.
+' Illustrates the 6 critical boundary distinctions that the Agentic
+' Value Stream semantic must NOT collapse into.
+
+@startuml agentic-value-stream-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Agentic Value Stream Boundary ;;; 6 Distinctions
+
+' Center ;; Agentic Value Stream
+
+rectangle "Agentic Value Stream\n(Specialisation of Value Stream)" as avs #FFE4B5
+
+' What Agentic Value Stream is NOT
+
+rectangle "AI Value Stream" as ai #E0E8F0
+rectangle "Automated Value Stream" as auto #E0E8F0
+rectangle "Autonomous Value Stream" as aut #E0E8F0
+rectangle "Agentic Workflow" as awf #E0E8F0
+rectangle "Agentic Operations" as aop #E0E8F0
+rectangle "Process / Workflow" as proc #E0E8F0
+
+' Boundary markers
+
+rectangle "AVS-INV-004 ;;; AVS does not require AI" as i1 #FFB6C1
+rectangle "AVS-INV-005 ;;; AVS does not imply Automation" as i2 #FFB6C1
+rectangle "AVS-INV-003 ;;; AVS does not imply Autonomous VS" as i3 #FFB6C1
+rectangle "AVS-INV-007 ;;; AVS does not establish Agentic Workflow/Operations" as i4 #FFB6C1
+rectangle "AVS-INV-006 ;;; AVS does not redefine Process/Activity/Task/Workflow" as i5 #FFB6C1
+
+avs -[dashed]-> i1
+i1 -[dashed]-> ai
+avs -[dashed]-> i2
+i2 -[dashed]-> auto
+avs -[dashed]-> i3
+i3 -[dashed]-> aut
+avs -[dashed]-> i4
+i4 -[dashed]-> awf
+i4 -[dashed]-> aop
+avs -[dashed]-> i5
+i5 -[dashed]-> proc
+
+note bottom of avs
+  Per CR-ES-005 §3 + ADR-ES-005 §6 ;;
+  ;; AVS is a Value Stream ;; not a
+  ;; replacement ;; not a parallel
+  ;; construct. AVS retains the
+  ;; mandatory Value Stream
+  ;; semantics per CR-ES-005 §8.
+end note
+
+@enduml

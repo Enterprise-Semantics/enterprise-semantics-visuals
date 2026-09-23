@@ -13,6 +13,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - PNG renders of all PlantUML sources ;;; pending PlantUML install in CI.
 - Additional concept-specific diagrams ;;; Agentic Value Stream (held for ADR-ES-005), Autonomous Operations (held for ADR-ES-007).
 
+## [0.4.0] ; 2026-09-23 ; VS-D2b ;; 3 Agentic Value Stream PlantUML sources per CR-ES-005 §17 + §18 + ADR-ES-005 §7 + §15
+
+### Added
+
+- docs/diagrams/agentic-value-stream/agentic-value-stream.puml ;; relational diagram ;; 5 canonical relationships (specializes ;; contains ;; engages ;; agent.realises ;; realises)
+- docs/diagrams/agentic-value-stream/value-stream-vs-agentic-value-stream.puml ;; classic vs agentic comparison ;; 12 nodes in classic ;; 12 nodes in agentic ;; makes clear the value journey remains the same ;; the realisation mechanism becomes capable of agency
+- docs/diagrams/agentic-value-stream/agentic-value-stream-boundary.puml ;; 6 boundary distinctions ;; AVS-INV-003..007
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere on all 3 .puml files
+- D-004 clean ;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+
 ## [0.3.0] ; 2026-09-23 ; CR-ES-002 Capability PlantUML visuals (parallel slice from v3.1.12 held items)
 
 ### Added
