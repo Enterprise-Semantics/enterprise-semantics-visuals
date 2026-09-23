@@ -13,6 +13,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - PNG renders of all PlantUML sources ;;; pending PlantUML install in CI.
 - Additional concept-specific diagrams ;;; Agentic Value Stream (held for ADR-ES-005), Autonomous Operations (held for ADR-ES-007).
 
+## [0.5.0] ; 2026-09-23 ; VS-D2b ;;; 3 Agentic Workflow PlantUML sources per CR-ES-006 §24 + §25 + §26 + ADR-ES-006 §22
+
+### Added
+
+- docs/diagrams/agentic-workflow/agentic-workflow.puml ;;; 7 canonical relationships + 1 inverse
+- docs/diagrams/agentic-workflow/agentic-workflow-execution.puml ;;; dynamic decision boundary ;; bounded authority ;; runtime adaptation
+- docs/diagrams/agentic-workflow/workflow-vs-agentic-workflow.puml ;;; conventional vs agentic comparison
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere on all 3 .puml files
+- D-004 clean ;;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+
 ## [0.4.0] ; 2026-09-23 ; VS-D2b ;; 3 Agentic Value Stream PlantUML sources per CR-ES-005 §17 + §18 + ADR-ES-005 §7 + §15
 
 ### Added
