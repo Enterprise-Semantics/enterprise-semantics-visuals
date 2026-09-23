@@ -1,0 +1,55 @@
+@startuml value-stream-boundary
+' Source: CR-ES-003 §28 + ADR-ES-003 §7
+' Title: Value Stream semantic boundary analysis
+' Captures: the 12-row boundary table from ADR-ES-003 §7 + the 11 architectural invariants
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+skinparam componentStyle rectangle
+skinparam defaultFontName "Helvetica"
+skinparam component {
+  BackgroundColor<<center>>     #FFF4E8
+  BackgroundColor<<boundary>>   #E8F4FF
+  BackgroundColor<<rejected>>   #FFE8E8
+  BorderColor #333333
+}
+
+component "Value Stream\\n(center of gravity)" as center <<center>>
+
+component "Capability"    as cap    <<boundary>>
+component "Process"       as proc   <<boundary>>
+component "Function"      as func   <<boundary>>
+component "Service"       as svc    <<boundary>>
+component "Product"       as prod   <<boundary>>
+component "Workflow"      as wf     <<boundary>>
+component "Activity"      as act    <<boundary>>
+component "Outcome"       as out    <<boundary>>
+component "Value"         as val    <<boundary>>
+component "Organization"  as org    <<boundary>>
+component "System"        as sys    <<boundary>>
+component "Agent"         as agent  <<boundary>>
+
+center -[#1F77B4]-> cap   : "enabled-by\\n(semantic)"
+center -[#1F77B4]-> proc  : "realized-through\\n(semantic)"
+center -[#1F77B4]-> func  : "may participate"
+center -[#1F77B4]-> svc   : "uses"
+center -[#1F77B4]-> prod  : "may be subject/output"
+center -[#1F77B4]-> wf    : "executes / coordinates"
+center -[#1F77B4]-> act   : "Activities contribute"
+center -[#1F77B4]-> out   : "produces"
+center -[#1F77B4]-> val   : "realizes\\n(primary)"
+center -[#1F77B4]-> org   : "involves"
+center -[#1F77B4]-> sys   : "may support execution"
+center -[#1F77B4]-> agent : "may participate"
+
+note right of center
+  Per ADR-ES-003 §32 invariants:
+  VS-INV-001: Value Stream != Process
+  VS-INV-002: Value Stream != Capability
+  VS-INV-003: Value Stream != Workflow
+  VS-INV-004: Value Stream != Service
+  VS-INV-005: Value Stream != Organization
+  VS-INV-006: Value Stream realizes Stakeholder Value
+  VS-INV-007: Value Stream contains Value Stages
+end note
+
+@enduml

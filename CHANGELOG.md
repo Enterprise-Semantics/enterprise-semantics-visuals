@@ -10,7 +10,38 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ### Planned
 
-- 7 architectural diagrams from FND-ES-000 land in Phase 2.9.
+- PNG renders of all PlantUML sources ;;; pending PlantUML install in CI.
+- Additional concept-specific diagrams ;;; Agentic Value Stream (held for ADR-ES-005), Autonomous Operations (held for ADR-ES-007).
+
+## [0.1.0] ; 2026-09-23 ; VS-D2b Value Stream PlantUML visuals
+
+### Added
+
+- `docs/diagrams/value-stream/value-stream.puml` ;;; Value Stream canonical model per CR-ES-003 §28 + ADR-ES-003 §12 + §20. Captures ValueStream "1" *-- "1..*" ValueStage ;;; the 8 Value Stream relationships ;;; architectural invariants from ADR-ES-003 §32.
+- `docs/diagrams/value-stream/value-stream-boundary.puml` ;;; Value Stream semantic boundary analysis per CR-ES-003 §28 + ADR-ES-003 §7. The 12-row boundary table ;;; the 11 architectural invariants VS-INV-001..011.
+- `docs/diagrams/value-stream/value-stream-process-boundary.puml` ;;; critical Value Stream vs Process boundary per CR-ES-003 §28 + §8 + §16 + §17 + ADR-ES-003 §8 + §16. Layered hierarchy (Value Realization / Execution / Implementation) ;;; the 4 rejected alternatives from ADR-ES-003 §31.
+
+### Scope
+
+This release implements VS-D2b of CR-ES-003 ;;; the 3 PlantUML sources from CR-ES-003 §28. The diagrams are sources only ;;; PNG rendering requires PlantUML install in the CI runner (a separate wiring concern). The existing render.sh script (from [0.0.2]) handles rendering when PlantUML is available.
+
+### Governance
+
+- ADR-ES-003 (Proposed, governance slot 0005) ;;; ratifies the foundational Value Stream decision ;;; §7, §12, §20 are the diagram anchors.
+- CR-ES-003 (Proposed, governance slot 0011) ;;; carries §28 visual model requirements.
+
+### Cardinal rules applied
+
+- Author comment in each diagram header ;;; per existing convention.
+- No en-dash (U+2013) or em-dash (U+2014) in any diagram source (D-004 dash rule).
+- No vendor-specific material from embargoed sources in any diagram (cardinal embargo, 2026-09-22).
+- ES is sourced from SDO-neutral standardisation only (ISO/IEC, ITU-T, ETSI, NIST).
+
+### Held non-actions
+
+- PNG renders (held for PlantUML CI integration, separate slice).
+- ADR-ES-003 promotion to Accepted (gated on CR-ES-003 implementation completion).
+- Release tag (per v3.1.4 user directive).
 
 ## [0.0.2] ; 2026-09-02 ; Architectural diagrams seeded (Phase 2.9)
 

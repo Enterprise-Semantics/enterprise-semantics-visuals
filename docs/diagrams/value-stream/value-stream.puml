@@ -1,0 +1,57 @@
+@startuml value-stream
+' Source: CR-ES-003 §28 + ADR-ES-003 §12 + §20
+' Title: Value Stream canonical model
+' Captures: ValueStream "1" *-- "1..*" ValueStage ;;; containment ;;; not composition
+' Captures: Value Stream vs Process vs Capability vs Service ;;; semantic ;;; not structural
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+skinparam componentStyle rectangle
+skinparam defaultFontName "Helvetica"
+skinparam component {
+  BackgroundColor<<vs>>        #FFF4E8
+  BackgroundColor<<stage>>     #FFE8D0
+  BackgroundColor<<external>>  #E8F4FF
+  BorderColor #333333
+}
+
+component "Value Stream" as vs <<vs>>
+component "Value Stage\\n1" as stage1 <<stage>>
+component "Value Stage\\n2" as stage2 <<stage>>
+component "Value Stage\\nN" as stageN <<stage>>
+
+component "Stakeholder Value" as sv <<external>>
+component "Capability" as cap <<external>>
+component "Process" as proc <<external>>
+component "Outcome" as out <<external>>
+component "Service" as svc <<external>>
+
+vs        -[#FF7F0E]-> stage1   : "contains"
+vs        -[#FF7F0E]-> stage2   : "contains"
+vs        -[#FF7F0E]-> stageN   : "contains"
+
+vs        -[#1F77B4]-> sv        : "realizes"
+vs        -[#1F77B4]-> cap       : "enabled-by"
+vs        -[#1F77B4]-> proc      : "realized-through"
+vs        -[#1F77B4]-> out       : "produces"
+vs        -[#1F77B4]-> svc       : "uses"
+
+stage1    -[#2CA02C]-> stage2   : "precedes"
+stage2    -[#2CA02C]-> stageN   : "precedes"
+
+note right of vs
+  Per ADR-ES-003 §32:
+  Value Stream != Process
+  Value Stream != Capability
+  Value Stream != Workflow
+  Value Stream != Service
+  Value Stream != Organization
+end note
+
+note bottom
+  realized-through is a semantic
+  relationship, not composition.
+  A Process is NOT a structural
+  child of a Value Stream.
+end note
+
+@enduml
