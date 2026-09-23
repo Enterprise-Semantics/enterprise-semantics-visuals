@@ -1,0 +1,95 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Agentic Workflow vs Agentic Operations comparison
+'
+' Per CR-ES-007 §20 + ADR-ES-007 §7 + §9 + §23.
+' Depicts two parallel representations to make clear that Agentic
+' Workflow is work coordination ;; while Agentic Operations is an
+' operating mode ;; the two are distinct semantic concepts at
+' different layers.
+
+@startuml agentic-workflow-vs-agentic-operations
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Agentic Workflow vs Agentic Operations
+
+' Agentic Workflow column
+
+package "Agentic Workflow" #F0FFF0 {
+    rectangle "Workflow\nTrigger" as aw_t1 #F0FFF0
+    rectangle "Workflow\nIntent" as aw_i #F0FFF0
+    rectangle "Workflow\nContext" as aw_c #F0FFF0
+    rectangle "Workflow\nAgent" as aw_a #F0E8FF
+    rectangle "Interpret\n(Workflow)" as aw_int #F5F5DC
+    rectangle "Authority /\nConstraints" as aw_ac #E0FFFF
+    rectangle "Workflow Path /\nAction" as aw_pa #FFE4E1
+    rectangle "Workflow\nActivity / Task" as aw_at #F0FFF0
+    rectangle "Workflow\nOutcome" as aw_o #E0FFE0
+    rectangle "Workflow\nAdapt" as aw_ad #FFE4B5
+
+    aw_t1 --> aw_i
+    aw_i --> aw_c
+    aw_c --> aw_a
+    aw_a --> aw_int
+    aw_int --> aw_ac
+    aw_ac --> aw_pa
+    aw_pa --> aw_at
+    aw_at --> aw_o
+    aw_o --> aw_ad
+}
+
+note bottom of "Agentic Workflow"
+  Per ADR-ES-006 + CR-ES-006 ;;
+  Agentic Workflow = work coordination /
+  execution ;;; Workflow specialisation ;;
+  workflow_intent ;; agentic_scope ;; etc.
+end note
+
+' Agentic Operations column
+
+package "Agentic Operations" #FFE4B5 {
+    rectangle "Operational\nContext" as ao_oc #FFFACD
+    rectangle "Sense" as ao_s #F5F5DC
+    rectangle "Interpret" as ao_i #F5F5DC
+    rectangle "Decide /\nAction Selection" as ao_d #FFE4E1
+    rectangle "Coordinate\n(Multi-Workflow)" as ao_c #FFE4E1
+    rectangle "Act" as ao_a #F0FFF0
+    rectangle "Observe\nOutcome" as ao_o #E0FFE0
+    rectangle "Evaluate /\nAdapt" as ao_ad #FFE4B5
+
+    ao_oc --> ao_s
+    ao_s --> ao_i
+    ao_i --> ao_d
+    ao_d --> ao_c
+    ao_c --> ao_a
+    ao_a --> ao_o
+    ao_o --> ao_ad
+    ao_ad -[dashed]-> ao_oc
+}
+
+note bottom of "Agentic Operations"
+  Per ADR-ES-007 + CR-ES-007 ;;
+  Agentic Operations = operating mode ;;
+  Operations specialisation ;; uses multiple
+  workflows (some Agentic ;;; some conventional) ;;
+  operational_intent ;; operational_scope ;;
+  policy_context ;; etc.
+end note
+
+note right of "Agentic Operations"
+  Per CR-ES-007 §10 + ADR-ES-007 §7 ;;
+  Agentic Operations is broader than
+  Agentic Workflow ;; the operating
+  mode may use multiple workflows ;;
+  processes ;; and human participants.
+end note
+
+@enduml
