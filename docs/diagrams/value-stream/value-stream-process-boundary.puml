@@ -1,0 +1,68 @@
+@startuml value-stream-process-boundary
+' Source: CR-ES-003 §28 + §8 + §16 + §17 + ADR-ES-003 §8 + §16
+' Title: Value Stream vs Process ;;; critical architectural boundary
+' Captures: layered hierarchy (Value Stream -> Value Stage -> Process -> Activity -> Task -> Workflow)
+'          and the 3 rejected alternatives from ADR-ES-003 §31
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+skinparam componentStyle rectangle
+skinparam defaultFontName "Helvetica"
+skinparam component {
+  BackgroundColor<<value>>       #FFF4E8
+  BackgroundColor<<stage>>       #FFE8D0
+  BackgroundColor<<execution>>    #E8F4FF
+  BackgroundColor<<implementation>> #F0F0F0
+  BorderColor #333333
+}
+
+component "Value Stream" as vs <<value>>
+component "Value Stage" as stage <<stage>>
+component "Process" as proc <<execution>>
+component "Activity" as act <<execution>>
+component "Task" as task <<execution>>
+component "Workflow / Task Flow" as wf <<execution>>
+component "Service" as svc <<implementation>>
+component "System" as sys <<implementation>>
+component "Resource" as res <<implementation>>
+component "Technology" as tech <<implementation>>
+
+vs      -[#FF7F0E]-> stage   : "contains"
+stage   -[#FF7F0E]-> proc    : "realized-through"
+proc    -[#1F77B4]-> act     : "decomposes into"
+act     -[#1F77B4]-> task    : "decomposes into"
+task    -[#1F77B4]-> wf      : "coordinated by"
+
+vs      -[#2CA02C]-> svc    : "uses"
+vs      -[#2CA02C]-> sys    : "may involve"
+vs      -[#2CA02C]-> res    : "uses-resource"
+
+note top of vs
+  VALUE REALIZATION layer
+end note
+
+note top of proc
+  EXECUTION layer
+end note
+
+note bottom of svc
+  IMPLEMENTATION layer
+end note
+
+note right of vs
+  Per CR-ES-003 §8 + §16:
+  Value Stream != Process hierarchy
+  Value Stream is realized THROUGH Process
+  ;;; not composed OF Process
+
+  Per CR-ES-003 §17:
+  Workflow is NOT the semantic
+  representation of a Value Stream
+
+  Per ADR-ES-003 §31 rejected alternatives:
+  - Value Stream is-a Process (rejected)
+  - Value Stream is-a Process Group (rejected)
+  - Value Stream is-a Capability (rejected)
+  - Value Stream is-a Service (rejected)
+end note
+
+@enduml

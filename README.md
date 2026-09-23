@@ -6,7 +6,7 @@ This repository holds the **source** of every diagram used across the program. R
 
 ## Status
 
-**Skeleton (v0.0.1).** The 7 architectural diagrams from FND-ES-000 land in Phase 2.9.
+**First content tranche (v0.1.0).** 7 architectural diagrams from FND-ES-000 in v0.0.2 ;;; Value Stream visuals (3 PlantUML sources) added via VS-D2b on 2026-09-23 in docs/diagrams/value-stream/.
 
 ## Planned diagrams (from FND-ES-000)
 
