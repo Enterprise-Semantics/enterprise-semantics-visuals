@@ -1,0 +1,96 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Conventional Workflow vs Agentic Workflow comparison
+'
+' Per CR-ES-006 §26 + ADR-ES-006 §9.
+' Depicts two parallel representations ;; the conventional Workflow
+' follows a predefined step-rule sequence ;; the Agentic Workflow
+' introduces a dynamic decision boundary with agentic interpretation.
+
+@startuml workflow-vs-agentic-workflow
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Workflow vs Agentic Workflow
+
+' Conventional Workflow
+
+package "Conventional Workflow" #F0FFF0 {
+    rectangle "Trigger" as w_t1 #F0FFF0
+    rectangle "Step A" as w_a #F0FFF0
+    rectangle "Rule" as w_r1 #F0FFF0
+    rectangle "Step B" as w_b #F0FFF0
+    rectangle "Rule" as w_r2 #F0FFF0
+    rectangle "Step C" as w_c #F0FFF0
+
+    w_t1 --> w_a
+    w_a --> w_r1
+    w_r1 --> w_b
+    w_b --> w_r2
+    w_r2 --> w_c
+}
+
+note bottom of "Conventional Workflow"
+  Per CR-ES-006 §26 + ADR-ES-006 §9 ;;
+  Conventional Workflow follows a
+  predefined step-rule sequence ;;
+  no agentic interpretation ;;
+  no dynamic action selection.
+end note
+
+' Agentic Workflow
+
+package "Agentic Workflow" #FFE4B5 {
+    rectangle "Intent" as a_i #F5F5DC
+    rectangle "Context" as a_c #FFFACD
+    rectangle "Interpret" as a_int #F5F5DC
+    rectangle "Select Path" as a_sp #FFE4E1
+
+    rectangle "Option A" as a_a #FFE4B5
+    rectangle "Option B" as a_b #FFE4B5
+    rectangle "Option C" as a_c2 #FFE4B5
+
+    rectangle "Execute" as a_e #F0FFF0
+    rectangle "Observe" as a_o #E0FFE0
+    rectangle "Adapt /\nEscalate" as a_ae #FFE4B5
+
+    a_i --> a_c
+    a_c --> a_int
+    a_int --> a_sp
+    a_sp --> a_a
+    a_sp --> a_b
+    a_sp --> a_c2
+    a_a --> a_e
+    a_b --> a_e
+    a_c2 --> a_e
+    a_e --> a_o
+    a_o --> a_ae
+    a_ae -[dashed]-> a_sp : runtime adaptation
+}
+
+note bottom of "Agentic Workflow"
+  Per CR-ES-006 §26 + ADR-ES-006 §9 ;;
+  Agentic Workflow retains workflow
+  structure while adding an agentic
+  decision boundary. The Agent
+  interprets context ;; selects
+  permitted path ;; Workflow adapts.
+end note
+
+note right of "Agentic Workflow"
+  Per CR-ES-006 §18 + ADR-ES-006 §10 ;;
+  Material-participation criterion:
+  "Agent interprets context ;;
+  Agent selects permitted path ;;
+  Workflow adapts". Merely calling
+  an Agent is insufficient.
+end note
+
+@enduml

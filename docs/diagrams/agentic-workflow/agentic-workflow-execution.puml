@@ -1,0 +1,63 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Agentic Workflow execution pattern visualization
+'
+' Per CR-ES-006 §25 + ADR-ES-006 §9.
+' Illustrates the dynamic decision boundary ;; the agentic execution
+' pattern ;; the bounded authority ;; and the runtime adaptation.
+
+@startuml agentic-workflow-execution
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Agentic Workflow Execution Pattern
+
+rectangle "Intent\n(Workflow Intent)" as i1 #F5F5DC
+rectangle "Context" as c1 #FFFACD
+rectangle "Agent\n(ES:CONCEPT:agent)" as a1 #F0E8FF
+rectangle "Interpret" as i2 #F5F5DC
+rectangle "Authority /\nConstraints" as ac1 #E0FFFF
+rectangle "Select Path" as sp1 #FFE4E1
+rectangle "Execute Activity /\nTask" as e1 #F0FFF0
+rectangle "Observe Outcome" as oo1 #E0FFE0
+rectangle "Adapt /\nContinue /\nEscalate" as ace1 #FFE4B5
+
+i1 --> c1
+c1 --> a1
+a1 --> i2
+i2 --> ac1
+ac1 --> sp1
+sp1 --> e1
+e1 --> oo1
+oo1 --> ace1
+ace1 -[dashed]-> sp1 : runtime adaptation
+
+note right of ac1
+  Per ADR-ES-006 §4.6 + §11 ;;
+  Bounded Decision Authority.
+end note
+
+note right of ace1
+  Per ADR-ES-006 §12 ;;
+  Runtime adaptation is
+  distinct from permanent
+  modification of the
+  canonical workflow
+  definition.
+end note
+
+note bottom of ace1
+  Per CR-ES-006 §17 + ADR-ES-006 §4.7 ;;
+  Escalation routes to
+  human intervention when
+  Authority is exceeded.
+end note
+
+@enduml

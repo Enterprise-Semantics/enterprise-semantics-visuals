@@ -1,0 +1,78 @@
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+'
+' Agentic Workflow relational diagram
+'
+' Per CR-ES-006 §24 + ADR-ES-006 §22 + §26.
+' Illustrates the 7 canonical relationships (specializes ;;; engages ;;;
+' interprets ;;; operates-within ;;; coordinates ;; produces) plus the
+' process-realized-through inverse.
+
+@startuml agentic-workflow
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+}
+
+title Agentic Workflow ;;; Relational Model
+
+' Core Agentic Workflow class
+
+rectangle "Agentic Workflow\n(ES:CONCEPT:agentic-workflow)" as awf #FFE4B5
+
+' Specialization parent
+
+rectangle "Workflow\n(ES:CONCEPT:workflow)" as wf #F0FFF0
+
+' Subject types
+
+rectangle "Process\n(external:concept:process)" as proc #E0E8F0
+
+' Agent engagement
+
+rectangle "Agent\n(ES:CONCEPT:agent)" as agent #F0E8FF
+
+' Inherited semantics
+
+rectangle "Intent\n(ES:CONCEPT:intent)" as intent #F5F5DC
+rectangle "Authority\n(ES:CONCEPT:authority)" as auth #E0FFFF
+
+' Coordinated entities
+
+rectangle "Activity\n(external:concept:activity)" as activity #FFFACD
+rectangle "Task\n(external:concept:task)" as task #FFFACD
+rectangle "Outcome\n(external:concept:outcome)" as outcome #E0FFE0
+
+' Relationships
+
+awf --|> wf : specializes
+
+proc --> awf : process-realized-through
+
+awf --> agent : engages
+awf --> intent : interprets
+awf --> auth : operates-within
+
+awf --> activity : coordinates
+awf --> task : coordinates
+
+awf --> outcome : produces
+
+note bottom of awf
+  Per CR-ES-006 §5 + ADR-ES-006 §2 + §18.
+  Agentic Workflow specialises Workflow ;; preserves the Workflow
+  semantics ;; adds 8 characteristics ;; 8 properties ;; 8 canonical
+  relationships.
+end note
+
+note right of awf
+  Per ADR-ES-006 §10 ;;; the material-participation criterion
+  requires: "Agent interprets context ;; Agent selects permitted
+  path ;; Workflow adapts".
+end note
+
+@enduml
