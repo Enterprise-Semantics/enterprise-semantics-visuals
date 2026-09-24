@@ -1,0 +1,51 @@
+' Agentic Enterprise value / operations boundary visualization
+'
+' Per CR-ES-010 §20 + ADR-ES-010 §5 + §14 + §15.
+' Illustrates how Agentic Enterprise participates in value realisation and
+' operations without collapsing into either.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml agentic-enterprise-value-operations-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Agentic Enterprise ,  Value / Operations Boundary
+
+rectangle "Agentic Enterprise" as ae #FFE4B5
+
+rectangle "Value Realisation" as value #E0E8F0
+rectangle "Agentic Value Stream" as avs #E6E6FA
+rectangle "Operations" as ops #F0FFF0
+rectangle "Agentic Operations" as aops #E0FFFF
+rectangle "Agentic Workflow" as awf #FFFACD
+
+ae --> value : participates
+ae --> ops : participates
+
+value --> avs : enterprise-realizes-through
+ops --> aops : enterprise-operates-through
+aops --> awf : uses
+
+note bottom of ae
+  Per AE-CON-004 + AE-CON-005 + AE-CON-013:
+  Agentic Enterprise realises value through Agentic
+  Value Streams and operates through Agentic Operations.
+  Mixed realisation across agentic, conventional, and
+  human-led operations is architecturally valid.
+end note
+
+@enduml

@@ -1,0 +1,71 @@
+' Agentic Enterprise operating model visualization
+'
+' Per CR-ES-010 §20 + ADR-ES-010 §7.
+' Illustrates the Agentic Enterprise Operating Loop bounded by authority,
+' policy, constraints, and governance.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml agentic-enterprise-operating-model
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Agentic Enterprise ,  Operating Model
+
+rectangle "Enterprise Objective" as obj #FFE4B5
+rectangle "Enterprise Context" as ctx #E0E8F0
+rectangle "Interpretation" as interp #E6E6FA
+rectangle "Decision" as dec #E0FFFF
+rectangle "Coordination" as coord #F0FFF0
+rectangle "Action / Execution" as act #FFFACD
+rectangle "Outcome" as outcome #FFE4E1
+rectangle "Observation" as obs #F5DEB3
+rectangle "Adaptation" as adapt #D8BFD8
+
+obj --> ctx : inputs
+ctx --> interp : signals
+interp --> dec : informs
+dec --> coord : allocates
+coord --> act : sequences
+act --> outcome : produces
+outcome --> obs : emits
+obs --> adapt : informs
+adapt --> ctx : feedback
+
+rectangle "Authority" as authority #C8C8C8
+rectangle "Policy" as policy #C8C8C8
+rectangle "Constraints" as constraints #C8C8C8
+rectangle "Governance" as gov #C8C8C8
+
+authority -[#888888]- obj
+authority -[#888888]- dec
+authority -[#888888]- act
+policy -[#888888]- obj
+policy -[#888888]- dec
+policy -[#888888]- act
+constraints -[#888888]- act
+gov -[#888888]- obj
+gov -[#888888]- act
+gov -[#888888]- outcome
+
+note bottom of gov
+  Per AE-CON-007 + AE-CON-008 + AE-CON-018:
+  Authority is bounded. Authority = unrestricted
+  fails conformance. Governance surrounds rather
+  than disappears behind agentic execution.
+end note
+
+@enduml

@@ -1,0 +1,55 @@
+' Agentic Enterprise concept visualization
+'
+' Per CR-ES-010 §20 + ADR-ES-010 §1 + §3 + §17.
+' Illustrates the Agentic Enterprise as a specialisation of Enterprise,
+' with enterprise-level agentic participation ;;; bounded authority ;;;
+' policy and governance ;;; and explicit intervention and escalation.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml agentic-enterprise
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Agentic Enterprise ,  Enterprise Specialisation
+
+rectangle "Enterprise\n(ES:CONCEPT:enterprise)" as enterprise #E0E8F0
+rectangle "Agentic Enterprise\n(ES:CONCEPT:agentic-enterprise)" as ae #FFE4B5
+
+rectangle "Agentic Value Stream" as avs #E6E6FA
+rectangle "Agentic Operations" as aops #E0FFFF
+rectangle "Agentic Workflow" as awf #F0FFF0
+rectangle "Authority" as authority #FFFACD
+rectangle "Policy" as policy #FFE4E1
+
+enterprise --> ae : specialises
+
+ae --> avs : enterprise-realizes-through
+ae --> aops : enterprise-operates-through
+ae --> awf : uses
+ae --> authority : operates-within
+ae --> policy : governed-by
+
+note right of ae
+  Per ADR-ES-010 §1 + §3 + AE-CON-001:
+  Agentic Enterprise specialises Enterprise,
+  not Agent, not Agentic Operations, not
+  Agentic Value Stream, not Agentic Workflow.
+  Per AE-NEG-016: Agentic Enterprise is
+  orthogonal to Autonomous Enterprise.
+end note
+
+@enduml
