@@ -1,0 +1,47 @@
+' Enterprise Agentic / Autonomous matrix visualization
+'
+' Per CR-ES-011 §20 + ADR-ES-010 §13 + ADR-ES-011 §5 + §11.
+' Illustrates the four-state matrix that distinguishes the
+' Agentic Enterprise and Autonomous Enterprise classifications.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml enterprise-agentic-autonomous-matrix
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Enterprise, Agentic / Autonomous Matrix
+
+rectangle "State 1: Neither\n(Conventional / Mixed)" as state1 #F5F5F5
+rectangle "State 2: Agentic only\n(Agentic Enterprise)" as state2 #FFE4B5
+rectangle "State 3: Autonomous only\n(Autonomous Enterprise)" as state3 #FFE4E1
+rectangle "State 4: Both\n(Agentic + Autonomous Enterprise)" as state4 #E6E6FA
+
+state1 --> state2 : add Agentic
+state1 --> state3 : add Autonomous
+state2 --> state4 : add Autonomous
+state3 --> state4 : add Agentic
+
+note bottom of state4
+  Per ADR-ES-011 §11:
+  State 4 is a valid combination of semantic
+  characteristics. It does NOT result in
+  creation of a new canonical concept. The
+  two specialisations are independent semantic
+  dimensions per AE-AUTO-CON-013.
+end note
+
+@enduml

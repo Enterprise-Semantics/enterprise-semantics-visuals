@@ -1,0 +1,53 @@
+' Agentic Enterprise vs Autonomous Enterprise visualization
+'
+' Per CR-ES-011 §20 + ADR-ES-010 §11 + ADR-ES-011 §11 + §13.
+' Illustrates the orthogonality between Agentic Enterprise and
+' Autonomous Enterprise as parallel Enterprise specialisations.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml agentic-vs-autonomous-enterprise
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Agentic Enterprise vs Autonomous Enterprise, Orthogonality
+
+rectangle "Enterprise" as enterprise #E0E8F0
+
+rectangle "Agentic Enterprise" as agentic_ae #FFE4B5
+rectangle "Autonomous Enterprise" as autonomous_ae #FFE4E1
+
+enterprise --> agentic_ae : specialises
+enterprise --> autonomous_ae : specialises
+
+rectangle "Agentic + Autonomous Enterprise" as both #E6E6FA
+
+agentic_ae --> both : orthogonal-mode
+autonomous_ae --> both : orthogonal-mode
+
+note bottom of both
+  Per ADR-ES-010 §13 + ADR-ES-011 §11:
+  The two concepts are orthogonal semantic
+  dimensions. An enterprise may satisfy
+  neither, either, or both classifications.
+  The fourth state is a valid combination
+  of semantic characteristics but does NOT
+  result in creation of a new canonical concept.
+  Per AE-AUTO-CON-013: Autonomous Enterprise
+  does not specialise Agentic Enterprise.
+end note
+
+@enduml
