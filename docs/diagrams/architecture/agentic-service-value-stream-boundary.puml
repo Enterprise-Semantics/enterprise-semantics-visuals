@@ -1,0 +1,26 @@
+@startuml agentic-service-value-stream-boundary
+title Agentic Service vs Agentic Value Stream Boundary
+skinparam classAttributeIconSize 0
+
+class "Agentic Value Stream" as avs
+class "Agentic Service" as asvc
+
+avs --> asvc : uses (one or more)
+
+note right of avs
+  End-to-end value realization
+  materially involving agentic behavior
+end note
+
+note right of asvc
+  Service-level delivery
+  or interaction
+end note
+
+note bottom
+  Agentic Service does NOT
+  imply Agentic Value Stream
+  per ADR-ES-014 §10
+  per ASVC-NEG-005
+end note
+@enduml

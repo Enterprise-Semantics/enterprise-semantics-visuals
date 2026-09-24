@@ -1,0 +1,26 @@
+@startuml service-agentic-realization-boundary
+title Service vs Agentic Service Realization Boundary
+skinparam classAttributeIconSize 0
+
+class "Service\n<<universal>>" as svc
+class "Agentic Service\n<<specialization>>" as asvc
+
+svc <|-- asvc : contextual specialization
+
+note right of svc
+  Means through which value
+  is made available
+  per ADR-ES-002
+end note
+
+note right of asvc
+  How the service is delivered
+  (material agentic behavior)
+  per ADR-ES-014 §3
+end note
+
+note bottom of asvc
+  Agentic behavior qualifies realization
+  Does NOT redefine Service
+end note
+@enduml

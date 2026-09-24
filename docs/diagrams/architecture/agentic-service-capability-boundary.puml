@@ -1,0 +1,27 @@
+@startuml agentic-service-capability-boundary
+title Agentic Service vs Agentic Capability Boundary
+skinparam classAttributeIconSize 0
+
+class "Agentic Service" as asvc
+class "Agentic Capability" as acap
+
+asvc <-- acap : delivered-through (where canonical)
+
+note right of asvc
+  Service-level delivery
+  or interaction involving
+  agentic behavior
+end note
+
+note right of acap
+  Enduring ability to achieve
+  or enable an Outcome
+  through agentic realization
+end note
+
+note bottom
+  Distinct semantic kinds
+  per ADR-ES-014 §7
+  per ASVC-NEG-002
+end note
+@enduml

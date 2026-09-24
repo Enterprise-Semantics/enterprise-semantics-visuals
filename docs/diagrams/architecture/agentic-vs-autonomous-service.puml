@@ -1,0 +1,37 @@
+@startuml agentic-vs-autonomous-service
+title Agentic vs Autonomous Service , The 2x2 Matrix at Service Boundary
+skinparam classAttributeIconSize 0
+
+class "Service\n<<universal>>" as svc
+class "Agentic\nService" as asvc
+class "Autonomous\nService\n<<future, ADR-ES-015>>" as autosvc
+class "Agentic + Autonomous\n<<compositional state>>" as both
+
+svc <|-- asvc : specializes
+svc <|-- autosvc : specializes
+
+note left of asvc
+  Agentic = yes
+  Autonomous = no
+end note
+
+note right of autosvc
+  Agentic = no
+  Autonomous = yes
+  Future ; ADR-ES-015 deferred
+  per ADR-ES-014 §19
+end note
+
+note bottom of both
+  Agentic = yes
+  Autonomous = yes
+  Compositional semantic state
+  NOT a new concept type
+end note
+
+note bottom
+  2x2 matrix per ADR-ES-014 §11
+  Four states: Conventional, Agentic, Autonomous, Both
+  Orthogonal dimensions
+end note
+@enduml

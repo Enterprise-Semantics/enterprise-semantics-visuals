@@ -1,0 +1,26 @@
+@startuml agentic-service-operations-boundary
+title Agentic Service vs Agentic Operations Boundary
+skinparam classAttributeIconSize 0
+
+class "Agentic Operations" as aops
+class "Agentic Service" as asvc
+
+aops --> asvc : contains (one or more)
+
+note right of aops
+  Agentic operating mode
+  for ongoing operational activity
+end note
+
+note right of asvc
+  Service-level delivery
+  or interaction
+end note
+
+note bottom
+  Agentic Operations do NOT
+  make every Service Agentic
+  per ADR-ES-014 §9
+  per ASVC-NEG-004
+end note
+@enduml

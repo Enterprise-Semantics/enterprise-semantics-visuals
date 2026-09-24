@@ -1,0 +1,37 @@
+@startuml service-authority-escalation-boundary
+title Service Authority Escalation Boundary , Bounded Authority
+skinparam classAttributeIconSize 0
+
+class "Agentic Service" as asvc
+class "Service Intent" as intent
+class "Service Context" as ctx
+class "Authority" as auth
+class "Policy" as pol
+class "Constraint" as con
+class "Service Contract" as contract
+class "Governance" as gov
+class "Decision / Action" as dec
+class "Service Outcome" as out
+class "Contextual Adaptation" as adapt
+
+intent --> ctx
+ctx --> auth
+auth --> pol
+pol --> con
+con --> contract
+contract --> gov
+gov --> dec
+dec --> out
+out --> adapt
+adapt --> intent : loop
+
+asvc ..> auth : operates-within
+asvc ..> pol : governed-by
+asvc ..> con : constrained-by
+
+note bottom
+  Bounded authority per ADR-ES-014 §5
+  Escalation boundary required
+  per CR-ES-014 §4
+end note
+@enduml

@@ -1,0 +1,24 @@
+@startuml agentic-service-execution-boundary
+title Agentic Service Execution Boundary
+skinparam classAttributeIconSize 0
+
+class "Agentic Service\n<<semantic>>" as asvc
+class "Execution Mechanism\n<<technology>>" as exec
+
+asvc --> exec : realized through
+
+note right of exec
+  May include:
+  - Human
+  - Agent
+  - System
+  - Service
+  - Workflow
+  - Agentic Workflow
+end note
+
+note bottom of asvc
+  Material agentic behavior
+  required per CR-ES-014 §8
+end note
+@enduml

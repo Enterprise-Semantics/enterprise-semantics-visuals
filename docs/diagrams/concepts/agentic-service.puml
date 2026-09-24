@@ -1,0 +1,26 @@
+@startuml agentic-service
+title Agentic Service , ES:CONCEPT:agentic-service
+skinparam classAttributeIconSize 0
+
+class "Service\n<<universal, foundational>>" as svc
+class "Agentic Service\n<<contextual specialization>>\nv1.3.0" as asvc
+
+svc <|-- asvc : specializes
+
+note right of svc
+  Universal ; means through which
+  a capability or value is made available
+  per ADR-ES-002
+end note
+
+note right of asvc
+  Contextual specialization
+  per ADR-ES-014
+  Material agentic behavior required
+end note
+
+note bottom of asvc
+  Orthogonal to Autonomous Service
+  per ADR-ES-014 §11
+end note
+@enduml
