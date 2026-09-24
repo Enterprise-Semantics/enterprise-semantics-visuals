@@ -1,0 +1,57 @@
+' Autonomous Enterprise boundary visualization
+'
+' Per CR-ES-011 §20 + ADR-ES-011 §6 + §18.
+' Illustrates the Autonomous Enterprise boundary against adjacent
+' constructs.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml autonomous-enterprise-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Autonomous Enterprise, Boundary Distinctions
+
+rectangle "Autonomous Enterprise" as ae #FFE4B5
+
+rectangle "Enterprise" as enterprise #E0E8F0
+rectangle "AI Enterprise" as ai #FFE4E1
+rectangle "Automated Enterprise" as automated #FFE4E1
+rectangle "Agentic Enterprise" as agentic #FFE4E1
+rectangle "Autonomous Operations" as aops #FFFACD
+rectangle "Autonomous Value Stream" as avs #E6E6FA
+rectangle "Automation" as automation #C8C8C8
+
+enterprise -[#4682B4]- ae : specialises
+ae -[#888888]- ai : AE-AUTO-NEG-005 (NOT)
+ae -[#888888]- automated : AE-AUTO-NEG-006 (NOT)
+ae -[#888888]- agentic : AE-AUTO-NEG-003 (NOT)
+ae -[#888888]- aops : AE-AUTO-NEG-017 (NOT)
+ae -[#888888]- avs : AE-AUTO-NEG-018 (NOT)
+ae -[#888888]- automation : AE-AUTO-CON-012 (NOT sufficient)
+ae -[#888888,thickness=2]- enterprise : AE-AUTO-CON-013 (orthogonal to Agentic Enterprise)
+
+note bottom of ae
+  Per AE-AUTO-CON-002 + AE-AUTO-CON-017:
+  Autonomous Enterprise is established by material
+  enterprise-level autonomous operation, not by
+  possessing Autonomous Operations (AE-AUTO-NEG-007),
+  not by using automation (AE-AUTO-NEG-006),
+  not by eliminating humans (AE-AUTO-NEG-012),
+  not by unlimited authority (AE-AUTO-NEG-014).
+end note
+
+@enduml
