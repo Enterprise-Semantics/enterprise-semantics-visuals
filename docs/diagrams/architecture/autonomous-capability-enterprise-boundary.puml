@@ -1,0 +1,25 @@
+@startuml autonomous-capability-enterprise-boundary
+title Autonomous Capability vs Autonomous Enterprise Boundary
+skinparam classAttributeIconSize 0
+
+class "Autonomous Capability" as acap
+class "Autonomous Enterprise" as aent
+
+note left of acap
+  Capability-level autonomy
+end note
+
+note right of aent
+  Enterprise-level autonomy
+  per ADR-ES-011
+end note
+
+note bottom
+  Distinct semantic kinds
+  per ADR-ES-013 §12
+  per ACAP-AUTO-NEG-006
+  A single Autonomous Capability
+  does NOT establish
+  Autonomous Enterprise
+end note
+@enduml

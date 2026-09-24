@@ -1,0 +1,35 @@
+@startuml agentic-vs-autonomous-capability
+title Agentic vs Autonomous Capability , The 2x2 Matrix at Capability Boundary
+skinparam classAttributeIconSize 0
+
+class "Capability\n<<universal>>" as cap
+class "Agentic\nCapability" as agcap
+class "Autonomous\nCapability" as acap
+class "Agentic + Autonomous\n<<compositional state>>" as both
+
+cap <|-- agcap : specializes
+cap <|-- acap : specializes
+
+note left of agcap
+  Agentic = yes
+  Autonomous = no
+end note
+
+note right of acap
+  Agentic = no
+  Autonomous = yes
+end note
+
+note bottom of both
+  Agentic = yes
+  Autonomous = yes
+  Compositional semantic state
+  NOT a new concept type
+end note
+
+note bottom
+  2x2 matrix per ADR-ES-013 §7 + ADR-ES-012 §14
+  Four states: Conventional, Agentic, Autonomous, Both
+  Orthogonal dimensions
+end note
+@enduml

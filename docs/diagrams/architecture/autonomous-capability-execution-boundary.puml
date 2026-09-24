@@ -1,0 +1,24 @@
+@startuml autonomous-capability-execution-boundary
+title Autonomous Capability Execution Boundary
+skinparam classAttributeIconSize 0
+
+class "Autonomous Capability\n<<semantic>>" as acap
+class "Execution Mechanism\n<<technology>>" as exec
+
+acap --> exec : realized through
+
+note right of exec
+  May be:
+  - human-supported
+  - automated
+  - agentic
+  - system-mediated
+  - service-mediated
+  - hybrid
+end note
+
+note bottom of acap
+  Material agentic behavior
+  required per CR-ES-013 §8
+end note
+@enduml

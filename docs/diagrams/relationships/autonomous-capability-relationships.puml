@@ -1,0 +1,42 @@
+@startuml autonomous-capability-relationships
+title Autonomous Capability Relationships , ES:CONCEPT:autonomous-capability v1.2.0
+skinparam classAttributeIconSize 0
+
+class "Autonomous\nCapability" as acap
+class "Capability" as cap
+class "Outcome" as outcome
+class "Role" as role
+class "Resource" as resource
+class "Service" as service
+class "System" as system
+class "Authority" as authority
+class "Policy" as policy
+class "Constraint" as constraint
+class "Objective" as objective
+class "Context" as context
+class "Workflow" as workflow
+class "Autonomous\nOperations" as aops
+class "Autonomous\nValue Stream" as avs
+
+cap <|-- acap : specializes
+acap --> outcome : enables
+acap --> outcome : produces
+acap --> role : exercised-by
+acap --> resource : supported-by
+acap --> service : delivered-through
+acap --> system : implemented-by
+acap --> authority : operates-within
+acap --> policy : governed-by
+acap --> constraint : constrained-by
+acap --> objective : pursues
+acap --> context : adapts-to
+acap --> workflow : realized-through
+acap --> aops : supported-by
+acap --> avs : enables
+
+note bottom
+  All predicates already canonical
+  in relationships/vocabulary.yaml v1.0.0
+  (per CR-ES-013 §7 + VS-B)
+end note
+@enduml

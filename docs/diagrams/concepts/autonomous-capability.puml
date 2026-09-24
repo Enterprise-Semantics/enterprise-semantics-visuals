@@ -1,0 +1,29 @@
+@startuml autonomous-capability
+title Autonomous Capability , ES:CONCEPT:autonomous-capability
+skinparam classAttributeIconSize 0
+skinparam classFontSize 14
+skinparam classBackgroundColor #FAFAFA
+
+class "Capability\n<<universal, foundational>>" as cap
+class "Autonomous Capability\n<<contextual specialization>>\nv1.2.0" as acap
+
+cap <|-- acap : specializes
+
+note right of cap
+  Universal ; enduring ability
+  per ADR-ES-002
+end note
+
+note right of acap
+  Contextual specialization
+  per ADR-ES-013
+  Bounded by Authority,
+  Policy, Constraints,
+  Governance, Escalation
+end note
+
+note bottom of acap
+  Orthogonal to Agentic Capability
+  per ADR-ES-013 §7 + ADR-ES-012 §14
+end note
+@enduml

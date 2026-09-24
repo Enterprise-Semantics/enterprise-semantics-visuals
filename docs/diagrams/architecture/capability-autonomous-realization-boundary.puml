@@ -1,0 +1,26 @@
+@startuml capability-autonomous-realization-boundary
+title Capability vs Autonomous Capability Realization Boundary
+skinparam classAttributeIconSize 0
+
+class "Capability\n<<universal>>" as cap
+class "Autonomous Capability\n<<specialization>>" as acap
+
+cap <|-- acap : contextual specialization
+
+note right of cap
+  What an Entity can achieve
+  (enduring ability)
+  per ADR-ES-002
+end note
+
+note right of acap
+  How the ability can be realized
+  (bounded independence)
+  per ADR-ES-013 §3.1
+end note
+
+note bottom of acap
+  Autonomy qualifies realization
+  Does NOT redefine Capability
+end note
+@enduml

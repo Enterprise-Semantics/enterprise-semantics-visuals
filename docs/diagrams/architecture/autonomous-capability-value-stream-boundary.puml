@@ -1,0 +1,26 @@
+@startuml autonomous-capability-value-stream-boundary
+title Autonomous Capability vs Autonomous Value Stream Boundary
+skinparam classAttributeIconSize 0
+
+class "Autonomous Capability" as acap
+class "Autonomous Value Stream" as avs
+
+acap --> avs : enables (where canonical)
+
+note right of acap
+  Capability-level autonomy
+  (enduring ability)
+end note
+
+note right of avs
+  End-to-end autonomous value realization
+  (does NOT automatically make
+  every enabling Capability autonomous)
+end note
+
+note bottom
+  Distinct semantic kinds
+  per ADR-ES-013 §11
+  per ACAP-AUTO-CON-016 + ACAP-AUTO-NEG-013
+end note
+@enduml

@@ -1,0 +1,33 @@
+@startuml capability-autonomy-authority-boundary
+title Capability Autonomy Authority Boundary , Bounded Autonomy
+skinparam classAttributeIconSize 0
+
+class "Autonomous Capability" as acap
+class "Objective" as obj
+class "Authority" as auth
+class "Policy" as pol
+class "Constraint" as con
+class "Governance" as gov
+class "Decision / Action" as dec
+class "Outcome" as out
+class "Adaptation" as adapt
+
+obj --> auth
+auth --> pol
+pol --> con
+con --> gov
+gov --> dec
+dec --> out
+out --> adapt
+adapt --> obj : loop
+
+acap ..> auth : operates-within
+acap ..> pol : governed-by
+acap ..> con : constrained-by
+
+note bottom
+  Bounded autonomy per ADR-ES-013 §3.4
+  Unlimited authority must fail
+  conformance per CR-ES-013 §17
+end note
+@enduml
