@@ -1,0 +1,39 @@
+' Agentic Capability / Agentic Workflow / Agent boundary
+'
+' Per ADR-ES-012 §9-§11.
+' Distinguishes Agentic Capability (ability) from Agentic Workflow
+' (coordinated execution) and Agent (acting Entity).
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml agentic-capability-execution-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+title Agentic Capability / Workflow / Agent Boundary
+
+' Three distinct semantic kinds
+
+rectangle "Agentic Capability\n(enduring ability)\nACAP-CON-013..016" as ACAP #FFE4B5
+
+rectangle "Agentic Workflow\n(coordinated execution)\nACAP-CON-014" as AWF #E0FFE0
+
+rectangle "Agent\n(acting Entity)\nACAP-CON-013" as AGT #E6E6FA
+
+' Relationships
+
+ACAP --> AWF : realized-through
+ACAP --> AGT : engages
+
+' Distinction assertions
+
+note bottom of ACAP
+  Agentic Capability != Agent
+  Agentic Capability != Agentic Workflow
+  Agent != Agentic Capability
+  Agentic Workflow != Agentic Capability
+end note
+
+@enduml

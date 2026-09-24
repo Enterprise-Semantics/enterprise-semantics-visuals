@@ -1,0 +1,31 @@
+' Agentic Capability / Agentic Value Stream boundary
+'
+' Per ADR-ES-012 §12 + CR-ES-012 §13.
+' Distinguishes Agentic Capability (ability) from Agentic Value Stream
+' (value realization).
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml agentic-capability-value-stream-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+title Agentic Capability / Agentic Value Stream Boundary
+
+rectangle "Agentic Capability\n(ability)\nACAP-CON-001..008" as ACAP #FFE4B5
+
+rectangle "Agentic Value Stream\n(value realization)\nACAP-CON-016" as AVS #E0FFE0
+
+' Relationship
+
+ACAP --> AVS : enables (ACAP-CON-008)
+
+note bottom of ACAP
+  Capability -> ability
+  Value Stream -> value realization
+  Agentic Capability != Agentic Value Stream
+end note
+
+@enduml

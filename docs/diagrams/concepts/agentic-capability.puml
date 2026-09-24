@@ -1,0 +1,55 @@
+' Agentic Capability conceptual visualization
+'
+' Per CR-ES-012 §22 + ADR-ES-012 §22.
+' Illustrates Agentic Capability as a contextual specialization of
+' Capability, not a new foundational type of ability.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml agentic-capability-concept
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+title Agentic Capability Conceptual Model
+
+' Capability universal concept (parent)
+
+package "Capability (universal, ADR-ES-002)" #E6E6FA {
+    rectangle "enduring ability to achieve/enable an Outcome" as cap
+}
+
+' Agentic Capability specialization
+
+package "Agentic Capability (specialization, ADR-ES-012)" #FFE4B5 {
+    rectangle "enduring ability + material agentic realization" as acap
+}
+
+cap --> acap : specializes
+
+' Material agentic realization dimensions
+
+package "Material Agentic Realization (ADR-ES-012 §7)" #F0F8FF {
+    rectangle "contextual decision-making" as m1
+    rectangle "dynamic action selection" as m2
+    rectangle "adaptive coordination" as m3
+    rectangle "delegated execution" as m4
+    rectangle "contextual exception handling" as m5
+}
+
+acap --> m1
+acap --> m2
+acap --> m3
+acap --> m4
+acap --> m5
+
+' Outcome anchor preserved
+
+package "Outcome (preserved from Capability)" #E0FFE0 {
+    rectangle "intended Outcome" as outcome
+}
+
+acap --> outcome : enables (ACAP-CON-004)
+
+@enduml

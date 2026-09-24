@@ -1,0 +1,41 @@
+' Capability vs Agentic Capability 2x2 matrix
+'
+' Per ADR-ES-012 §14.
+' Illustrates the Agentic / Autonomous orthogonality at the
+' capability boundary.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml capability-vs-agentic-capability
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+title Capability 2x2 Matrix: Agentic vs Autonomous
+
+' 2x2 matrix
+
+rectangle "Capability\n(universal, ADR-ES-002)" as base #E6E6FA
+
+rectangle "Conventional\n(no agentic, no autonomous)" as cv #FFFFFF
+
+rectangle "Agentic Capability\n(ADR-ES-012, established)" as ac #FFE4B5
+
+rectangle "Autonomous Capability\n(ADR-ES-013, deferred)" as auc #E0FFE0
+
+rectangle "Agentic + Autonomous\n(orthogonal combination, possible)" as combo #F0F8FF
+
+base --> cv
+base --> ac
+base --> auc
+base --> combo
+
+note bottom
+  Per ADR-ES-012 §14: only Agentic Capability is established
+  by ADR-ES-012. Autonomous Capability remains deferred per
+  ADR-ES-012 §25. The 2x2 matrix permits Autonomous Capability
+  as a future orthogonal specialization (ADR-ES-013).
+end note
+
+@enduml

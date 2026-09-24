@@ -1,0 +1,36 @@
+' Capability / Agentic Capability realization boundary
+'
+' Per ADR-ES-012 §8 + CR-ES-012 §21.
+' Primary architectural model distinguishing Capability from
+' Agentic Capability from Realization from Outcome.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml capability-agentic-realization-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+title Capability / Agentic Capability Realization Boundary
+
+CAPABILITY : What enduring ability exists?
+note right of CAPABILITY
+  Universal concept
+  per ADR-ES-002
+end note
+
+CAPABILITY --> AGENTIC_CAPABILITY : Is the ability materially realized agentically?
+note right of AGENTIC_CAPABILITY
+  Specialization of Capability
+  per ADR-ES-012
+end note
+
+AGENTIC_CAPABILITY --> REALIZATION : How is the ability realized?
+note right of REALIZATION
+  Workflow / Operations / Service / System / Human
+end note
+
+REALIZATION --> OUTCOME : What is achieved?
+
+@enduml
