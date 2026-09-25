@@ -1,0 +1,38 @@
+@startuml offering-boundary
+title Offering Boundary ; per ADR-ES-021 section 11
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O
+class "Product" as P
+class "Service" as S
+class "Capability" as Cap
+class "Value Stream" as VS
+class "Enterprise" as E
+class "Customer Need" as CN
+class "Fulfillment Process" as FP
+
+O -[dotted]- P : is NOT
+O -[dotted]- S : is NOT
+O -[dotted]- Cap : is NOT
+O -[dotted]- VS : is NOT
+O -[dotted]- E : is NOT
+O -[dotted]- CN : is NOT
+O -[dotted]- FP : is NOT
+
+P -[dotted]- O : is NOT
+S -[dotted]- O : is NOT
+Cap -[dotted]- O : is NOT
+VS -[dotted]- O : is NOT
+E -[dotted]- O : is NOT
+
+note right
+  Per ADR-ES-021 section 11 (Rejected Interpretations):
+  Offering is NOT Product, Service, Capability, Value Stream,
+  Enterprise, Customer Need, or Fulfillment Process.
+  Reverse direction also rejected.
+end note
+
+@enduml

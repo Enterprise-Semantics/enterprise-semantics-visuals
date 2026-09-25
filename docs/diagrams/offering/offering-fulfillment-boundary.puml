@@ -1,0 +1,23 @@
+@startuml offering-fulfillment-boundary
+title Offering / Fulfillment Process Boundary ; per ADR-ES-021 section 9
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Fulfillment Process" as FP
+class "Offering" as O
+
+FP --> O : fulfills
+O --> FP : fulfilled-through
+O -[dotted]- FP : is NOT
+FP -[dotted]- O : is NOT
+
+note right
+  Per ADR-ES-021 section 9:
+  Offering fulfilled-through Fulfillment Process. The Fulfillment
+  Process is what fulfills the Offering, but an Offering is NOT
+  a Fulfillment Process.
+end note
+
+@enduml

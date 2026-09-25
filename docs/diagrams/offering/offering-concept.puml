@@ -1,0 +1,60 @@
+@startuml offering-concept
+title Offering Concept ; per ADR-ES-021 + CR-ES-021
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O {
+  +customer_need
+  +offering_objective
+  +offering_context
+  +authority_context
+  +policy_context
+  +constraint_context
+  +governance_context
+  +configuration_scope
+  +composition_scope
+  +fulfillment_scope
+  +value_realization_scope
+  +customer_outcome_scope
+  +escalation_boundary
+}
+
+class "Customer Need" as CN
+class "Product" as P
+class "Service" as S
+class "Capability" as Cap
+class "Objective" as Obj
+class "Context" as Ctx
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Governance" as Gov
+class "Fulfillment Process" as FP
+class "Customer Outcome" as CO
+class "Value" as V
+class "Escalation Boundary" as EB
+
+O --> CN : addresses
+O --> P : composes
+O --> S : composes
+O --> Cap : exercises
+O --> Obj : pursues
+O --> Ctx : responds-to
+O --> Auth : operates-within
+O --> Pol : governed-by
+O --> Con : constrained-by
+O --> Gov : operates-under
+O --> FP : fulfilled-through
+O --> CO : produces
+O --> V : realizes
+O --> EB : escalates-through
+
+note right of O
+  Foundational concept per ADR-ES-021 section 1.
+  Resolves the Foundational Dependency Gate documented in
+  ADR-ES-018 section 16 + ADR-ES-019 section 2.
+end note
+
+@enduml

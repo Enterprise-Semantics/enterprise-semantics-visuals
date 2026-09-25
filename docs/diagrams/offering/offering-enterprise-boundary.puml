@@ -1,0 +1,21 @@
+@startuml offering-enterprise-boundary
+title Offering / Enterprise Boundary ; per ADR-ES-021 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Enterprise" as E
+class "Offering" as O
+
+E --> O : offers
+O -[dotted]- E : is NOT
+E -[dotted]- O : is NOT
+
+note right
+  Per ADR-ES-021 section 7:
+  Enterprise offers Offerings. An Offering is offered by an
+  Enterprise, but an Offering is NOT an Enterprise.
+end note
+
+@enduml

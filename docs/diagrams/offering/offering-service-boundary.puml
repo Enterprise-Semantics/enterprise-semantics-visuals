@@ -1,0 +1,21 @@
+@startuml offering-service-boundary
+title Offering / Service Boundary ; per ADR-ES-021 section 5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O
+class "Service" as S
+
+O --> S : composes
+O -[dotted]- S : is NOT
+S -[dotted]- O : is NOT
+
+note right
+  Per ADR-ES-021 section 5:
+  Offering composes Service. A Service is a constituent of an
+  Offering, but an Offering is NOT a Service.
+end note
+
+@enduml

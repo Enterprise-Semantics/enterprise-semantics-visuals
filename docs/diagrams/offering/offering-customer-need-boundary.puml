@@ -1,0 +1,22 @@
+@startuml offering-customer-need-boundary
+title Offering / Customer Need Boundary ; per ADR-ES-021 section 8
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Customer Need" as CN
+class "Offering" as O
+
+CN --> O : is-addressed-by
+O --> CN : addresses
+O -[dotted]- CN : is NOT
+CN -[dotted]- O : is NOT
+
+note right
+  Per ADR-ES-021 section 8:
+  Offering addresses Customer Need. The Customer Need is what
+  the Offering addresses, but an Offering is NOT a Customer Need.
+end note
+
+@enduml

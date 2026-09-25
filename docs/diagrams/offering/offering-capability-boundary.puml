@@ -1,0 +1,21 @@
+@startuml offering-capability-boundary
+title Offering / Capability Boundary ; per ADR-ES-021 section 5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O
+class "Capability" as Cap
+
+O --> Cap : exercises
+O -[dotted]- Cap : is NOT
+Cap -[dotted]- O : is NOT
+
+note right
+  Per ADR-ES-021 section 5:
+  Offering exercises Capability. A Capability is exercised by
+  an Offering, but an Offering is NOT a Capability.
+end note
+
+@enduml

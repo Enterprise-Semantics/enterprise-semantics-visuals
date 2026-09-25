@@ -1,0 +1,21 @@
+@startuml offering-value-stream-boundary
+title Offering / Value Stream Boundary ; per ADR-ES-021 section 6
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Value Stream" as VS
+class "Offering" as O
+
+VS --> O : involves
+O -[dotted]- VS : is NOT
+VS -[dotted]- O : is NOT
+
+note right
+  Per ADR-ES-021 section 6:
+  Value Stream involves Offering. An Offering participates in
+  a Value Stream, but an Offering is NOT a Value Stream.
+end note
+
+@enduml

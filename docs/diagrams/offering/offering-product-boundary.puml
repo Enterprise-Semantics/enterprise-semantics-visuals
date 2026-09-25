@@ -1,0 +1,21 @@
+@startuml offering-product-boundary
+title Offering / Product Boundary ; per ADR-ES-021 section 5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O
+class "Product" as P
+
+O --> P : composes
+O -[dotted]- P : is NOT
+P -[dotted]- O : is NOT
+
+note right
+  Per ADR-ES-021 section 5:
+  Offering composes Product. A Product is a constituent of an
+  Offering, but an Offering is NOT a Product.
+end note
+
+@enduml

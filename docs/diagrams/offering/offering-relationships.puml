@@ -1,0 +1,43 @@
+@startuml offering-relationships
+title Offering Canonical Relationships ; per CR-ES-021 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O
+
+class "Customer Need" as CN
+class "Product" as P
+class "Service" as S
+class "Capability" as Cap
+class "Objective" as Obj
+class "Context" as Ctx
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Fulfillment Process" as FP
+class "Customer Outcome" as CO
+class "Value" as V
+class "Escalation Boundary" as EB
+
+O --> CN : addresses
+O --> P : composes
+O --> S : composes
+O --> Cap : exercises
+O --> Obj : pursues
+O --> Ctx : responds-to
+O --> Auth : operates-within
+O --> Pol : governed-by
+O --> Con : constrained-by
+O --> FP : fulfilled-through
+O --> CO : produces
+O --> V : realizes
+O --> EB : escalates-through
+
+note bottom of O
+  No foundational concept silently introduced per CR-ES-021 section 7.
+  Deferred concepts per ADR-ES-021 section 12.
+end note
+
+@enduml
