@@ -1,0 +1,24 @@
+@startuml agentic-system-realization
+title Agentic System Realization ; per ADR-ES-025 section 4 + CR-ES-025 section 9
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+start
+:System Intent;
+:System Context;
+:Interpret / Assess;
+:Select Decision / Action;
+:Coordinate / Execute;
+:Observe Outcome;
+:Adapt / Escalate;
+stop
+
+note bottom
+  Per ADR-ES-025 section 4 ; bounded by
+  Authority, Policy, Constraint, Context,
+  Governance, Escalation.
+end note
+
+@enduml
