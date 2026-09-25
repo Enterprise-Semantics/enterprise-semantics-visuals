@@ -1,0 +1,38 @@
+@startuml product-autonomous-realization-boundary
+title Product / Autonomous Product Realization Boundary ; per ADR-ES-017 §1 + §2 + §3
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Product" as P
+class "Autonomous Product" as AP
+class "Material Autonomous Progression" as MAP
+
+P <|-- AP : specializes
+AP *-- MAP : material-evidence
+
+class "Independent Product Decisions" as IPD
+class "Independent Action Selection" as IAS
+class "Autonomous Configuration" as AC
+class "Autonomous Coordination" as ACO
+class "Autonomous Fulfillment Progression" as AFP
+class "Contextual Adaptation" as CA
+class "Autonomous Exception Handling" as AEH
+class "Autonomous Progression toward Objectives" as APO
+
+MAP --> IPD
+MAP --> IAS
+MAP --> AC
+MAP --> ACO
+MAP --> AFP
+MAP --> CA
+MAP --> AEH
+MAP --> APO
+
+note bottom of MAP
+  Material autonomous progression requires substantive evidence
+  in one or more of the listed dimensions per ADR-ES-017 §5.
+end note
+
+@enduml

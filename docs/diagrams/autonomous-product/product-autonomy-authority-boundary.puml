@@ -1,0 +1,31 @@
+@startuml product-autonomy-authority-boundary
+title Product Autonomy Authority Boundary ; per ADR-ES-017 §4 + §6
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Product" as AP
+class "Product Objective" as Obj
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraints" as Con
+class "Governance" as Gov
+class "Escalation" as Esc
+
+AP --> Obj : pursues
+AP --> Auth : operates-within
+AP --> Pol : governed-by
+AP --> Con : constrained-by
+AP --> Gov : operates-within
+AP --> Esc : escalates-to
+
+note bottom of AP
+  Per ADR-ES-017 §4, autonomous progression is bounded by
+  six fences: Objective -> Authority -> Policy -> Constraints
+  -> Governance -> Escalation.
+  Autonomy means bounded independent progression, NOT
+  unrestricted operation.
+end note
+
+@enduml

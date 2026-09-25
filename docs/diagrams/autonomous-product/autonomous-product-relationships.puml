@@ -1,0 +1,44 @@
+@startuml autonomous-product-relationships
+title Autonomous Product Canonical Relationships ; per CR-ES-017 §6
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Product" as AP
+
+class "Product" as P
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Objective" as Obj
+class "Context" as Ctx
+class "Outcome" as O
+class "Workflow" as W
+class "Agentic Workflow" as AW
+class "Autonomous Operations" as AO
+class "Capability" as Cap
+class "Service" as S
+class "Value" as V
+
+AP --|> P : specializes
+AP --> Auth : operates-within
+AP --> Pol : governed-by
+AP --> Con : constrained-by
+AP --> Obj : pursues
+AP --> Ctx : responds-to
+AP --> O : produces
+AP --> Ctx : adapts-to
+AP --> W : uses (optional)
+AP --> AW : uses (optional)
+AP --> AO : supported-by
+AP --> Cap : supports
+AP --> S : delivered-through
+AP --> V : contributes-to
+
+note bottom of AP
+  No foundational concept silently introduced per CR-ES-017 §6.
+  Deferred concepts per ADR-ES-017 §14.
+end note
+
+@enduml

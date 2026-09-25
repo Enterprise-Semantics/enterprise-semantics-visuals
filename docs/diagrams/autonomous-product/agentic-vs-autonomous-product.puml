@@ -1,0 +1,27 @@
+@startuml agentic-vs-autonomous-product
+title Agentic vs Autonomous Product Orthogonality ; per ADR-ES-017 §2 + §3 + §8
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Product" as P
+class "Agentic Product" as AgP
+class "Autonomous Product" as AP
+class "Agentic + Autonomous Product" as BothP
+
+P <|-- AgP : specializes (v1.5.0)
+P <|-- AP : specializes (v1.6.0)
+AgP ..> BothP : combined characterization
+AP ..> BothP : combined characterization
+
+note bottom of P
+  Per ADR-ES-017 §2 + §3 + §8 + CR-ES-017 §7:
+  - Autonomous Product does NOT imply Agentic Product
+  - Agentic Product does NOT imply Autonomous Product
+  - A Product may be both
+  - A Product may be neither
+  - The combined state is NOT a new subtype
+end note
+
+@enduml

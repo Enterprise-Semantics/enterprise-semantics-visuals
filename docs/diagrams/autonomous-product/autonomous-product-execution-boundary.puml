@@ -1,0 +1,30 @@
+@startuml autonomous-product-execution-boundary
+title Autonomous Product Execution Boundary ; per ADR-ES-017 §4 + CR-ES-017 §5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+start
+:Product Objective;
+:Product Context;
+:Sense / Assess;
+:Decision;
+:Action Selection;
+:Product Execution;
+:Observe Outcome;
+if (Adapt?) then (yes)
+  :Adapt;
+elseif (Escalate?) then (yes)
+  :Escalate;
+endif
+
+stop
+
+note right
+  Per ADR-ES-017 §4 + §6, the entire product does NOT need
+  to operate autonomously. Mixed realization permitted.
+  Bounded by 6 fences.
+end note
+
+@enduml

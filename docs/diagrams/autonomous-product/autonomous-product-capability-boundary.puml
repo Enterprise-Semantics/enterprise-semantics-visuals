@@ -1,0 +1,26 @@
+@startuml autonomous-product-capability-boundary
+title Autonomous Product / Autonomous Capability Boundary ; per ADR-ES-017 §11
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Capability" as C
+class "Autonomous Capability" as AC
+class "Product" as P
+class "Autonomous Product" as AP
+
+C <|-- AC : specializes
+
+C --> P : may enable
+AC --> AP : possibly enables
+
+P <|-- AP : specializes
+
+note right
+  Per ADR-ES-017 §11 + APROD-AUTO-NEG-003:
+  - Autonomous Capability does NOT automatically make every Product it enables autonomous
+  - Autonomous materiality must be demonstrated at the Product boundary
+end note
+
+@enduml

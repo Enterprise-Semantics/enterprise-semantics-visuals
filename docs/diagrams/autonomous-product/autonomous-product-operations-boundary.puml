@@ -1,0 +1,21 @@
+@startuml autonomous-product-operations-boundary
+title Autonomous Product / Autonomous Operations Boundary ; per ADR-ES-017 §11 + §13
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Product" as AP
+class "Autonomous Operations" as AO
+
+AP --> AO : may depend on / use
+
+note right
+  Per ADR-ES-017 §11 + APROD-AUTO-NEG-004 + APROD-AUTO-NEG-013:
+  - Autonomous Operations represents the operating environment
+  - Autonomous Operations is NOT a Product subtype
+  - Autonomous Product is NOT Autonomous Operations
+  - Autonomous Operations does NOT automatically make every Product autonomous
+end note
+
+@enduml

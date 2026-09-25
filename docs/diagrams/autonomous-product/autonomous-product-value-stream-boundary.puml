@@ -1,0 +1,22 @@
+@startuml autonomous-product-value-stream-boundary
+title Autonomous Product / Autonomous Value Stream Boundary ; per ADR-ES-017 §11
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Value Stream" as AVS
+class "Stakeholder Value" as SV
+class "Autonomous Product" as AP
+
+AVS --> SV : realizes
+AVS --> AP : may involve
+
+note right
+  Per ADR-ES-017 §11 + APROD-AUTO-NEG-005 + APROD-AUTO-NEG-014:
+  - Autonomous Product is NOT Autonomous Value Stream
+  - Autonomous Value Stream is NOT Autonomous Product
+  - A conventional Product may participate in an Autonomous Value Stream
+end note
+
+@enduml

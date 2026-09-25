@@ -1,0 +1,24 @@
+@startuml autonomous-product-service-boundary
+title Autonomous Product / Autonomous Service Boundary ; per ADR-ES-017 §11
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Product" as P
+class "Autonomous Product" as AP
+class "Service" as S
+class "Autonomous Service" as AutoS
+
+P <|-- AP : specializes
+
+AP --> S : may be delivered-through
+S <|-- AutoS : specializes
+
+note right
+  Per ADR-ES-017 §11 + APROD-AUTO-NEG-002:
+  - An Autonomous Service does NOT automatically make the Product Autonomous
+  - An Autonomous Product may be delivered through conventional or autonomous services
+end note
+
+@enduml
