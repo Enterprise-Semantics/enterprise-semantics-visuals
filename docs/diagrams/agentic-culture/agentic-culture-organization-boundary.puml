@@ -1,0 +1,24 @@
+@startuml agentic-culture-organization-boundary
+title Agentic Culture / Agentic Organization Boundary ; per ADR-ES-023 section 8
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Culture" as ACult
+class "Agentic Organization" as AOrg
+
+ACult --> AOrg : supports
+AOrg ..> ACult : is shaped by
+
+note right
+  Per ADR-ES-023 section 8:
+  An Agentic Organization can exist with limited cultural
+  institutionalization. Conversely, an organization may
+  develop cultural norms supportive of agentic behavior
+  before its operational model becomes materially Agentic.
+
+  Agentic Culture != Agentic Organization.
+end note
+
+@enduml
