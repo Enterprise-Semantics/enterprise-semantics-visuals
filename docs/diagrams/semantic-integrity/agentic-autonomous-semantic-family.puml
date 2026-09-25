@@ -1,0 +1,59 @@
+@startuml agentic-autonomous-semantic-family
+title Agentic/Autonomous Semantic Family ; per ADR-ES-022 section 6
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Capability" as Cap
+class "Value Stream" as VS
+class "Service" as Svc
+class "Product" as Prod
+class "Offering" as Off
+class "Operations" as Ops
+class "Organization" as Org
+class "Enterprise" as Ent
+class "Workflow" as Wf
+
+class "Agentic Capability" as ACap
+class "Autonomous Capability" as AaCap
+class "Agentic Value Stream" as AVS
+class "Autonomous Value Stream" as AaVS
+class "Agentic Service" as ASvc
+class "Autonomous Service" as AaSvc
+class "Agentic Product" as AProd
+class "Autonomous Product" as AaProd
+class "Agentic Offering" as AOff
+class "Autonomous Offering" as AaOff
+class "Agentic Operations" as AOps
+class "Autonomous Operations" as AaOps
+class "Agentic Organization" as AOrg
+class "Autonomous Organization" as AaOrg
+class "Agentic Enterprise" as AEnt
+class "Autonomous Enterprise" as AaEnt
+class "Agentic Workflow" as AWf
+
+Cap <|-- ACap : specializes
+Cap <|-- AaCap : specializes
+VS <|-- AVS : specializes
+VS <|-- AaVS : specializes
+Svc <|-- ASvc : specializes
+Svc <|-- AaSvc : specializes
+Prod <|-- AProd : specializes
+Prod <|-- AaProd : specializes
+Off <|-- AOff : specializes
+Off <|-- AaOff : specializes
+Ops <|-- AOps : specializes
+Ops <|-- AaOps : specializes
+Org <|-- AOrg : specializes
+Org <|-- AaOrg : specializes
+Ent <|-- AEnt : specializes
+Ent <|-- AaEnt : specializes
+Wf <|-- AWf : specializes
+
+note bottom of Wf
+  Autonomous Workflow intentionally absent per ADR-ES-022
+  section 13 prohibition on mechanical symmetry.
+end note
+
+@enduml

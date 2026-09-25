@@ -1,0 +1,29 @@
+@startuml agentic-autonomous-four-state-model
+title Agentic/Autonomous Four-State Model ; per ADR-ES-022 section 5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Conventional" as Conv
+class "Agentic" as Ag
+class "Autonomous" as Au
+class "Agentic + Autonomous" as Both
+
+Conv ..> Ag : Agentic dimension
+Conv ..> Au : Autonomous dimension
+Ag ..> Both : + Autonomous
+Au ..> Both : + Agentic
+
+note right
+  Per ADR-ES-022 section 5:
+  | Agentic | Autonomous | Characterization |
+  | No      | No         | Conventional    |
+  | Yes     | No         | Agentic         |
+  | No      | Yes        | Autonomous      |
+  | Yes     | Yes        | Agentic + Autonomous |
+
+  Two independent semantic dimensions.
+end note
+
+@enduml

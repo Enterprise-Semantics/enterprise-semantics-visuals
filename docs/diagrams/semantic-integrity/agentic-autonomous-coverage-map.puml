@@ -1,0 +1,33 @@
+@startuml agentic-autonomous-coverage-map
+title Agentic/Autonomous Coverage Map ; per ADR-ES-022 section 6
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Capability" as Cap
+class "Value Stream" as VS
+class "Service" as Svc
+class "Product" as Prod
+class "Offering" as Off
+class "Operations" as Ops
+class "Organization" as Org
+class "Enterprise" as Ent
+class "Workflow" as Wf
+
+Cap --> Cap : Agentic + Autonomous
+VS --> VS : Agentic + Autonomous
+Svc --> Svc : Agentic + Autonomous
+Prod --> Prod : Agentic + Autonomous
+Off --> Off : Agentic + Autonomous
+Ops --> Ops : Agentic + Autonomous
+Org --> Org : Agentic + Autonomous
+Ent --> Ent : Agentic + Autonomous
+Wf --> Wf : Agentic only (no Autonomous per ADR-ES-022 section 13)
+
+note bottom of Wf
+  Autonomous Workflow intentionally absent per ADR-ES-022
+  section 13. Separate semantic decision required.
+end note
+
+@enduml

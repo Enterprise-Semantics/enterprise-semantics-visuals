@@ -1,0 +1,42 @@
+@startuml semantic-specialization-gate
+title Semantic Specialization Gate ; per ADR-ES-022 section 4 + CR-ES-022 section 6
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Base Concept" as BC
+class "Materiality Test" as MT
+class "Semantic Delta" as SD
+class "Authority Boundary" as AB
+class "Policy Boundary" as PB
+class "Constraint Boundary" as CB
+class "Dependency Check" as DC
+class "Specialization" as Sp
+
+BC --> MT : check
+MT --> SD : material
+MT --> BC : not material ; REJECT
+SD --> AB : declare
+SD --> PB : declare
+SD --> CB : declare
+SD --> DC : verify
+DC --> Sp : canonical
+DC --> BC : not canonical ; BLOCK
+
+note right
+  Per CR-ES-022 section 6 ; required metadata:
+  - Base Concept
+  - Semantic Delta
+  - Materiality
+  - Authority Boundary
+  - Policy Boundary
+  - Constraint Boundary
+  - Outcome
+  - Applicable Relationships
+  - Dependency
+  - ADR
+  - CR
+end note
+
+@enduml
