@@ -1,0 +1,69 @@
+@startuml autonomous-organization-boundary
+title Autonomous Organization Boundary ; per ADR-ES-021 + CR-ES-021
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Organization" as AO {
+  +organizational_objective
+  +organizational_scope
+  +autonomy_scope
+  +decision_scope
+  +action_scope
+  +coordination_scope
+  +adaptation_scope
+  +organizational_context
+  +authority_context
+  +policy_context
+  +constraint_context
+  +governance_context
+  +accountability_context
+  +intervention_model
+  +escalation_boundary
+  +observation_scope
+  +realization_mode
+}
+
+class "Organization" as O
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Organizational Objective" as OObj
+class "Organizational Context" as OCtx
+class "Organizational Outcome" as OOut
+class "Human / Authority" as HA
+class "Workflow" as Wf
+class "Agentic Workflow" as AWf
+class "Autonomous Operations" as AOp
+class "Agentic Operations" as AOp2
+class "Capability" as Cap
+class "Value" as V
+
+O <|-- AO : specializes
+
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> OObj : pursues
+AO --> OCtx : responds-to
+AO --> OOut : produces
+AO --> OCtx : adapts-to
+AO --> HA : escalates-to
+AO --> Wf : uses
+AO --> AWf : uses
+AO --> AOp : uses
+AO --> AOp2 : uses
+AO --> Cap : exercises
+AO --> V : contributes-to
+
+note right of AO
+  Material organizational autonomy required per ADR-ES-021 section 5.
+  AI NOT required per ADR-ES-021 section 11.
+  Automation NOT sufficient per ADR-ES-021 section 11.
+  Human participation remains valid per ADR-ES-021 section 7.
+  Bounded by 7 fences: Authority -> Policy -> Constraints -> Governance -> Accountability -> Escalation -> Observation.
+  Orthogonal to Agentic Organization per ADR-ES-021 section 3 + section 8.
+end note
+
+@enduml

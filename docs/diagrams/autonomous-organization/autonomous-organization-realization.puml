@@ -1,0 +1,30 @@
+@startuml autonomous-organization-realization
+title Autonomous Organization Realization ; per ADR-ES-021 section 6 + CR-ES-021 section 13
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+start
+:Organizational Objective;
+:Organizational Context;
+:Sense / Assess;
+:Interpret;
+:Decision;
+:Action Selection;
+:Coordination;
+:Execution;
+:Observe Outcome;
+:Adapt;
+if (Authority exceeded?) then (yes)
+  :Escalate to Human / Authority;
+else (no)
+endif
+stop
+
+note right
+  The entire progression remains bounded by organizational
+  governance. Per ADR-ES-021 section 6.
+end note
+
+@enduml

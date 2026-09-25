@@ -1,0 +1,35 @@
+@startuml organization-autonomy-governance
+title Organization / Autonomy / Governance Boundary ; per ADR-ES-021 section 12 + CR-ES-021 section 13
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Organization" as AO
+
+class "Objectives" as Obj
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraints" as Con
+class "Accountability" as Acct
+class "Governance" as Gov
+class "Escalation" as Esc
+class "Observation" as Obs
+
+AO --> Obj : pursues
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> Acct : accountable-under
+AO --> Gov : operates-under
+AO --> Esc : escalates-to
+AO --> Obs : observation-under
+
+note bottom of AO
+  Autonomy is bounded by 7 governance fences. Per ADR-ES-021
+  section 12: autonomy does NOT imply unlimited authority, no
+  governance, no accountability, no human oversight, or
+  unrestricted decision rights.
+end note
+
+@enduml

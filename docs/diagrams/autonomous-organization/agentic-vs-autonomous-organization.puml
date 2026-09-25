@@ -1,0 +1,27 @@
+@startuml agentic-vs-autonomous-organization
+title Agentic vs Autonomous Organization Orthogonality ; per ADR-ES-021 section 3 + section 8
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Organization" as O
+class "Agentic Organization" as AgO
+class "Autonomous Organization" as AutoO
+class "Agentic + Autonomous Organization" as BothO
+
+O <|-- AgO : specializes (v1.9.0)
+O <|-- AutoO : specializes (v2.0.0)
+AgO ..> BothO : compositional future
+AutoO ..> BothO : compositional future
+
+note bottom of O
+  Per ADR-ES-021 section 3 + section 8:
+  - Agentic Organization does NOT imply Autonomous Organization
+  - Autonomous Organization does NOT imply Agentic Organization
+  - An Organization may be both
+  - An Organization may be neither
+  - Neither dimension subsumes the other
+end note
+
+@enduml
