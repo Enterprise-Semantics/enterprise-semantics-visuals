@@ -1,0 +1,28 @@
+@startuml autonomous-service
+title Autonomous Service , ES:CONCEPT:autonomous-service
+skinparam classAttributeIconSize 0
+
+class "Service\n<<universal, foundational>>" as svc
+class "Autonomous Service\n<<contextual specialization>>\nv1.4.0" as autosvc
+
+svc <|-- autosvc : specializes
+
+note right of svc
+  Universal ; means through which
+  value is made available
+  per ADR-ES-002
+end note
+
+note right of autosvc
+  Contextual specialization
+  per ADR-ES-015
+  Material autonomous progression
+  per Authority/Policy/Constraints/
+  Governance/Service Contract/Escalation
+end note
+
+note bottom of autosvc
+  Orthogonal to Agentic Service
+  per ADR-ES-015 §7 + ADR-ES-014 §11
+end note
+@enduml

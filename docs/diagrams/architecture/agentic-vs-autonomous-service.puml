@@ -1,0 +1,36 @@
+@startuml agentic-vs-autonomous-service
+title Agentic vs Autonomous Service , The 2x2 Matrix at Service Boundary
+skinparam classAttributeIconSize 0
+
+class "Service\n<<universal>>" as svc
+class "Agentic\nService\nv1.3.0" as asvc
+class "Autonomous\nService\nv1.4.0" as autosvc
+class "Agentic + Autonomous\n<<combined characterization>>" as both
+
+svc <|-- asvc : specializes
+svc <|-- autosvc : specializes
+
+note left of asvc
+  Agentic = yes
+  Autonomous = no
+end note
+
+note right of autosvc
+  Agentic = no
+  Autonomous = yes
+end note
+
+note bottom of both
+  Agentic = yes
+  Autonomous = yes
+  Combined characterization
+  NOT a new subtype
+end note
+
+note bottom
+  2x2 matrix per ADR-ES-015 §7 + ADR-ES-014 §11
+  Four states: Conventional, Agentic, Autonomous, Both
+  Orthogonal dimensions
+  Mirrors Capability 2x2 matrix at v1.2.0
+end note
+@enduml

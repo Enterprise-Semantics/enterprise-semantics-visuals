@@ -1,0 +1,27 @@
+@startuml autonomous-service-operations-boundary
+title Autonomous Service vs Autonomous Operations Boundary
+skinparam classAttributeIconSize 0
+
+class "Autonomous Operations" as aops
+class "Autonomous Service" as autosvc
+
+aops --> autosvc : supports
+
+note right of aops
+  Independent progression
+  of ongoing operational activity
+end note
+
+note right of autosvc
+  Service-level autonomous
+  realization
+end note
+
+note bottom
+  Autonomous Operations do NOT
+  make every Service autonomous
+  per ADR-ES-015 §12
+  per ASVC-AUTO-NEG-004
+  per ASVC-AUTO-NEG-013
+end note
+@enduml

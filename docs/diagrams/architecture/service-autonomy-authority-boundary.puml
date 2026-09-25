@@ -1,0 +1,36 @@
+@startuml service-autonomy-authority-boundary
+title Service Autonomy Authority Boundary , Bounded Autonomy
+skinparam classAttributeIconSize 0
+
+class "Autonomous Service" as autosvc
+class "Service Objective" as obj
+class "Authority" as auth
+class "Policy" as pol
+class "Constraint" as con
+class "Governance" as gov
+class "Service Contract" as contract
+class "Decision / Action" as dec
+class "Service Outcome" as out
+class "Adaptation" as adapt
+
+obj --> auth
+auth --> pol
+pol --> con
+con --> gov
+gov --> contract
+contract --> dec
+dec --> out
+out --> adapt
+adapt --> obj : loop
+
+autosvc ..> auth : operates-within
+autosvc ..> pol : governed-by
+autosvc ..> con : constrained-by
+
+note bottom
+  Bounded autonomy per ADR-ES-015 §6
+  Service Contract added per CR-ES-015 §4
+  Unlimited authority must fail
+  conformance per CR-ES-015 §18
+end note
+@enduml

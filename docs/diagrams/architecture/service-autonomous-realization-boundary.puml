@@ -1,0 +1,26 @@
+@startuml service-autonomous-realization-boundary
+title Service vs Autonomous Service Realization Boundary
+skinparam classAttributeIconSize 0
+
+class "Service\n<<universal>>" as svc
+class "Autonomous Service\n<<specialization>>" as autosvc
+
+svc <|-- autosvc : contextual specialization
+
+note right of svc
+  Means through which value
+  is made available
+  per ADR-ES-002
+end note
+
+note right of autosvc
+  How the service is realized
+  (bounded independence)
+  per ADR-ES-015 §3
+end note
+
+note bottom of autosvc
+  Autonomy qualifies realization
+  Does NOT redefine Service
+end note
+@enduml

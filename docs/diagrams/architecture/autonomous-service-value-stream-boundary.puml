@@ -1,0 +1,28 @@
+@startuml autonomous-service-value-stream-boundary
+title Autonomous Service vs Autonomous Value Stream Boundary
+skinparam classAttributeIconSize 0
+
+class "Autonomous Value Stream" as avs
+class "Autonomous Service" as autosvc
+
+avs --> autosvc : uses (one or more)
+
+note right of avs
+  End-to-end autonomous
+  value realization
+end note
+
+note right of autosvc
+  Service-level autonomous
+  realization
+end note
+
+note bottom
+  Autonomous Service does NOT
+  establish autonomy across the
+  entire Value Stream
+  per ADR-ES-015 §13
+  per ASVC-AUTO-NEG-005
+  per ASVC-AUTO-NEG-014
+end note
+@enduml

@@ -1,0 +1,26 @@
+@startuml autonomous-service-capability-boundary
+title Autonomous Service vs Autonomous Capability Boundary
+skinparam classAttributeIconSize 0
+
+class "Autonomous Capability" as acap
+class "Autonomous Service" as autosvc
+
+acap <-- autosvc : supports (where canonical)
+
+note right of acap
+  Capability-level autonomy
+  (enduring ability)
+end note
+
+note right of autosvc
+  Service-level autonomous
+  realization
+end note
+
+note bottom
+  Distinct semantic kinds
+  per ADR-ES-015 §14
+  per ASVC-AUTO-NEG-003
+  per ASVC-AUTO-NEG-015
+end note
+@enduml

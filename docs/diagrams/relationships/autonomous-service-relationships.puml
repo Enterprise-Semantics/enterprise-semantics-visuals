@@ -1,0 +1,38 @@
+@startuml autonomous-service-relationships
+title Autonomous Service Relationships , ES:CONCEPT:autonomous-service v1.4.0
+skinparam classAttributeIconSize 0
+
+class "Autonomous\nService" as autosvc
+class "Service" as svc
+class "Outcome" as outcome
+class "Authority" as authority
+class "Policy" as policy
+class "Constraint" as constraint
+class "Objective" as objective
+class "Context" as context
+class "Workflow" as workflow
+class "Agentic\nWorkflow" as awf
+class "Autonomous\nOperations" as aops
+class "Capability" as capability
+class "Value" as value
+
+svc <|-- autosvc : specializes
+autosvc --> authority : operates-within
+autosvc --> policy : governed-by
+autosvc --> constraint : constrained-by
+autosvc --> objective : pursues
+autosvc --> context : responds-to
+autosvc --> context : adapts-to
+autosvc --> outcome : produces
+autosvc --> workflow : uses
+autosvc --> awf : uses
+autosvc --> aops : supported-by
+autosvc --> capability : supports
+autosvc --> value : contributes-to
+
+note bottom
+  All predicates already canonical
+  in relationships/vocabulary.yaml v1.2.0
+  (per CR-ES-015 §7 + VS-B)
+end note
+@enduml

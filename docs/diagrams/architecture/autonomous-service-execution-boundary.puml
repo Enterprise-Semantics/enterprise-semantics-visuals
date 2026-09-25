@@ -1,0 +1,24 @@
+@startuml autonomous-service-execution-boundary
+title Autonomous Service Execution Boundary
+skinparam classAttributeIconSize 0
+
+class "Autonomous Service\n<<semantic>>" as autosvc
+class "Execution Mechanism\n<<technology>>" as exec
+
+autosvc --> exec : realized through
+
+note right of exec
+  May include:
+  - Human
+  - Agent
+  - System
+  - Service
+  - Workflow
+  - Agentic Workflow
+end note
+
+note bottom of autosvc
+  Material autonomous progression
+  required per CR-ES-015 §8
+end note
+@enduml
