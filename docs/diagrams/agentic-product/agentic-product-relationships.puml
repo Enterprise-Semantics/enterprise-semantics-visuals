@@ -1,0 +1,41 @@
+@startuml agentic-product-relationships
+title Agentic Product Canonical Relationships , per CR-ES-016 §8
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Product" as AP
+
+class "Product" as P
+class "Agent" as A
+class "Intent" as I
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Agentic Workflow" as AW
+class "Outcome" as O
+class "Context" as Ctx
+class "Capability" as Cap
+class "Service" as S
+class "Value" as V
+
+AP --|> P : specializes
+AP --> A : engages (optional)
+AP --> I : interprets
+AP --> Auth : operates-within
+AP --> Pol : governed-by
+AP --> Con : constrained-by
+AP --> AW : uses (optional)
+AP --> O : produces
+AP --> Ctx : adapts-to
+AP --> Cap : supports (optional)
+AP --> S : delivered-through (optional)
+AP --> V : contributes-to
+
+note bottom of AP
+  No foundational concept silently introduced per CR-ES-016 §8.
+  Deferred concepts per ADR-ES-016 §19.
+end note
+
+@enduml

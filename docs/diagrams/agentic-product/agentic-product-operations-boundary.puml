@@ -1,0 +1,20 @@
+@startuml agentic-product-operations-boundary
+title Agentic Product / Agentic Operations Boundary , per ADR-ES-016 §5 + §17
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Product" as AP
+class "Agentic Operations" as AO
+
+AP --> AO : may depend on / use
+
+note right
+  Per ADR-ES-016 §5 + APROD-NEG-005:
+  - Agentic Operations represents the operating environment
+  - Agentic Operations is NOT a Product subtype
+  - Agentic Product is NOT Agentic Operations
+end note
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml product-agentic-realization-boundary
+title Product / Agentic Product Realization Boundary , per ADR-ES-016 §1 + §2 + §3
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Product" as P
+class "Agentic Product" as AP
+class "Material Agentic Realization" as MAR
+
+P <|-- AP : specializes
+AP *-- MAR : material-evidence
+
+class "Intent Interpretation" as II
+class "Contextual Interpretation" as CI
+class "Dynamic Action Selection" as DAS
+class "Agentic Coordination" as AC
+class "Contextual Adaptation" as CA
+class "Exception Interpretation" as EI
+class "Bounded Decision-Making" as BDM
+class "Escalation" as Esc
+
+MAR --> II
+MAR --> CI
+MAR --> DAS
+MAR --> AC
+MAR --> CA
+MAR --> EI
+MAR --> BDM
+MAR --> Esc
+
+note bottom of MAR
+  Material agentic realization requires substantive evidence
+  in one or more of the listed dimensions per ADR-ES-016 §6.
+end note
+
+@enduml

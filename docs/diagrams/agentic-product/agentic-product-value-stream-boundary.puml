@@ -1,0 +1,25 @@
+@startuml agentic-product-value-stream-boundary
+title Agentic Product / Agentic Value Stream Boundary , per ADR-ES-016 §11
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Value Stream" as AVS
+class "Stakeholder Value" as SV
+class "Agentic Product" as AP
+
+AVS --> SV : realizes
+AVS --> AP : may involve
+
+class "Agentic Value Stream" as AVS
+class "Agentic Product" as AP
+
+note right
+  Per ADR-ES-016 §11 + APROD-CON-016 + APROD-NEG-006 + APROD-NEG-015:
+  - Agentic Product is NOT Agentic Value Stream
+  - Agentic Value Stream is NOT Agentic Product
+  - A conventional Product may participate in an Agentic Value Stream
+end note
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml agentic-product-capability-boundary
+title Agentic Product / Agentic Capability Boundary , per ADR-ES-016 §10
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Capability" as C
+class "Agentic Capability" as AC
+class "Product" as P
+class "Agentic Product" as AP
+
+C <|-- AC : specializes
+
+C --> P : may enable
+AC --> AP : may enable
+
+P <|-- AP : specializes
+
+note right
+  Per ADR-ES-016 §10 + APROD-NEG-002:
+  - Agentic Capability does NOT automatically make every Product it enables agentic
+  - Agentic materiality must be demonstrated at the Product boundary
+end note
+
+@enduml

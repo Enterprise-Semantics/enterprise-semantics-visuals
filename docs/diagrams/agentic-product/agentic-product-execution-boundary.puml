@@ -1,0 +1,29 @@
+@startuml agentic-product-execution-boundary
+title Agentic Product Execution Boundary , per ADR-ES-016 §8 + CR-ES-016 §5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+start
+:Product Intent;
+:Product Context;
+:Interpret Intent;
+:Assess Context;
+:Select / Coordinate Action;
+:Product Execution;
+:Product Outcome;
+if (Adapt?) then (yes)
+  :Adapt;
+elseif (Escalate?) then (yes)
+  :Escalate;
+endif
+
+stop
+
+note right
+  Per ADR-ES-016 §8 + §15, the entire product does NOT need
+  to operate agentically. Mixed realization permitted.
+end note
+
+@enduml

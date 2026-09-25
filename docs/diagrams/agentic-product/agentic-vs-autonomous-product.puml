@@ -1,0 +1,27 @@
+@startuml agentic-vs-autonomous-product
+title Agentic vs Autonomous Product Orthogonality , per ADR-ES-016 §12
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Product" as P
+class "Agentic Product" as AP
+class "Autonomous Product" as AutoP
+class "Agentic + Autonomous Product" as BothP
+
+P <|-- AP : specializes (this ADR)
+P <|-- AutoP : specializes (deferred per ADR-ES-016 §19)
+AP ..> BothP : future composition
+AutoP ..> BothP : future composition
+
+note bottom of P
+  Per ADR-ES-016 §12 + CR-ES-016 §9:
+  - Agentic Product does NOT imply Autonomous Product
+  - Autonomous Product does NOT imply Agentic Product
+  - A Product may be both
+  - A Product may be neither
+  - Autonomous Product is NOT established by this ADR
+end note
+
+@enduml

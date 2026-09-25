@@ -1,0 +1,47 @@
+@startuml agentic-product-concept
+title Agentic Product Concept , per ADR-ES-016 + CR-ES-016
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+abstract class "Product" as P {
+  +product_intent
+  +product_value
+}
+
+class "Agentic Product" as AP {
+  +agentic_scope
+  +material_agentic_realization
+  +authority_context
+  +policy_context
+  +constraint_context
+  +adaptation_scope
+}
+
+P <|-- AP : specializes
+
+class "Agent" as A
+class "Intent" as I
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Outcome" as O
+class "Context" as Ctx
+
+AP --> A : engages
+AP --> I : interprets
+AP --> Auth : operates-within
+AP --> Pol : governed-by
+AP --> Con : constrained-by
+AP --> O : produces
+AP --> Ctx : adapts-to
+
+note right of AP
+  Agentic Materiality required per ADR-ES-016 §6.
+  AI NOT required per ADR-ES-016 §13.
+  Automation NOT sufficient per ADR-ES-016 §14.
+  Human participation remains valid per ADR-ES-016 §15.
+end note
+
+@enduml

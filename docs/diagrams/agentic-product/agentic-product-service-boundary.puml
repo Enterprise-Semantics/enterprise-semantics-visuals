@@ -1,0 +1,26 @@
+@startuml agentic-product-service-boundary
+title Agentic Product / Agentic Service Boundary , per ADR-ES-016 §9
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Product" as P
+class "Agentic Product" as AP
+class "Service" as S
+class "Agentic Service" as AS
+class "Autonomous Service" as AutoS
+
+P <|-- AP : specializes
+
+AP --> S : may be delivered-through
+S <|-- AS : specializes
+S <|-- AutoS : specializes
+
+note right
+  Per ADR-ES-016 §9 + APROD-NEG-003:
+  - An Agentic Service does NOT automatically make the Product Agentic
+  - An Agentic Product may employ conventional or agentic services
+end note
+
+@enduml
