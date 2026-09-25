@@ -1,0 +1,39 @@
+@startuml organization-agentic-realization-boundary
+title Organization / Agentic Organization Realization Boundary ; per ADR-ES-020 section 1 + section 2 + section 3
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Organization" as O
+class "Agentic Organization" as AO
+class "Material Agentic Organizational Behavior" as MAOB
+
+O <|-- AO : specializes
+AO *-- MAOB : material-evidence
+
+class "Delegated Intent Interpretation" as DII
+class "Contextual Interpretation" as CI
+class "Dynamic Organizational Decisions" as DOD
+class "Action Selection" as AS
+class "Coordination" as Coord
+class "Adaptation" as Adp
+class "Exception Interpretation" as EI
+class "Organizational Escalation" as OE
+
+MAOB --> DII
+MAOB --> CI
+MAOB --> DOD
+MAOB --> AS
+MAOB --> Coord
+MAOB --> Adp
+MAOB --> EI
+MAOB --> OE
+
+note bottom of MAOB
+  Material agentic organizational behavior requires substantive
+  evidence in one or more of the listed dimensions per
+  ADR-ES-020 section 3.
+end note
+
+@enduml

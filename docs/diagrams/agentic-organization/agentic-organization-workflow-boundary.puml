@@ -1,0 +1,19 @@
+@startuml agentic-organization-workflow-boundary
+title Agentic Organization / Agentic Workflow Boundary ; per ADR-ES-020 section 11
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Organization" as AO
+class "Agentic Workflow" as AWf
+
+AO --> AWf : may use
+
+note right
+  Per ADR-ES-020 section 11 + AORG-NEG-002 + AORG-NEG-015:
+  - Agentic Organization is NOT Agentic Workflow
+  - Agentic Workflow does NOT automatically make the Organization agentic
+end note
+
+@enduml

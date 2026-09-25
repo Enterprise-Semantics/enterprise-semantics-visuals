@@ -1,0 +1,19 @@
+@startuml agentic-organization-operations-boundary
+title Agentic Organization / Agentic Operations Boundary ; per ADR-ES-020 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Organization" as AO
+class "Agentic Operations" as AOp
+
+AO --> AOp : may operate through
+
+note right
+  Per ADR-ES-020 section 7 + AORG-NEG-003 + AORG-NEG-014:
+  - Agentic Organization is NOT Agentic Operations
+  - Agentic Operations does NOT automatically make the Organization agentic
+end note
+
+@enduml

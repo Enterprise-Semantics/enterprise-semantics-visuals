@@ -1,0 +1,21 @@
+@startuml agentic-organization-enterprise-boundary
+title Agentic Organization / Agentic Enterprise Boundary ; per ADR-ES-020 section 5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Enterprise" as AE
+class "Agentic Organization" as AO
+
+AE --> AO : may comprise multiple
+AO ..> AE : may be part of
+
+note right
+  Per ADR-ES-020 section 5 + AORG-NEG-004:
+  - Agentic Organization is NOT Agentic Enterprise
+  - Agentic Enterprise may comprise multiple Agentic Organizations
+  - Agentic Organization does NOT automatically establish Agentic Enterprise
+end note
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml organization-authority-escalation-boundary
+title Organization Authority Escalation Boundary ; per ADR-ES-020 section 13
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Organization" as AO
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraints" as Con
+class "Governance" as Gov
+class "Accountability" as Acct
+class "Escalation" as Esc
+
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> Gov : operates-within
+AO --> Acct : accountable-to
+AO --> Esc : escalates-to
+
+note bottom of AO
+  Per ADR-ES-020 section 13, agentic organizational behavior
+  is bounded by authority, policy, governance, constraints,
+  accountability. Escalation is first-class. Human participation
+  remains valid per ADR-ES-020 section 11.
+  Foundational Dependency Gate documented per ADR-ES-020 section 2.
+end note
+
+@enduml

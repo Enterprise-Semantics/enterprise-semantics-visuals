@@ -1,0 +1,20 @@
+@startuml agentic-organization-agent-boundary
+title Agentic Organization / Agent Boundary ; per ADR-ES-020 section 6
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agent" as A
+class "Agentic Organization" as AO
+
+A --> AO : may operate within
+
+note right
+  Per ADR-ES-020 section 6 + AORG-NEG-001 + AORG-NEG-009:
+  - Agentic Organization is NOT an Agent
+  - An Agent is NOT an Agentic Organization
+  - An Organization does NOT become Agentic merely because it contains an Agent
+end note
+
+@enduml

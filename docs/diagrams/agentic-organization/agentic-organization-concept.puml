@@ -1,0 +1,68 @@
+@startuml agentic-organization-concept
+title Agentic Organization Concept ; per ADR-ES-020 + CR-ES-020
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+abstract class "Organization" as O {
+  +organizational_intent
+  +organizational_coordination
+}
+
+class "Agentic Organization" as AO {
+  +agentic_scope
+  +organizational_context
+  +delegated_intent
+  +authority_context
+  +decision_boundary
+  +coordination_scope
+  +action_selection_scope
+  +adaptation_scope
+  +governance_context
+  +accountability_context
+  +intervention_model
+  +escalation_boundary
+  +realization_mode
+}
+
+O <|-- AO : specializes
+
+class "Agent" as A
+class "Intent" as I
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Governance" as Gov
+class "Process" as Proc
+class "Agentic Workflow" as AWf
+class "Agentic Operations" as AOp
+class "Organizational Outcome" as OOut
+class "Organizational Context" as OCtx
+class "Capability" as Cap
+class "Value" as V
+
+AO --> A : engages
+AO --> I : interprets
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> Gov : operates-within
+AO --> Proc : coordinates
+AO --> AWf : uses
+AO --> AOp : uses
+AO --> OOut : produces
+AO --> OCtx : adapts-to
+AO --> Cap : exercises
+AO --> V : contributes-to
+
+note right of AO
+  Material agentic behavior required per ADR-ES-020 section 3.
+  AI NOT required per ADR-ES-020 section 9.
+  Automation NOT sufficient per ADR-ES-020 section 10.
+  Human participation remains valid per ADR-ES-020 section 11.
+  Bounded by 6 fences: Authority -> Policy -> Governance -> Constraints -> Accountability -> Escalation.
+  Foundational Dependency Gate documented per ADR-ES-020 section 2.
+end note
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml agentic-organization-culture-boundary
+title Agentic Organization / Agentic Culture Boundary ; per ADR-ES-020 section 14
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Organization" as AO
+class "Agentic Culture" as AC
+
+AO --> AC : influences (but !=)
+AO ..> AC : NOT established by this ADR
+
+note right
+  Per ADR-ES-020 section 14 + AORG-NEG-005:
+  - Agentic Organization is NOT Agentic Culture
+  - Organizational culture may influence how agentic behavior is adopted
+  - No Agentic Culture concept shall be created by this CR (per CR-ES-020 section 13)
+end note
+
+@enduml

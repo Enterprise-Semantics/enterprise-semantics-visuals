@@ -1,0 +1,44 @@
+@startuml agentic-organization-relationships
+title Agentic Organization Canonical Relationships ; per CR-ES-020 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Organization" as AO
+
+class "Organization" as O
+class "Agent" as A
+class "Intent" as I
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Process" as Proc
+class "Agentic Workflow" as AWf
+class "Agentic Operations" as AOp
+class "Organizational Outcome" as OOut
+class "Organizational Context" as OCtx
+class "Capability" as Cap
+class "Value" as V
+
+AO --|> O : specializes
+AO --> A : engages
+AO --> I : interprets
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> Proc : coordinates
+AO --> AWf : uses
+AO --> AOp : uses
+AO --> OOut : produces
+AO --> OCtx : adapts-to
+AO --> Cap : exercises
+AO --> V : contributes-to
+
+note bottom of AO
+  No foundational concept silently introduced per CR-ES-020 section 7.
+  Foundational Dependency Gate documented per ADR-ES-020 section 2.
+  Deferred concepts per ADR-ES-020 section 17.
+end note
+
+@enduml
