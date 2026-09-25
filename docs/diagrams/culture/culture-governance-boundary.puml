@@ -1,0 +1,23 @@
+@startuml culture-governance-boundary
+title Culture / Governance Boundary ; per ADR-ES-026 section 6 + Recon-ES-003
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Culture" as Cult
+class "Governance" as Gov
+
+Cult --> Gov : shapes
+
+note right of Gov
+  Per Recon-ES-003:
+  Governance is the formal structure
+  (Authority, Policy, Constraint).
+  Culture is the shared meaning that
+  legitimizes and modifies Governance.
+
+  Culture is NOT Governance.
+end note
+
+@enduml
