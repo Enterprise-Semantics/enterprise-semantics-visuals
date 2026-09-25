@@ -1,0 +1,58 @@
+@startuml agentic-offering-concept
+title Agentic Offering Concept ; per ADR-ES-018 + CR-ES-018
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+abstract class "Offering" as O {
+  +offering_intent
+  +offering_value
+}
+
+class "Agentic Offering" as AO {
+  +agentic_scope
+  +material_agentic_realization
+  +authority_context
+  +policy_context
+  +constraint_context
+  +adaptation_scope
+}
+
+O <|-- AO : specializes
+
+class "Agent" as A
+class "Intent" as I
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Agentic Product" as AP
+class "Agentic Service" as AS
+class "Agentic Workflow" as AW
+class "Outcome" as Out
+class "Context" as Ctx
+class "Capability" as Cap
+class "Value" as V
+
+AO --> A : engages
+AO --> I : interprets
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> AP : uses
+AO --> AS : uses
+AO --> AW : uses
+AO --> Out : produces
+AO --> Ctx : adapts-to
+AO --> Cap : supports
+AO --> V : contributes-to
+
+note right of AO
+  Agentic Materiality required per ADR-ES-018 §5.
+  AI NOT required per ADR-ES-018 §7.
+  Automation NOT sufficient per ADR-ES-018 §8.
+  Human participation remains valid per ADR-ES-018 §9.
+  Foundational Dependency Gate documented per ADR-ES-018 §16.
+end note
+
+@enduml

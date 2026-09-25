@@ -1,0 +1,20 @@
+@startuml agentic-offering-value-stream-boundary
+title Agentic Offering / Agentic Value Stream Boundary ; per ADR-ES-018 §12
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Value Stream" as AVS
+class "Agentic Offering" as AO
+
+AVS --> AO : may involve
+
+note right
+  Per ADR-ES-018 §12 + AOFF-NEG-006:
+  - Agentic Offering is NOT Agentic Value Stream
+  - Agentic Value Stream is NOT Agentic Offering
+  - An Agentic Offering may participate in conventional, Agentic, or Autonomous Value Stream
+end note
+
+@enduml

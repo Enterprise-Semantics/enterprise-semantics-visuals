@@ -1,0 +1,28 @@
+@startuml agentic-offering-execution-boundary
+title Agentic Offering Execution Boundary ; per ADR-ES-018 §11 + CR-ES-018 §3
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+start
+:Stakeholder Intent;
+:Interpret Context;
+:Configure / Compose;
+:Select / Coordinate;
+:Fulfill;
+:Observe Outcome;
+if (Adapt?) then (yes)
+  :Adapt;
+elseif (Escalate?) then (yes)
+  :Escalate;
+endif
+
+stop
+
+note right
+  Per ADR-ES-018 §9, the entire offering does NOT need
+  to operate agentically. Mixed realization permitted.
+end note
+
+@enduml

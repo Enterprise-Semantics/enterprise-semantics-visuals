@@ -1,0 +1,24 @@
+@startuml agentic-offering-product-boundary
+title Agentic Offering / Agentic Product Boundary ; per ADR-ES-018 §3
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O
+class "Product" as P
+class "Agentic Product" as AP
+class "Agentic Offering" as AO
+
+O --> P : may comprise / include
+P <|-- AP : specializes
+
+O <|-- AO : specializes
+
+note right
+  Per ADR-ES-018 §3 + AOFF-NEG-002 + AOFF-NEG-014:
+  - Agentic Offering is NOT Agentic Product
+  - Agentic Product does NOT automatically make the whole Offering agentic
+end note
+
+@enduml

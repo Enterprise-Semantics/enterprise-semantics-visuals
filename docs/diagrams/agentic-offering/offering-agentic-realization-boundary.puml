@@ -1,0 +1,40 @@
+@startuml offering-agentic-realization-boundary
+title Offering / Agentic Offering Realization Boundary ; per ADR-ES-018 §1 + §2 + §3
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O
+class "Agentic Offering" as AO
+class "Material Agentic Realization" as MAR
+
+O <|-- AO : specializes
+AO *-- MAR : material-evidence
+
+class "Stakeholder Intent Interpretation" as SII
+class "Contextual Evaluation" as CE
+class "Dynamic Composition" as DC
+class "Dynamic Configuration" as DCF
+class "Action Selection" as AS
+class "Coordination" as Coord
+class "Adaptation" as Adp
+class "Exception Interpretation" as EI
+class "Bounded Decision-Making" as BDM
+
+MAR --> SII
+MAR --> CE
+MAR --> DC
+MAR --> DCF
+MAR --> AS
+MAR --> Coord
+MAR --> Adp
+MAR --> EI
+MAR --> BDM
+
+note bottom of MAR
+  Material agentic realization requires substantive evidence
+  in one or more of the listed dimensions per ADR-ES-018 §5.
+end note
+
+@enduml

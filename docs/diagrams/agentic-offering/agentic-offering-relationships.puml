@@ -1,0 +1,44 @@
+@startuml agentic-offering-relationships
+title Agentic Offering Canonical Relationships ; per CR-ES-018 §7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Offering" as AO
+
+class "Offering" as O
+class "Agent" as A
+class "Intent" as I
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Agentic Product" as AP
+class "Agentic Service" as AS
+class "Agentic Workflow" as AW
+class "Capability" as Cap
+class "Outcome" as Out
+class "Context" as Ctx
+class "Value" as V
+
+AO --|> O : specializes
+AO --> A : engages (optional)
+AO --> I : interprets
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> AP : uses (optional)
+AO --> AS : uses (optional)
+AO --> AW : uses (optional)
+AO --> Cap : supports
+AO --> Out : produces
+AO --> Ctx : adapts-to
+AO --> V : contributes-to
+
+note bottom of AO
+  No foundational concept silently introduced per CR-ES-018 §7.
+  Foundational Dependency Gate documented per ADR-ES-018 §16.
+  Deferred concepts per ADR-ES-018 §14.
+end note
+
+@enduml

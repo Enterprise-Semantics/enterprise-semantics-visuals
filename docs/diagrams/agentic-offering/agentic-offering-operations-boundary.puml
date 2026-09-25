@@ -1,0 +1,20 @@
+@startuml agentic-offering-operations-boundary
+title Agentic Offering / Agentic Operations Boundary ; per ADR-ES-018 §12
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic Offering" as AO
+class "Agentic Operations" as AOp
+
+AO --> AOp : may depend upon
+
+note right
+  Per ADR-ES-018 §12 + AOFF-NEG-005:
+  - Agentic Operations represents the operating environment
+  - Agentic Operations is NOT a subtype of Offering
+  - Agentic Offering is NOT Agentic Operations
+end note
+
+@enduml
