@@ -1,0 +1,35 @@
+@startuml autonomous-culture-boundary
+title Autonomous Culture Boundary ; per ADR-ES-024 + CR-ES-024
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Culture" as Cult
+class "Autonomous Culture" as AuCult
+class "Autonomous Organization" as AuOrg
+class "Agentic Organization" as AgOrg
+class "Autonomous Operations" as AuOp
+class "Agentic Operations" as AgOp
+class "Agent" as Ag
+
+Cult <|-- AuCult : specializes
+
+AuCult --> AuOrg : supports
+AuCult --> AgOrg : supports
+AuCult --> AuOp : supports
+AuCult --> AgOp : supports
+AuCult --> Ag : engages-with
+
+note right of AuCult
+  Per ADR-ES-024 section 5 + section 8:
+  Autonomous Culture is NOT Agentic Culture (orthogonal)
+  Autonomous Culture is NOT Autonomous Organization
+  Autonomous Culture is NOT Autonomous Enterprise
+  Autonomous Culture is NOT Autonomous Operations
+  Autonomous Culture is NOT Autonomous Workflow
+  Autonomous Culture is NOT AI Culture
+  Autonomous Culture is NOT Automated Culture
+end note
+
+@enduml

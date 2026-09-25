@@ -1,0 +1,33 @@
+@startuml autonomous-culture-governance
+title Autonomous Culture / Governance Boundary ; per ADR-ES-024 section 12
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Culture" as AuCult
+
+class "Objectives" as Obj
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraints" as Con
+class "Accountability" as Acct
+class "Governance" as Gov
+class "Escalation" as Esc
+class "Observation" as Obs
+
+AuCult --> Obj : aligned-with
+AuCult --> Auth : operates-within
+AuCult --> Pol : governed-by
+AuCult --> Con : constrained-by
+AuCult --> Acct : accountable-under
+AuCult --> Gov : operates-under
+AuCult --> Esc : escalates-to
+AuCult --> Obs : observation-under
+
+note bottom of AuCult
+  Cultural autonomy is bounded by 8 governance fences.
+  Per ADR-ES-024 section 12.
+end note
+
+@enduml

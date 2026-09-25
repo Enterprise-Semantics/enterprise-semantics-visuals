@@ -1,0 +1,27 @@
+@startuml agentic-vs-autonomous-culture
+title Agentic vs Autonomous Culture Orthogonality ; per ADR-ES-024 section 5 + ADR-ES-022 section 5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Culture" as Cult
+class "Agentic Culture" as AgCult
+class "Autonomous Culture" as AuCult
+class "Agentic + Autonomous Culture" as BothCult
+
+Cult <|-- AgCult : specializes (v2.1.0)
+Cult <|-- AuCult : specializes (v2.2.0)
+AgCult ..> BothCult : compositional future
+AuCult ..> BothCult : compositional future
+
+note bottom of Cult
+  Per ADR-ES-024 section 5 + ADR-ES-022 section 5:
+  - Agentic Culture does NOT imply Autonomous Culture
+  - Autonomous Culture does NOT imply Agentic Culture
+  - A Culture may be both
+  - A Culture may be neither
+  - Neither dimension subsumes the other
+end note
+
+@enduml
