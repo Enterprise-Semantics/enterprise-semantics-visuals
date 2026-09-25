@@ -1,0 +1,20 @@
+@startuml autonomous-offering-operations-boundary
+title Autonomous Offering / Autonomous Operations Boundary ; per ADR-ES-019 section 12
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Offering" as AO
+class "Autonomous Operations" as AOp
+
+AO --> AOp : may depend upon
+
+note right
+  Per ADR-ES-019 section 12 + AOFF-AUTO-NEG-004:
+  - Autonomous Operations represents the operating environment
+  - Autonomous Operations is NOT a subtype of Offering
+  - Autonomous Offering is NOT Autonomous Operations
+end note
+
+@enduml

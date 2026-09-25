@@ -1,0 +1,27 @@
+@startuml agentic-vs-autonomous-offering
+title Agentic vs Autonomous Offering Orthogonality ; per ADR-ES-019 section 13
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O
+class "Agentic Offering" as AgO
+class "Autonomous Offering" as AutoO
+class "Agentic + Autonomous Offering" as BothO
+
+O <|-- AgO : specializes (v1.7.0)
+O <|-- AutoO : specializes (v1.8.0)
+AgO ..> BothO : compositional future
+AutoO ..> BothO : compositional future
+
+note bottom of O
+  Per ADR-ES-019 section 13 + CR-ES-019 section 12:
+  - Autonomous Offering does NOT imply Agentic Offering
+  - Agentic Offering does NOT imply Autonomous Offering
+  - An Offering may be both
+  - An Offering may be neither
+  - The combined state is NOT a new foundational type
+end note
+
+@enduml

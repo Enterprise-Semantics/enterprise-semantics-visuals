@@ -1,0 +1,43 @@
+@startuml offering-autonomous-realization-boundary
+title Offering / Autonomous Offering Realization Boundary ; per ADR-ES-019 section 1 + section 2 + section 3
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Offering" as O
+class "Autonomous Offering" as AO
+class "Material Autonomous Realization" as MAR
+
+O <|-- AO : specializes
+AO *-- MAR : material-evidence
+
+class "Context Assessment" as CA
+class "Decision Selection" as DS
+class "Action Selection" as AS
+class "Configuration Selection" as CS
+class "Composition Selection" as CmpS
+class "Coordination" as Coord
+class "Adaptation" as Adp
+class "Exception Interpretation" as EI
+class "Bounded Autonomous Decision-Making" as BADM
+class "Escalation" as Esc
+
+MAR --> CA
+MAR --> DS
+MAR --> AS
+MAR --> CS
+MAR --> CmpS
+MAR --> Coord
+MAR --> Adp
+MAR --> EI
+MAR --> BADM
+MAR --> Esc
+
+note bottom of MAR
+  Material autonomous realization requires substantive
+  evidence in one or more of the listed dimensions per
+  ADR-ES-019 section 6.
+end note
+
+@enduml

@@ -1,0 +1,69 @@
+@startuml autonomous-offering-concept
+title Autonomous Offering Concept ; per ADR-ES-019 + CR-ES-019
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+abstract class "Offering" as O {
+  +offering_intent
+  +offering_value
+}
+
+class "Autonomous Offering" as AO {
+  +offering_objective
+  +autonomy_scope
+  +offering_context
+  +decision_scope
+  +action_scope
+  +configuration_scope
+  +composition_scope
+  +coordination_scope
+  +authority_context
+  +policy_context
+  +constraint_context
+  +governance_context
+  +adaptation_scope
+  +intervention_model
+  +escalation_boundary
+  +observation_scope
+  +realization_mode
+}
+
+O <|-- AO : specializes
+
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Governance" as Gov
+class "Objective" as Obj
+class "Outcome" as Out
+class "Context" as Ctx
+class "Escalation" as Esc
+class "Autonomous Product" as AP
+class "Autonomous Service" as AS
+class "Agentic Workflow" as AW
+
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> Gov : operates-within
+AO --> Obj : pursues
+AO --> Ctx : responds-to
+AO --> Out : produces
+AO --> Ctx : adapts-to
+AO --> Esc : escalates-to
+AO --> AP : uses
+AO --> AS : uses
+AO --> AW : uses
+
+note right of AO
+  Autonomous Materiality required per ADR-ES-019 section 6.
+  AI NOT required per ADR-ES-019 section 14.
+  Automation NOT sufficient per ADR-ES-019 section 15.
+  Human participation remains valid per ADR-ES-019 section 7.
+  Bounded by 6 fences: Objective -> Authority -> Policy -> Constraints -> Governance -> Escalation.
+  Foundational Dependency Gate documented per ADR-ES-019 section 2.
+end note
+
+@enduml

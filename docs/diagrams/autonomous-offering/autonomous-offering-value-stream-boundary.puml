@@ -1,0 +1,20 @@
+@startuml autonomous-offering-value-stream-boundary
+title Autonomous Offering / Autonomous Value Stream Boundary ; per ADR-ES-019 section 11
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Value Stream" as AVS
+class "Autonomous Offering" as AO
+
+AVS --> AO : may involve
+
+note right
+  Per ADR-ES-019 section 11 + AOFF-AUTO-NEG-005:
+  - Autonomous Offering is NOT Autonomous Value Stream
+  - Autonomous Value Stream is NOT Autonomous Offering
+  - An Autonomous Offering may participate in conventional, Agentic, or Autonomous Value Stream
+end note
+
+@enduml

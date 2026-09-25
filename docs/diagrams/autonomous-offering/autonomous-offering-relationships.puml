@@ -1,0 +1,47 @@
+@startuml autonomous-offering-relationships
+title Autonomous Offering Canonical Relationships ; per CR-ES-019 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Offering" as AO
+
+class "Offering" as O
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Objective" as Obj
+class "Context" as Ctx
+class "Outcome" as Out
+class "Workflow" as Wf
+class "Agentic Workflow" as AWf
+class "Autonomous Operations" as AOp
+class "Capability" as Cap
+class "Product" as P
+class "Service" as S
+class "Value" as V
+
+AO --|> O : specializes
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> Obj : pursues
+AO --> Ctx : responds-to
+AO --> Out : produces
+AO --> Ctx : adapts-to
+AO --> Wf : uses
+AO --> AWf : uses
+AO --> AOp : supported-by
+AO --> Cap : supports
+AO --> P : uses
+AO --> S : uses
+AO --> V : contributes-to
+
+note bottom of AO
+  No foundational concept silently introduced per CR-ES-019 section 7.
+  Foundational Dependency Gate documented per ADR-ES-019 section 2.
+  Deferred concepts per ADR-ES-019 section 18.
+end note
+
+@enduml

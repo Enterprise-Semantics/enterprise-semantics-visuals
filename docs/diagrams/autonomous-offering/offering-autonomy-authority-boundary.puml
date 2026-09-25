@@ -1,0 +1,28 @@
+@startuml offering-autonomy-authority-boundary
+title Offering Autonomy Authority Boundary ; per ADR-ES-019 section 5 + section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Offering" as AO
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraints" as Con
+class "Governance" as Gov
+class "Escalation" as Esc
+
+AO --> Auth : operates-within
+AO --> Pol : governed-by
+AO --> Con : constrained-by
+AO --> Gov : operates-within
+AO --> Esc : escalates-to
+
+note bottom of AO
+  Per ADR-ES-019 section 5 + section 7, autonomous behavior
+  is bounded by authority, policy, constraints, governance.
+  Escalation is first-class. Human participation remains valid.
+  Foundational Dependency Gate documented per ADR-ES-019 section 2.
+end note
+
+@enduml

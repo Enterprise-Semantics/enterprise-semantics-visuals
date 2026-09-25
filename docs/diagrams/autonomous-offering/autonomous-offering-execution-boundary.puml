@@ -1,0 +1,30 @@
+@startuml autonomous-offering-execution-boundary
+title Autonomous Offering Execution Boundary ; per ADR-ES-019 section 5 + CR-ES-019 section 3
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+start
+:Offering Objective;
+:Offering Context;
+:Sense / Assess;
+:Decision;
+:Configuration / Composition;
+:Action / Coordination;
+:Fulfillment;
+:Observe Outcome;
+if (Adapt?) then (yes)
+  :Adapt;
+elseif (Escalate?) then (yes)
+  :Escalate;
+endif
+
+stop
+
+note right
+  Per ADR-ES-019 section 7, the entire offering does NOT need
+  to operate autonomously. Mixed realization permitted.
+end note
+
+@enduml

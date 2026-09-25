@@ -1,0 +1,21 @@
+@startuml autonomous-offering-service-boundary
+title Autonomous Offering / Autonomous Service Boundary ; per ADR-ES-019 section 10
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Autonomous Offering" as AO
+class "Autonomous Product" as AP
+class "Autonomous Service" as AS
+
+AO --> AP : may comprise / expose
+AO --> AS : may comprise / expose
+
+note right
+  Per ADR-ES-019 section 10 + AOFF-AUTO-NEG-003 + AOFF-AUTO-NEG-014:
+  - Autonomous Offering is NOT Autonomous Service
+  - Autonomous Service does NOT automatically make the whole Offering autonomous
+end note
+
+@enduml
