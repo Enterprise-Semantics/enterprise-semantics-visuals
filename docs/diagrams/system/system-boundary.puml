@@ -1,0 +1,48 @@
+@startuml system-boundary
+title System Boundary ; per ADR-ES-027 + CR-ES-027
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Entity" as Ent
+class "System" as Sys
+class "Element" as Elem
+class "Boundary" as Bnd
+class "Context" as Ctx
+class "Function" as Fn
+class "Purpose" as Purp
+class "Outcome" as Out
+class "Behavior" as Bhv
+class "Capability" as Cap
+class "Service" as Svc
+class "Workflow" as Wf
+class "Agent" as Ag
+
+Ent <|-- Sys : specializes
+
+Sys --> Elem : contains
+Sys --> Bnd : has
+Sys --> Ctx : operates-within
+Sys --> Fn : realizes
+Sys --> Purp : realizes
+Sys --> Out : produces
+Sys --> Bhv : exhibits
+Sys --> Cap : supports
+Sys --> Svc : implements
+Sys --> Wf : participates-in
+Sys --> Ag : engages
+
+note right of Sys
+  Per ADR-ES-027 section 6 + Recon-ES-004:
+  System is NOT Entity (too broad)
+  System is NOT Organization (requires people + roles)
+  System is NOT Service (delivery-oriented)
+  System is NOT Resource (consumable)
+  System is NOT Process (activity sequence)
+  System is NOT Workflow (execution-oriented)
+  System is NOT Capability (functional ability)
+  System is NOT IT system specifically
+end note
+
+@enduml
