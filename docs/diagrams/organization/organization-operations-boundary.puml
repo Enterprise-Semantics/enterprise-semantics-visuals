@@ -1,0 +1,22 @@
+@startuml organization-operations-boundary
+title Organization / Operations Boundary ; per CR-ES-022 section 11
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Organization" as Org
+class "Operations" as Op
+
+Org --> Op : operates within
+Org -[dotted]- Op : is NOT
+Op -[dotted]- Org : is NOT
+
+note right
+  Per CR-ES-022 section 11:
+  Organization operates within Operations boundary. An
+  Organization may operate through Operations, but an
+  Organization is NOT Operations.
+end note
+
+@enduml

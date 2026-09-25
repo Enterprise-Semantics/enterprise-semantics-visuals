@@ -1,0 +1,23 @@
+@startuml organization-sub-boundary
+title Organization / Sub-boundary Boundary ; per ADR-ES-022 section 12
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Organization" as Org
+class "Team" as T
+class "Department" as D
+class "Business Unit" as BU
+
+Org *-- T : contains (sub-boundary, deferred)
+Org *-- D : contains (sub-boundary, deferred)
+Org *-- BU : contains (sub-boundary, deferred)
+
+note right
+  Per ADR-ES-022 section 12, Team + Department + Business Unit
+  are sub-boundaries within Organization, deferred. They are
+  NOT established as foundational concepts by CR-ES-022.
+end note
+
+@enduml

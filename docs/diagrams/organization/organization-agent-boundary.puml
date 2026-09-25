@@ -1,0 +1,22 @@
+@startuml organization-agent-boundary
+title Organization / Agent Boundary ; per ADR-ES-022 section 6
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Organization" as Org
+class "Agent" as Ag
+
+Org --> Ag : coordinates
+Org -[dotted]- Ag : is NOT
+Ag -[dotted]- Org : is NOT
+
+note right
+  Per ADR-ES-022 section 6:
+  Organization coordinates Actors, which may include Agents. An
+  Organization may contain Agents, but an Organization is NOT
+  an Agent.
+end note
+
+@enduml

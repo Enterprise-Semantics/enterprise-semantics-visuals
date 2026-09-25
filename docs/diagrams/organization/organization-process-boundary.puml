@@ -1,0 +1,21 @@
+@startuml organization-process-boundary
+title Organization / Process Boundary ; per ADR-ES-022 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Organization" as Org
+class "Process" as P
+
+Org --> P : coordinates
+Org -[dotted]- P : is NOT
+P -[dotted]- Org : is NOT
+
+note right
+  Per ADR-ES-022 section 7:
+  Organization coordinates Processes. An Organization undertakes
+  Processes, but an Organization is NOT a Process.
+end note
+
+@enduml

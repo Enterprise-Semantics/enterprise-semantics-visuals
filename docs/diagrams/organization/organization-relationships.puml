@@ -1,0 +1,44 @@
+@startuml organization-relationships
+title Organization Canonical Relationships ; per CR-ES-022 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Organization" as Org
+
+class "Organizational Intent" as OI
+class "Actor" as A
+class "Role" as R
+class "Responsibility" as Resp
+class "Authority" as Auth
+class "Resource" as Res
+class "Activity" as Act
+class "Policy" as Pol
+class "Constraint" as Con
+class "Governance" as Gov
+class "Accountability" as Acct
+class "Organizational Outcome" as OO
+class "Escalation Boundary" as EB
+
+Org --> OI : pursues
+Org --> A : coordinates
+Org --> R : allocates
+Org --> Resp : allocates
+Org --> Auth : delegates
+Org --> Res : marshals
+Org --> Act : undertakes
+Org --> Auth : operates-within
+Org --> Pol : governed-by
+Org --> Con : constrained-by
+Org --> Gov : operates-under
+Org --> Acct : accountable-under
+Org --> OO : produces
+Org --> EB : escalates-through
+
+note bottom of Org
+  No foundational concept silently introduced per CR-ES-022 section 7.
+  Deferred concepts per ADR-ES-022 section 12.
+end note
+
+@enduml

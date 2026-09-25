@@ -1,0 +1,39 @@
+@startuml organization-boundary
+title Organization Boundary ; per ADR-ES-022 section 11
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Organization" as Org
+class "Enterprise" as E
+class "Process" as P
+class "Activity" as Act
+class "Capability" as Cap
+class "Value Stream" as VS
+class "Operations" as Op
+class "Agent" as Ag
+
+Org -[dotted]- E : is NOT
+Org -[dotted]- P : is NOT
+Org -[dotted]- Act : is NOT
+Org -[dotted]- Cap : is NOT
+Org -[dotted]- VS : is NOT
+Org -[dotted]- Op : is NOT
+Org -[dotted]- Ag : is NOT
+
+E -[dotted]- Org : is NOT
+P -[dotted]- Org : is NOT
+Act -[dotted]- Org : is NOT
+Cap -[dotted]- Org : is NOT
+VS -[dotted]- Org : is NOT
+Op -[dotted]- Org : is NOT
+Ag -[dotted]- Org : is NOT
+
+note right
+  Per ADR-ES-022 section 11 (Rejected Interpretations):
+  Organization is NOT Enterprise, Process, Activity, Capability,
+  Value Stream, Operations, or Agent. Reverse direction also rejected.
+end note
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml organization-value-stream-boundary
+title Organization / Value Stream Boundary ; per ADR-ES-022 section 8
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Value Stream" as VS
+class "Organization" as Org
+
+VS --> Org : involves
+Org -[dotted]- VS : is NOT
+VS -[dotted]- Org : is NOT
+
+note right
+  Per ADR-ES-022 section 8:
+  Value Stream involves Organization. An Organization participates
+  in a Value Stream, but an Organization is NOT a Value Stream.
+end note
+
+@enduml

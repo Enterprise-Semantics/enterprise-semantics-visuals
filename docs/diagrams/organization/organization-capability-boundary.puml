@@ -1,0 +1,21 @@
+@startuml organization-capability-boundary
+title Organization / Capability Boundary ; per ADR-ES-022 section 9
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Organization" as Org
+class "Capability" as Cap
+
+Org --> Cap : exercises
+Org -[dotted]- Cap : is NOT
+Cap -[dotted]- Org : is NOT
+
+note right
+  Per ADR-ES-022 section 9:
+  Organization exercises Capability. A Capability is exercised by
+  an Organization, but an Organization is NOT a Capability.
+end note
+
+@enduml

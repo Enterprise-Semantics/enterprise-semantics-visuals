@@ -1,0 +1,21 @@
+@startuml organization-enterprise-boundary
+title Organization / Enterprise Boundary ; per ADR-ES-022 section 5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Enterprise" as E
+class "Organization" as Org
+
+E --> Org : comprises
+Org -[dotted]- E : is NOT
+E -[dotted]- Org : is NOT
+
+note right
+  Per ADR-ES-022 section 5:
+  Enterprise comprises Organizations. An Organization is part of
+  an Enterprise, but an Organization is NOT an Enterprise.
+end note
+
+@enduml
