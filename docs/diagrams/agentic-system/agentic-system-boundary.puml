@@ -1,0 +1,49 @@
+@startuml agentic-system-boundary
+title Agentic System Boundary ; per ADR-ES-025 + CR-ES-025
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "System" as Sys
+class "Agentic System" as ASys
+class "Agent" as Ag
+class "Intent" as Int
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Context" as Ctx
+class "Action" as Act
+class "Outcome" as Out
+class "Agentic Workflow" as AWf
+class "Capability" as Cap
+class "Service" as Svc
+
+Sys <|-- ASys : specializes
+
+ASys --> Ag : engages
+ASys --> Int : interprets
+ASys --> Auth : operates-within
+ASys --> Pol : governed-by
+ASys --> Con : constrained-by
+ASys --> Ctx : responds-to + adapts-to
+ASys --> Act : selects + coordinates
+ASys --> Out : produces
+ASys --> AWf : uses
+ASys --> Cap : supports
+ASys --> Svc : implements
+
+note right of ASys
+  Per ADR-ES-025 section 11:
+  Agentic System is NOT Agent
+  Agentic System is NOT Agentic Workflow
+  Agentic System is NOT Agentic Operations
+  Agentic System is NOT Agentic Service
+  Agentic System is NOT Agentic Organization
+  Agentic System is NOT Agentic Enterprise
+  Agentic System is NOT Autonomous System (deferred)
+  Agentic System is NOT AI System merely because it uses AI
+  Agentic System is NOT Automated System merely because it automates
+end note
+
+@enduml
