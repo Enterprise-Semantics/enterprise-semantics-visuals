@@ -1,0 +1,20 @@
+@startuml system-element-boundary
+title System / Element Boundary ; per ADR-ES-027 section 6 + Recon-ES-004
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "System" as Sys
+class "Element" as Elem
+
+Sys --> Elem : contains
+
+note right
+  Per Recon-ES-004:
+  System is an organized whole of interacting elements.
+  Element is a constituent.
+  System is NOT Element.
+end note
+
+@enduml
