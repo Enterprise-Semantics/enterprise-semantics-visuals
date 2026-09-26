@@ -1,0 +1,31 @@
+@startuml agentic-culture-boundary
+title Agentic Culture Boundary ; per ADR-ES-023 + CR-ES-023
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Culture" as Cult
+class "Agentic Culture" as ACult
+class "Agentic Organization" as AOrg
+class "Agentic Operations" as AOp
+class "Agentic Workflow" as AWf
+class "Agent" as Ag
+
+Cult <|-- ACult : specializes
+
+ACult --> AOrg : supports
+ACult --> AOp : supports
+ACult --> AWf : supports
+ACult --> Ag : engages-with
+
+note right of ACult
+  Per ADR-ES-023 section 4 + section 8 + section 9 + section 10:
+  Agentic Culture is NOT AI Culture
+  Agentic Culture is NOT Automated Culture
+  Agentic Culture is NOT Agentic Organization
+  Agentic Culture is NOT Agentic Enterprise
+  Agentic Culture is NOT Autonomous Culture (orthogonal)
+end note
+
+@enduml
