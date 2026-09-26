@@ -1,0 +1,30 @@
+@startuml
+!title Autonomous vs Agentic ; Four-State Matrix
+
+@startuml autonomous-vs-agentic-four-state
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+package "Autonomous: No" {
+  package "Agentic: No" {
+    [System]
+  }
+  package "Agentic: Yes" {
+    [Agentic System]
+  }
+}
+package "Autonomous: Yes" {
+  package "Agentic: No" {
+    [Autonomous System]
+  }
+  package "Agentic: Yes" {
+    [Agentic + Autonomous System]
+  }
+}
+
+note bottom
+  Per ES-ADR-028 section 5.
+  No state may be inferred from another.
+end note
+
+@enduml
