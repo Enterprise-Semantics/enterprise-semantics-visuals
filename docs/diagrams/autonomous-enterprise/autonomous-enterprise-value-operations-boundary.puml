@@ -1,0 +1,53 @@
+' Autonomous Enterprise value / operations boundary visualization
+'
+' Per CR-ES-011 §20 + ADR-ES-011 §12 + §13.
+' Illustrates how Autonomous Enterprise participates in value
+' realisation and operations without collapsing into either.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml autonomous-enterprise-value-operations-boundary
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Autonomous Enterprise, Value / Operations Boundary
+
+rectangle "Autonomous Enterprise" as ae #FFE4B5
+
+rectangle "Value Realisation" as value #E0E8F0
+rectangle "Autonomous Value Stream" as avs #E6E6FA
+rectangle "Operations" as ops #F0FFF0
+rectangle "Autonomous Operations" as aops #E0FFFF
+rectangle "Agentic Workflow" as awf #FFFACD
+
+ae --> value : participates
+ae --> ops : participates
+
+value --> avs : autonomous-enterprise-realizes-through
+ops --> aops : autonomous-enterprise-operates-through
+ae --> awf : uses (execution mechanism)
+
+note bottom of ae
+  Per AE-AUTO-CON-015 + AE-AUTO-CON-016 + AE-AUTO-CON-017:
+  Autonomous Enterprise realises value through
+  Autonomous Value Streams and operates through
+  Autonomous Operations. Mixed realisation
+  across autonomous, agentic, conventional, and
+  human-led modes is architecturally valid per
+  AE-AUTO-CON-017.
+end note
+
+@enduml

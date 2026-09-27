@@ -1,0 +1,58 @@
+' Autonomous Enterprise concept visualization
+'
+' Per CR-ES-011 §20 + ADR-ES-011 §1 + §3.1 + §11.
+' Illustrates the Autonomous Enterprise as a specialisation of Enterprise,
+' with enterprise-level autonomy ;;; bounded authority ;;; policy and
+' governance ;;; and explicit intervention and escalation.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml autonomous-enterprise
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Autonomous Enterprise, Enterprise Specialisation
+
+rectangle "Enterprise\n(ES:CONCEPT:enterprise)" as enterprise #E0E8F0
+rectangle "Autonomous Enterprise\n(ES:CONCEPT:autonomous-enterprise)" as ae #FFE4B5
+
+rectangle "Autonomous Value Stream" as avs #E6E6FA
+rectangle "Autonomous Operations" as aops #E0FFFF
+rectangle "Agentic Operations" as agops #F0FFF0
+rectangle "Agentic Workflow" as awf #FFFACD
+rectangle "Authority" as authority #FFE4E1
+rectangle "Policy" as policy #F5DEB3
+
+enterprise --> ae : specialises
+
+ae --> avs : autonomous-enterprise-realizes-through
+ae --> aops : autonomous-enterprise-operates-through
+ae --> agops : uses (mixed mode)
+ae --> awf : uses (execution mechanism)
+ae --> authority : operates-within
+ae --> policy : governed-by
+
+note right of ae
+  Per ADR-ES-011 §1 + §3.1 + AE-AUTO-CON-001:
+  Autonomous Enterprise specialises Enterprise,
+  not Agentic Enterprise, not Autonomous
+  Operations, not Autonomous Value Stream.
+  Per AE-AUTO-CON-013: Autonomous Enterprise is
+  orthogonal to Agentic Enterprise (parallel
+  Enterprise specialisation).
+end note
+
+@enduml

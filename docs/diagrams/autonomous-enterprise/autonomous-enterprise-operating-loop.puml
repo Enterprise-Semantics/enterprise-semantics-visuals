@@ -1,0 +1,75 @@
+' Autonomous Enterprise operating loop visualization
+'
+' Per CR-ES-011 §20 + ADR-ES-011 §8.
+' Illustrates the Autonomous Enterprise Operating Loop bounded by
+' authority, policy, constraints, governance, and escalation.
+'
+' Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+@startuml autonomous-enterprise-operating-loop
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+skinparam rectangle {
+    BackgroundColor #F0F8FF
+    BorderColor #4682B4
+    FontColor #000000
+}
+
+skinparam arrow {
+    Color #2F4F4F
+    FontColor #2F4F4F
+}
+
+title Autonomous Enterprise, Operating Loop
+
+rectangle "Enterprise Objective" as obj #FFE4B5
+rectangle "Enterprise Context" as ctx #E0E8F0
+rectangle "Sense" as sense #E6E6FA
+rectangle "Interpret" as interp #E0FFFF
+rectangle "Decide" as dec #F0FFF0
+rectangle "Coordinate" as coord #FFFACD
+rectangle "Act" as act #FFE4E1
+rectangle "Observe Outcome" as obs #F5DEB3
+rectangle "Adapt" as adapt #D8BFD8
+
+obj --> ctx : inputs
+ctx --> sense : signals
+sense --> interp : raw data
+interp --> dec : informs
+dec --> coord : allocates
+coord --> act : sequences
+act --> obs : produces
+obs --> adapt : emits
+adapt --> sense : feedback
+
+rectangle "Authority" as authority #C8C8C8
+rectangle "Policy" as policy #C8C8C8
+rectangle "Constraints" as constraints #C8C8C8
+rectangle "Governance" as gov #C8C8C8
+rectangle "Escalation" as esc #C8C8C8
+
+authority -[#888888]- obj
+authority -[#888888]- dec
+authority -[#888888]- act
+policy -[#888888]- obj
+policy -[#888888]- dec
+policy -[#888888]- act
+constraints -[#888888]- act
+gov -[#888888]- obj
+gov -[#888888]- act
+gov -[#888888]- obs
+esc -[#888888]- dec
+esc -[#888888]- act
+
+note bottom of gov
+  Per AE-AUTO-CON-005 + AE-AUTO-CON-006 + AE-AUTO-CON-018:
+  Authority is bounded. Authority = unrestricted
+  fails conformance. Governance and escalation
+  surround rather than disappear behind autonomous
+  execution.
+end note
+
+@enduml
