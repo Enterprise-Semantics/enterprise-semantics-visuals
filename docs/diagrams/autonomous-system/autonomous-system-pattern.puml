@@ -1,0 +1,23 @@
+@startuml
+!title Autonomous System ; Realization Pattern
+
+@startuml autonomous-system-pattern
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+[System Objective] -> AW
+AW -> [System Context]
+[System Context] -> AI
+AI -> [Decide]
+[Decide] -> [Act / Coordinate]
+[Act / Coordinate] -> [Observe Outcome]
+[Observe Outcome] -> [Adapt]
+[Adapt] -> CE
+CE --> [Continue / Escalate]
+
+note right of CE
+  Per ES-ADR-028 section 8.
+  Semantic pattern, not implementation.
+end note
+
+@enduml

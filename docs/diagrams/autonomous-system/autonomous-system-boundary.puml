@@ -1,0 +1,26 @@
+@startuml
+!title Autonomous System ; Boundary
+
+@startuml autonomous-system-boundary
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+package "WSF" {
+  [WSF System] as WS
+}
+
+package "Enterprise-Semantics" {
+  [Autonomous System] as AS
+  [Agentic System] as AGS
+}
+
+WS --> AS : specializes
+WS --> AGS : specializes
+
+note right of AS
+  Per ES-ADR-028 section 1.
+  Specialized on WSF System.
+  Independent progression dimension.
+end note
+
+@enduml

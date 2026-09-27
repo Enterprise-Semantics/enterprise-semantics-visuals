@@ -1,0 +1,43 @@
+@startuml
+!title Autonomous System ; AI/Automation Boundary
+
+@startuml autonomous-system-ai-boundary
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+package "Not Sufficient" {
+  [Automation] as Auto
+  [AI only] as AI
+  [Scheduled execution] as Sched
+  [Predefined rules] as Rules
+  [Unattended execution] as Unatt
+}
+
+package "Sufficient (Material)" {
+  [Independent decision progression] as IDP
+  [Independent action progression] as IAP
+  [Independent coordination] as IC
+  [Adaptive behavior] as AB
+}
+
+package "Autonomous System" {
+  [AS] as AS
+}
+
+Auto ..> AS : rejected
+AI ..> AS : rejected
+Sched ..> AS : rejected
+Rules ..> AS : rejected
+Unatt ..> AS : rejected
+
+IDP --> AS
+IAP --> AS
+IC --> AS
+AB --> AS
+
+note right of AS
+  Per ES-ADR-028 section 6 + 7.
+  AI/automation not required.
+end note
+
+@enduml
