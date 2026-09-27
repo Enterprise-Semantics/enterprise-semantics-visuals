@@ -1,0 +1,10 @@
+@startuml
+!title Scope Integrity ; Related But Distinct
+[Agent]
+[Agentic System]
+[Agentic Operations]
+[Agentic Organization]
+[Agentic Enterprise]
+[Agentic Ecosystem]
+note bottom : Not a mandatory inheritance hierarchy. Per CR-ES-029 section 19.
+@enduml

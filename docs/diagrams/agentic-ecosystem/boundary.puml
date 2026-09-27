@@ -1,0 +1,7 @@
+@startuml
+!title Agentic Ecosystem ; Boundary
+[WSF Ecosystem] as WSE
+[Agentic Ecosystem] as AE
+WSE --> AE : specializes
+note right of AE : Per ES-ADR-029. Base: ADR-WSF-28 (Baseline).
+@enduml

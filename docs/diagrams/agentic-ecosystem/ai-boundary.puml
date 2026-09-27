@@ -1,0 +1,18 @@
+@startuml
+!title Agentic Ecosystem ; AI Boundary
+package "Not Sufficient" {
+  [Contains AI]
+  [Contains Agent]
+  [Uses automation]
+}
+package "Sufficient (Material)" {
+  [Cross-boundary agentic coordination]
+  [Multi-participant delegated decisions]
+  [Adaptive interaction]
+}
+[Agentic Ecosystem] as AE
+[Cross-boundary agentic coordination] --> AE
+[Multi-participant delegated decisions] --> AE
+[Adaptive interaction] --> AE
+note right of AE : AI not required. Per ES-ADR-029 section 10.
+@enduml
