@@ -1,0 +1,21 @@
+@startuml system-context-boundary
+title System / Context Boundary ; per ADR-ES-027 section 6 + Recon-ES-004
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "System" as Sys
+class "Context" as Ctx
+
+Sys --> Ctx : operates-within
+Ctx ..> Sys : shapes
+
+note right
+  Per Recon-ES-004:
+  Context is the environment.
+  System is the organized whole operating within Context.
+  System is NOT Context.
+end note
+
+@enduml

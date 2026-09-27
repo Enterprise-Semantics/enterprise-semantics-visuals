@@ -1,0 +1,29 @@
+@startuml system-realization
+title System Realization ; per ADR-ES-027 section 5 + CR-ES-027 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Element Organization" as EOrg
+class "Behavioral Coherence" as BCo
+class "System Boundary" as SBnd
+class "Intended Functions" as IFn
+class "Intended Purposes" as IPurp
+class "Intended Outcomes" as IOut
+class "Contextual Operation" as COp
+
+EOrg --> BCo : foundation
+BCo --> SBnd : constraint
+SBnd --> IFn : realization
+IFn --> IPurp : purpose
+IPurp --> IOut : outcomes
+IOut --> COp : operationalization
+
+note bottom of COp
+  Per ADR-ES-027 section 3 + section 5:
+  System accommodates business, information, technical,
+  socio-technical, operational, and distributed systems.
+end note
+
+@enduml
