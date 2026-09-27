@@ -1,0 +1,29 @@
+@startuml agentic-vs-autonomous-system
+title Agentic vs Autonomous System Orthogonality ; per ADR-ES-025 section 8 + ADR-ES-022 section 13
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "System" as Sys
+class "Agentic System" as ASys
+class "Autonomous System candidate" as AuSys
+
+Sys <|-- ASys : specializes (v2.3.0, Established)
+Sys <|-- AuSys : specialization deferred
+
+note bottom of Sys
+  Per ADR-ES-022 section 13 (mechanical symmetry
+  prohibition) + ADR-ES-025 section 13:
+  Autonomous System is intentionally NOT
+  established alongside Agentic System.
+  A separate semantic decision is required.
+
+  Per ADR-ES-025 section 8 four-state model:
+  - Conventional System (no agentic, no autonomous)
+  - Agentic System (yes agentic, no autonomous)
+  - Autonomous System candidate (no agentic, yes autonomous) - DEFERRED
+  - Agentic + Autonomous System candidate - DEFERRED
+end note
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml agentic-system-execution-boundary
+title Agentic System Execution Boundary ; per ADR-ES-025 section 4 + CR-ES-025 section 4
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic System" as ASys
+
+class "Authority" as Auth
+class "Policy" as Pol
+class "Constraint" as Con
+class "Context" as Ctx
+class "Governance" as Gov
+class "Escalation" as Esc
+
+ASys --> Auth : operates-within
+ASys --> Pol : governed-by
+ASys --> Con : constrained-by
+ASys --> Ctx : operates-within
+ASys --> Gov : operates-under
+ASys --> Esc : escalates-to
+
+note bottom of ASys
+  Per ADR-ES-025 section 4 + CR-ES-025 section 4 ;
+  materiality gate requires delegated-intent
+  interpretation, contextual decision selection,
+  dynamic action selection, action coordination,
+  adaptive response, outcome-oriented execution,
+  exception handling, contextual escalation.
+end note
+
+@enduml

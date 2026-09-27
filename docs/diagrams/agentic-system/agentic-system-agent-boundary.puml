@@ -1,0 +1,23 @@
+@startuml agentic-system-agent-boundary
+title Agentic System / Agent Boundary ; per ADR-ES-025 section 5
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Agentic System" as ASys
+class "Agent" as Ag
+
+ASys --> Ag : engages
+
+note right
+  Per ADR-ES-025 section 5:
+  Agent performs or coordinates actions.
+  Agentic System is the system whose material
+  behavior incorporates agentic operation.
+  A System may engage an Agent without
+  automatically being an Agentic System.
+  An Agentic System need not be defined as an Agent.
+end note
+
+@enduml
