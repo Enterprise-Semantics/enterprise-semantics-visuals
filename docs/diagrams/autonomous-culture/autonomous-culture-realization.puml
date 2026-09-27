@@ -1,0 +1,25 @@
+@startuml autonomous-culture-realization
+title Autonomous Culture Realization ; per ADR-ES-024 section 4 + CR-ES-024 section 8
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+start
+:Organizational Objective;
+:Delegated Authority;
+:Autonomy Expectations;
+:Independent Decision / Action;
+:Outcome Observation;
+:Adaptive Behavior;
+:Exception / Escalation;
+:Organizational Learning;
+stop
+
+note bottom
+  Per ADR-ES-024 section 4 ; bounded by
+  Authority, Policy, Constraint, Governance,
+  Accountability, Escalation.
+end note
+
+@enduml
