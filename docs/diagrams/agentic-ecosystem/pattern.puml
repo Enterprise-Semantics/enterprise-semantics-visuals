@@ -1,0 +1,12 @@
+@startuml
+!title Agentic Ecosystem ; Realization Pattern
+[Ecosystem Context] --> [Participating Entities]
+[Participating Entities] --> [Intent / Objectives]
+[Intent / Objectives] --> [Delegation / Authority]
+[Delegation / Authority] --> [Agentic Interaction]
+[Agentic Interaction] --> [Coordination]
+[Coordination] --> [Collective / Distributed Action]
+[Collective / Distributed Action] --> [Outcome]
+[Outcome] --> [Adaptation]
+[Adaptation] --> [Ecosystem Evolution]
+@enduml
