@@ -1,0 +1,34 @@
+@startuml culture-realization
+title Culture Realization ; per ADR-ES-026 section 3 + CR-ES-026 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Shared Values" as SV
+class "Shared Norms" as SN
+class "Shared Beliefs" as SB
+class "Shared Practices" as SP
+class "Shared Expectations" as SE
+class "Behavioral Conventions" as BC
+class "Interpretive Lens" as IL
+class "Coordination of Meaning" as CM
+
+SV --> SN
+SN --> SB
+SB --> SP
+SP --> SE
+SE --> BC
+BC --> IL
+IL --> CM
+
+note right of CM
+  Per ADR-ES-026 section 3 ; Culture concerns:
+  - Normative coherence
+  - Behavioral conventions
+  - Interpretive lens
+  - Coordination of meaning
+  - Values + beliefs + practices
+end note
+
+@enduml

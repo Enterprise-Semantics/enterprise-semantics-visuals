@@ -1,0 +1,24 @@
+@startuml culture-organization-boundary
+title Culture / Organization Boundary ; per ADR-ES-026 section 6 + Recon-ES-003
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Culture" as Cult
+class "Organization" as Org
+
+Cult --> Org : supports
+Org ..> Cult : is shaped by
+
+note right of Cult
+  Per Recon-ES-003:
+  Culture concerns shared organizational meaning,
+  norms, values, and behavioral conventions.
+  Organization concerns coordinated entity structure.
+
+  Culture is NOT Organization.
+  Organization is NOT Culture.
+end note
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml culture-boundary
+title Culture Boundary ; per ADR-ES-026 + CR-ES-026 section 7
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+class "Entity" as Ent
+class "Culture" as Cult
+class "Organization" as Org
+class "Governance" as Gov
+class "Policy" as Pol
+class "Capability" as Cap
+class "Process" as Proc
+class "Decision" as Dec
+
+Ent <|-- Cult : specializes
+
+Cult --> Org : supports
+Cult --> Gov : shapes
+Cult --> Pol : shapes
+Cult --> Cap : shapes
+Cult --> Proc : shapes
+Cult --> Dec : shapes
+
+note right of Cult
+  Per ADR-ES-026 section 6 + Recon-ES-003:
+  Culture is NOT Organization
+  Culture is NOT Governance
+  Culture is NOT Policy
+  Culture is NOT Process
+  Culture is NOT Capability
+  Culture is NOT IT system
+  Culture is NOT Agentic Culture
+end note
+
+@enduml
