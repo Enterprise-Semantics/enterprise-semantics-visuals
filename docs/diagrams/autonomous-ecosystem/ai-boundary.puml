@@ -1,0 +1,18 @@
+@startuml
+!title Autonomous Ecosystem ; AI Boundary
+package "Not Sufficient" {
+  [Contains automation]
+  [Contains autonomous systems]
+  [Monitoring only]
+}
+package "Sufficient (Material)" {
+  [Autonomous multi-participant coordination]
+  [Policy-boundary adaptation]
+  [Autonomous value rebalancing]
+}
+[Autonomous Ecosystem] as AE
+[Autonomous multi-participant coordination] --> AE
+[Policy-boundary adaptation] --> AE
+[Autonomous value rebalancing] --> AE
+note right of AE : AI not required. Per ES-ADR-033 section 6.
+@enduml
