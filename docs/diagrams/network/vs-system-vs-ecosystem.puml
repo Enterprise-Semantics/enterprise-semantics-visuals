@@ -1,0 +1,9 @@
+@startuml
+!title Network vs System vs Ecosystem
+package "Foundations" {
+  [Network]
+  [System]
+  [Ecosystem]
+}
+note right : Per ES-ADR-034. Connection-identity / Bounded-identity / Context-sharing-emergent.
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+!title Closed Loop vs Workflow vs Operations
+package "Patterns" {
+  [Closed Loop]
+  [Workflow]
+  [Operations]
+}
+note bottom : Per ES-ADR-035. Distinct by feedback requirement + loop requirement.
+@enduml
