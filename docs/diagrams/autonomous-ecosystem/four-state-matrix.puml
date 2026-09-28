@@ -1,0 +1,8 @@
+@startuml
+!title Ecosystem Four-State Matrix
+[Ecosystem]
+[Agentic Ecosystem]
+[Autonomous Ecosystem]
+[Agentic + Autonomous Ecosystem]
+note bottom : Per ES-ADR-029 + ES-ADR-033. Dimensions are independent.
+@enduml
