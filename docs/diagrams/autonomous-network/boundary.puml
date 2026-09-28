@@ -1,0 +1,7 @@
+@startuml
+!title Autonomous Network ; Boundary
+[WSF Network / Closed Loop] as FOUND
+[Autonomous Network] as SUB
+FOUND --> SUB : specializes
+note right of SUB : Per ES-ADR-032
+@enduml
