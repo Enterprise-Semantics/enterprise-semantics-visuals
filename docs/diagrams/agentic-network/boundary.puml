@@ -1,0 +1,7 @@
+@startuml
+!title Agentic Network ; Boundary
+[WSF Network / Closed Loop] as FOUND
+[Agentic Network] as SUB
+FOUND --> SUB : specializes
+note right of SUB : Per ES-ADR-031
+@enduml

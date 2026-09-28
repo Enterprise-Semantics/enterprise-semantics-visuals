@@ -1,0 +1,7 @@
+@startuml
+!title Closed Loop ; Boundary
+[WSF Network / Closed Loop] as FOUND
+[Closed Loop] as SUB
+FOUND --> SUB : specializes
+note right of SUB : Per ES-ADR-034
+@enduml

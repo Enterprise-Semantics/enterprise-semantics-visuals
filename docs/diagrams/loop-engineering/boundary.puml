@@ -1,0 +1,7 @@
+@startuml
+!title Loop Engineering ; Boundary
+[WSF Network / Closed Loop] as FOUND
+[Loop Engineering] as SUB
+FOUND --> SUB : specializes
+note right of SUB : Per ES-ADR-033
+@enduml
