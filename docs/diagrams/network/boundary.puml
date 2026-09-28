@@ -1,0 +1,7 @@
+@startuml
+!title Network ; Boundary
+[WSF Network] as WN
+[ES Network] as EN
+WN --> EN : specializes
+note right of EN : Per ES-ADR-034. Base: ADR-WSF-37 (Baseline).
+@enduml

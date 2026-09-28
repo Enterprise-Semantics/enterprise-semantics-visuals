@@ -1,0 +1,8 @@
+@startuml
+!title Closed Loop ; Four Stages
+(Sense) --> (Decide)
+(Decide) --> (Act)
+(Act) --> (Learn)
+(Learn) --> (Sense) : feedback
+note bottom : Per ES-ADR-035. Variant formulations accommodated.
+@enduml
