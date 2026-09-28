@@ -1,0 +1,11 @@
+@startuml
+!title Ai Closed Loop ; Disposition
+package "Canonical Concept" {
+  [Closed Loop / Agent / Operations]
+}
+package "Disposition Profile" {
+  [Ai Closed Loop]
+}
+[Canonical Concept] --> [Ai Closed Loop] : realizes
+note right : Per ES-ADR-AI ;;; canonical-reject per AI boundary rule
+@enduml

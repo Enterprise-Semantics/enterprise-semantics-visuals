@@ -1,0 +1,11 @@
+@startuml
+!title Agentic Ai ; Disposition
+package "Canonical Concept" {
+  [Closed Loop / Agent / Operations]
+}
+package "Disposition Profile" {
+  [Agentic Ai]
+}
+[Canonical Concept] --> [Agentic Ai] : realizes
+note right : Per ES-ADR-AGE ;;; canonical-reject per AI boundary rule
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+!title Aiops ; Disposition
+package "Canonical Concept" {
+  [Closed Loop / Agent / Operations]
+}
+package "Disposition Profile" {
+  [Aiops]
+}
+[Canonical Concept] --> [Aiops] : realizes
+note right : Per ES-ADR-AIO ;;; canonical-reject per AI boundary rule
+@enduml

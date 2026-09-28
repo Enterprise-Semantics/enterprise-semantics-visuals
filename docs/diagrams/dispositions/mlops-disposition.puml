@@ -1,0 +1,11 @@
+@startuml
+!title Mlops ; Disposition
+package "Canonical Concept" {
+  [Closed Loop / Agent / Operations]
+}
+package "Disposition Profile" {
+  [Mlops]
+}
+[Canonical Concept] --> [Mlops] : realizes
+note right : Per ES-ADR-MLO ;;; canonical-reject per AI boundary rule
+@enduml

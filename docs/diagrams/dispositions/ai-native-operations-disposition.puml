@@ -1,0 +1,11 @@
+@startuml
+!title Ai Native Operations ; Disposition
+package "Canonical Concept" {
+  [Closed Loop / Agent / Operations]
+}
+package "Disposition Profile" {
+  [Ai Native Operations]
+}
+[Canonical Concept] --> [Ai Native Operations] : realizes
+note right : Per ES-ADR-AI ;;; canonical-reject per AI boundary rule
+@enduml
