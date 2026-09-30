@@ -18,7 +18,7 @@ es       <;;> opendea   : "maps-to\nrepresented-by\nspecializes\nprofile-of"
 note right of es
   Bi-directional integration
   does NOT require runtime
-  coupling initially ;;; start
+  coupling initially, start
   with stable IDs, mapping
   files, versioned releases,
   GitHub API, CI.

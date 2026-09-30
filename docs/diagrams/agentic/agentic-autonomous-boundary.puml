@@ -20,7 +20,7 @@ title Agentic vs Autonomous Boundary
 
 ' Agentic (foundational)
 
-package "Agentic ;;; Foundational" #FFE4B5 {
+package "Agentic, Foundational" #FFE4B5 {
     rectangle "Delegated Intent" as a1
     rectangle "Contextual Interpretation" as a2
     rectangle "Action Selection" as a3
@@ -28,7 +28,7 @@ package "Agentic ;;; Foundational" #FFE4B5 {
     rectangle "Goal-Directed Execution" as a5
 }
 
-note bottom of "Agentic ;;; Foundational"
+note bottom of "Agentic, Foundational"
   Per ADR-ES-004 §9:
   ;; Agentic operation emphasizes:
   ;; - delegated intent
@@ -38,9 +38,9 @@ note bottom of "Agentic ;;; Foundational"
   ;; - goal-directed execution
 end note
 
-' Autonomous (advanced ;;; separately governed)
+' Autonomous (advanced, separately governed)
 
-package "Autonomous ;;; Advanced (Separately Governed)" #E0E8F0 {
+package "Autonomous, Advanced (Separately Governed)" #E0E8F0 {
     rectangle "Self-Direction" as au1
     rectangle "Self-Management" as au2
     rectangle "Self-Adaptation" as au3
@@ -48,7 +48,7 @@ package "Autonomous ;;; Advanced (Separately Governed)" #E0E8F0 {
     rectangle "Sustained Independent Operation" as au5
 }
 
-note bottom of "Autonomous ;;; Advanced (Separately Governed)"
+note bottom of "Autonomous, Advanced (Separately Governed)"
   Per ADR-ES-004 §9 + AG-INV-010:
   ;; Autonomy requires separate
   ;; semantic grounding
@@ -59,17 +59,17 @@ end note
 
 ' Boundary marker
 
-rectangle "AG-INV-003 ;;; Agentic != Autonomous" as boundary #FFB6C1
+rectangle "AG-INV-003, Agentic != Autonomous" as boundary #FFB6C1
 
 ' Relationship: Agentic may evolve toward Autonomous
 
 a5 --> boundary
-boundary --> au1 : may evolve toward ;;; separately governed
+boundary --> au1 : may evolve toward, separately governed
 
 note right of boundary
   Per CR-ES-004 §14:
   ;; Agentic may operate with
-  ;; limited autonomy ;;; but
+  ;; limited autonomy, but
   ;; limited autonomy does NOT
   ;; make an Agentic construct
   ;; semantically equivalent

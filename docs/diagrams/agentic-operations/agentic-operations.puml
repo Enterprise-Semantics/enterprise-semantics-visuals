@@ -3,7 +3,7 @@
 ' Agentic Operations relational diagram
 '
 ' Per CR-ES-007 §20 + ADR-ES-007 §26 + §30.
-' Illustrates the 9 canonical relationships (specializes ;; engages ;;;
+' Illustrates the 9 canonical relationships (specializes ;; engages
 ' responds-to ;; operates-within ;; governed-by ;; coordinates ;;
 ' uses ;; produces ;; adapts-to) plus the specialisation parent.
 
@@ -18,7 +18,7 @@ skinparam rectangle {
     BorderColor #4682B4
 }
 
-title Agentic Operations ;;; Relational Model
+title Agentic Operations, Relational Model
 
 ' Core Agentic Operations class
 
@@ -82,7 +82,7 @@ end note
 note bottom of ops
   Per CR-ES-007 §5 + ADR-ES-007 §5 ;;
   Operations is established by
-  FND-ES-AG-004 ;;; ES-canonical
+  FND-ES-AG-004, ES-canonical
   established at v1.0.0.
 end note
 

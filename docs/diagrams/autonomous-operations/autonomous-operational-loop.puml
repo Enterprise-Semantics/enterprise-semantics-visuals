@@ -17,7 +17,7 @@ skinparam rectangle {
     BorderColor #4682B4
 }
 
-title Autonomous Operations ;;; Operational Control Loop
+title Autonomous Operations, Operational Control Loop
 
 rectangle "Objective /\nIntent" as obj1 #FFE4E1
 rectangle "Authority" as au1 #E0FFFF
@@ -69,7 +69,7 @@ end note
 note bottom of "Objective / Intent"
   Per ADR-ES-008 §5 + §7.6 ;;
   Autonomous Operations is
-  outcome-oriented ;;; the
+  outcome-oriented, the
   Operational Objective
   anchors the loop.
 end note

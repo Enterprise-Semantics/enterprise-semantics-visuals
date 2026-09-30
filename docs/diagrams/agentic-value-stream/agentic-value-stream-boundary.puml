@@ -17,7 +17,7 @@ skinparam rectangle {
     BorderColor #4682B4
 }
 
-title Agentic Value Stream Boundary ;;; 6 Distinctions
+title Agentic Value Stream Boundary, 6 Distinctions
 
 ' Center ;; Agentic Value Stream
 
@@ -34,11 +34,11 @@ rectangle "Process / Workflow" as proc #E0E8F0
 
 ' Boundary markers
 
-rectangle "AVS-INV-004 ;;; AVS does not require AI" as i1 #FFB6C1
-rectangle "AVS-INV-005 ;;; AVS does not imply Automation" as i2 #FFB6C1
-rectangle "AVS-INV-003 ;;; AVS does not imply Autonomous VS" as i3 #FFB6C1
-rectangle "AVS-INV-007 ;;; AVS does not establish Agentic Workflow/Operations" as i4 #FFB6C1
-rectangle "AVS-INV-006 ;;; AVS does not redefine Process/Activity/Task/Workflow" as i5 #FFB6C1
+rectangle "AVS-INV-004, AVS does not require AI" as i1 #FFB6C1
+rectangle "AVS-INV-005, AVS does not imply Automation" as i2 #FFB6C1
+rectangle "AVS-INV-003, AVS does not imply Autonomous VS" as i3 #FFB6C1
+rectangle "AVS-INV-007, AVS does not establish Agentic Workflow/Operations" as i4 #FFB6C1
+rectangle "AVS-INV-006, AVS does not redefine Process/Activity/Task/Workflow" as i5 #FFB6C1
 
 avs -[dashed]-> i1
 i1 -[dashed]-> ai

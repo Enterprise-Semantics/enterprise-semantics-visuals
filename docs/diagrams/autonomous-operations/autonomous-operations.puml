@@ -3,7 +3,7 @@
 ' Autonomous Operations relational diagram
 '
 ' Per CR-ES-008 §22 + ADR-ES-008 §25 + §26 + §28.
-' Illustrates the 10 canonical relationships (specializes ;; operates-within ;;;
+' Illustrates the 10 canonical relationships (specializes ;; operates-within
 ' governed-by ;; pursues ;; responds-to ;; produces ;; adapts-to ;; escalates-to ;;
 ' uses [workflow + agentic-workflow]) plus the Operations parent.
 
@@ -18,7 +18,7 @@ skinparam rectangle {
     BorderColor #4682B4
 }
 
-title Autonomous Operations ;;; Relational Model
+title Autonomous Operations, Relational Model
 
 ' Core Autonomous Operations class
 
@@ -86,7 +86,7 @@ end note
 note bottom of ops
   Per CR-ES-008 §5 + ADR-ES-008 §5 ;;
   Operations is established by
-  FND-ES-AG-004 ;;; ES-canonical
+  FND-ES-AG-004, ES-canonical
   established at v1.0.0.
 end note
 

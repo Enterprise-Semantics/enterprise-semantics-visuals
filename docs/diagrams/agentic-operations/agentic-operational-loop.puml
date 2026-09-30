@@ -4,7 +4,7 @@
 '
 ' Per CR-ES-007 §20 + ADR-ES-007 §17.
 ' Illustrates the 8-step operational control loop ;; bounded by intent ;;
-' authority ;; policy ;;; and the decision boundary.
+' authority ;; policy, and the decision boundary.
 
 @startuml agentic-operational-loop
 
@@ -17,7 +17,7 @@ skinparam rectangle {
     BorderColor #4682B4
 }
 
-title Agentic Operations ;;; Operational Control Loop
+title Agentic Operations, Operational Control Loop
 
 rectangle "Operational\nContext" as oc1 #FFFACD
 rectangle "Sense" as s1 #F5F5DC

@@ -3,7 +3,7 @@
 ' Autonomous Value Stream relational diagram
 '
 ' Per CR-ES-009 §23 + ADR-ES-009 §18 + §22.
-' Illustrates the 12 canonical relationships (specializes ;; realizes ;;;
+' Illustrates the 12 canonical relationships (specializes ;; realizes
 ' contains ;; operates-within ;; governed-by ;; pursues ;; produces ;;
 ' adapts-to ;; uses [autonomous-operations + agentic-operations + workflow
 ' + agentic-workflow]) plus the Value Stream parent.
@@ -19,7 +19,7 @@ skinparam rectangle {
     BorderColor #4682B4
 }
 
-title Autonomous Value Stream ;;; Relational Model
+title Autonomous Value Stream, Relational Model
 
 ' Core Autonomous Value Stream class
 

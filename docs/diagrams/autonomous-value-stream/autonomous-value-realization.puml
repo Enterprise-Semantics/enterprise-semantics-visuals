@@ -17,7 +17,7 @@ skinparam rectangle {
     BorderColor #4682B4
 }
 
-title Autonomous Value Realization ;;; Value-Realization Boundary
+title Autonomous Value Realization, Value-Realization Boundary
 
 rectangle "Stakeholder Need" as need #E0FFE0
 rectangle "Initiating Condition" as ic #F0FFF0

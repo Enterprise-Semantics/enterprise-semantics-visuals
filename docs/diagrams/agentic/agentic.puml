@@ -27,7 +27,7 @@ skinparam arrow {
     FontColor #2F4F4F
 }
 
-title Agentic ;;; Mode of Operation
+title Agentic, Mode of Operation
 
 rectangle "Delegated Intent" as intent #E0E8F0
 rectangle "Agent" as agent #FFE4B5

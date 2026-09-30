@@ -54,7 +54,7 @@ package "Workflow Execution" #F0FFF0 {
 note bottom of "Workflow Execution"
   Per CR-ES-006 + ADR-ES-006 ;;
   Workflow = work coordination
-  and execution ;;; Agentic
+  and execution, Agentic
   Workflow = agentic work
   coordination and execution ;;
   may coordinate Activity + Task.
@@ -85,7 +85,7 @@ note right of "Operating Mode"
   Workflow + Agentic Workflow
   but is not a Workflow ;; no
   Autonomous Workflow concept
-  is established by ADR-ES-008 ;;;
+  is established by ADR-ES-008
   future Autonomous Workflow
   ADR shall establish
   independently.

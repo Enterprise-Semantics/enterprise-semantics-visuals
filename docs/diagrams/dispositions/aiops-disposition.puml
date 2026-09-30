@@ -7,5 +7,5 @@ package "Disposition Profile" {
   [Aiops]
 }
 [Canonical Concept] --> [Aiops] : realizes
-note right : Per ES-ADR-AIO ;;; canonical-reject per AI boundary rule
+note right : Per ES-ADR-AIO, canonical-reject per AI boundary rule
 @enduml

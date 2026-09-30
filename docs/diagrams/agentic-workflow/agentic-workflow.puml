@@ -3,8 +3,8 @@
 ' Agentic Workflow relational diagram
 '
 ' Per CR-ES-006 §24 + ADR-ES-006 §22 + §26.
-' Illustrates the 7 canonical relationships (specializes ;;; engages ;;;
-' interprets ;;; operates-within ;;; coordinates ;; produces) plus the
+' Illustrates the 7 canonical relationships (specializes, engages
+' interprets, operates-within, and coordinates ;; produces) plus the
 ' process-realized-through inverse.
 
 @startuml agentic-workflow
@@ -18,7 +18,7 @@ skinparam rectangle {
     BorderColor #4682B4
 }
 
-title Agentic Workflow ;;; Relational Model
+title Agentic Workflow, Relational Model
 
 ' Core Agentic Workflow class
 
@@ -70,7 +70,7 @@ note bottom of awf
 end note
 
 note right of awf
-  Per ADR-ES-006 §10 ;;; the material-participation criterion
+  Per ADR-ES-006 §10, the material-participation criterion
   requires: "Agent interprets context ;; Agent selects permitted
   path ;; Workflow adapts".
 end note

@@ -29,7 +29,7 @@ skinparam arrow {
     Color #2F4F4F
 }
 
-title Capability ;;; Enduring Ability of an Entity
+title Capability, Enduring Ability of an Entity
 
 rectangle "Entity" as entity #E6E6FA
 

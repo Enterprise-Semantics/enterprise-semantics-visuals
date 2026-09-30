@@ -1,7 +1,7 @@
 @startuml section-23-operating-model
 ' Source: FND-ES-000 section 23
-' Title: Operating model ;;; semantic development loop
-' Captures: Seed ;;; Investigation ;;; Finding ;;; ADR ;;; CR ;;; Implementation ;;; CI ;;; Semantic Release ;;; next investigation.
+' Title: Operating model, semantic development loop
+' Captures: Seed, Investigation, Finding, ADR, CR, Implementation, CI, Semantic Release, and next investigation.
 
 skinparam defaultFontName "Helvetica"
 skinparam ActivityBackgroundColor #FFF8E8

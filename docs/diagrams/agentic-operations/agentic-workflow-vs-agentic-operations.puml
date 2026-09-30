@@ -49,7 +49,7 @@ package "Agentic Workflow" #F0FFF0 {
 note bottom of "Agentic Workflow"
   Per ADR-ES-006 + CR-ES-006 ;;
   Agentic Workflow = work coordination /
-  execution ;;; Workflow specialisation ;;
+  execution, Workflow specialisation ;;
   workflow_intent ;; agentic_scope ;; etc.
 end note
 
@@ -79,7 +79,7 @@ note bottom of "Agentic Operations"
   Per ADR-ES-007 + CR-ES-007 ;;
   Agentic Operations = operating mode ;;
   Operations specialisation ;; uses multiple
-  workflows (some Agentic ;;; some conventional) ;;
+  workflows (some Agentic, some conventional) ;;
   operational_intent ;; operational_scope ;;
   policy_context ;; etc.
 end note

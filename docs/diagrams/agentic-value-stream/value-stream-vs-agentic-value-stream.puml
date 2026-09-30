@@ -38,7 +38,7 @@ package "Classic Value Stream" #F0FFF0 {
 }
 
 note bottom of "Classic Value Stream"
-  Per CR-ES-003 ;;; the Value Stream defines
+  Per CR-ES-003, the Value Stream defines
   ;; the progression of value realisation ;;
   ;; trigger ;; stages ;; decisions ;; next ;;
   ;; stakeholder value.

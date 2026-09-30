@@ -7,5 +7,5 @@ package "Disposition Profile" {
   [Ai Agent]
 }
 [Canonical Concept] --> [Ai Agent] : realizes
-note right : Per ES-ADR-AI ;;; canonical-reject per AI boundary rule
+note right : Per ES-ADR-AI, canonical-reject per AI boundary rule
 @enduml

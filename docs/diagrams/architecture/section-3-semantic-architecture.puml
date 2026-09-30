@@ -3,7 +3,7 @@
 ' Title: Semantic architecture stack
 ' Captures: WSF (foundation), Enterprise Semantics (governed layer),
 ' OpenDEA (metamodel), DEA Catalogs (instances). Arrows are reference,
-' specialization, alignment, mapping ;;; not ownership transfer.
+' specialization, alignment, mapping, not ownership transfer.
 
 skinparam componentStyle rectangle
 skinparam defaultFontName "Helvetica"

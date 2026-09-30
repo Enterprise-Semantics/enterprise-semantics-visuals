@@ -1,6 +1,6 @@
 @startuml section-6-structured-source
 ' Source: FND-ES-000 section 6
-' Title: Structured semantic source ;;; generation ;;; CI gate
+' Title: Structured semantic source, generation, and CI gate
 
 skinparam componentStyle rectangle
 skinparam defaultFontName "Helvetica"
