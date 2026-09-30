@@ -1,0 +1,16 @@
+@startuml
+!title Flow ; Boundary
+package "Canonical Concept" {
+  [Flow]
+}
+package "Relationships" {
+  [Flow] .. [Flow]
+}
+note right
+  Flow is a foundational reference concept.
+  Per ES-ADR-031 §4 (5-category taxonomy).
+  Per ES-ADR-049 + CR-ES-049 (self-containment).
+  Per ES-ADR-050 + CR-ES-050 Slice C (visual authoring).
+  Cardinal author rule: Emmanuel A. Otchere.
+end note
+@enduml

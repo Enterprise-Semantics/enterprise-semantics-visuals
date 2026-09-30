@@ -1,0 +1,16 @@
+@startuml
+!title Agentic Capability ; Boundary
+package "Canonical Concept" {
+  [Agentic Capability]
+}
+package "Relationships" {
+  [Agentic Capability] .. [Agentic Capability] --|> [Capability]
+}
+note right
+  Agentic Capability specializes Capability.
+  Per ES-ADR-031 §4 (5-category taxonomy).
+  Per ES-ADR-049 + CR-ES-049 (self-containment).
+  Per ES-ADR-050 + CR-ES-050 Slice C (visual authoring).
+  Cardinal author rule: Emmanuel A. Otchere.
+end note
+@enduml

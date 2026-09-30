@@ -1,0 +1,16 @@
+@startuml
+!title Agentic Organization ; Boundary
+package "Canonical Concept" {
+  [Agentic Organization]
+}
+package "Relationships" {
+  [Agentic Organization] .. [Agentic Organization] --|> [Organization]
+}
+note right
+  Agentic Organization specializes Organization.
+  Per ES-ADR-031 §4 (5-category taxonomy).
+  Per ES-ADR-049 + CR-ES-049 (self-containment).
+  Per ES-ADR-050 + CR-ES-050 Slice C (visual authoring).
+  Cardinal author rule: Emmanuel A. Otchere.
+end note
+@enduml

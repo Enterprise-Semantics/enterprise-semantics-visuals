@@ -1,0 +1,16 @@
+@startuml
+!title Agentic Product ; Boundary
+package "Canonical Concept" {
+  [Agentic Product]
+}
+package "Relationships" {
+  [Agentic Product] .. [Agentic Product] --|> [Product]
+}
+note right
+  Agentic Product specializes Product.
+  Per ES-ADR-031 §4 (5-category taxonomy).
+  Per ES-ADR-049 + CR-ES-049 (self-containment).
+  Per ES-ADR-050 + CR-ES-050 Slice C (visual authoring).
+  Cardinal author rule: Emmanuel A. Otchere.
+end note
+@enduml
